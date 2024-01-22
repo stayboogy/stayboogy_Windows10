@@ -1,0 +1,24 @@
+remove-appxpackage -allusers 4DF9E0F8.Netflix_6.9.44.0_x64__mcm4njqhnhss8
+remove-appxpackage -allusers 5A894077.McAfeeSecurity_1.2.0.0_neutral_~_wafk5atnkzcwy
+remove-appxpackage -allusers 7EE7776C.LinkedInforWindows_2.0.1.0_neutral_~_w1wdnht996qgy
+remove-appxpackage -allusers C27EB4BA.DropboxOEM_1.1.17.0_neutral_~_xbfy0k16fey96
+remove-appxpackage -allusers DB6EA5DB.MediaSuiteEssentialsforDell_2.4.1606.0_x86__mcezb6ze687jp
+remove-appxpackage -allusers DB6EA5DB.Power2GoforDell_8.0.7610.0_x86__mcezb6ze687jp
+remove-appxpackage -allusers DB6EA5DB.PowerDirectorforDell_14.0.4006.0_x64__mcezb6ze687jp
+remove-appxpackage -allusers DB6EA5DB.PowerMediaPlayerforDell_14.1.7617.0_x86__mcezb6ze687jp
+remove-appxpackage -allusers DellInc.DellCustomerConnect_5.2.17.0_neutral_~_htrsf667h5kn2
+remove-appxpackage -allusers DellInc.DellHelpSupport_3.2.1.0_x64__htrsf667h5kn2
+remove-appxpackage -allusers DellInc.DellPowerManager_3.0.81.0_neutral_~_htrsf667h5kn2
+remove-appxpackage -allusers DellInc.DellProductRegistration_3.4.6.0_x64__htrsf667h5kn2
+remove-appxpackage -allusers Microsoft.BingTranslator_4.1.2.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Office.Desktop.Access_16000.8528.2136.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Office.Desktop.Excel_16000.8528.2136.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Office.Desktop.Outlook_16000.8528.2136.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Office.Desktop.PowerPoint_16000.8528.2136.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Office.Desktop.Publisher_16000.8528.2136.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Office.Desktop.Word_16000.8528.2136.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Office.Desktop_16000.8528.2136.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers Microsoft.Xbox.TCUI_1.8.24001.0_neutral_~_8wekyb3d8bbwe
+remove-appxpackage -allusers RivetNetworks.SmartByte_1.2.549.0_x64__rh07ty8m5nkag
+remove-appxpackage -allusers ScreenovateTechnologies.DellMobileConnect_1.1.3750.0_neutral_~_0vhbc3ng4wbp0
+
