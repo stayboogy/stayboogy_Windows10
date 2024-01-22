@@ -1,0 +1,8 @@
+bcdedit.exe /store B:/boot/BCD /create /d "URECOVERY" /application bootsector
+
+bcdedit.exe /store B:/boot/BCD /set {a86aceb4-5ed4-11e4-9061-b51055b3f2a3} device boot
+
+bcdedit.exe /store B:/boot/BCD /set {a86aceb4-5ed4-11e4-9061-b51055b3f2a3} path \grldr.mbr 
+
+bcdedit.exe /store B:/boot/BCD /displayorder {a86aceb4-5ed4-11e4-9061-b51055b3f2a3} /addlast 
+

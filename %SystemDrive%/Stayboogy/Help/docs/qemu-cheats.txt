@@ -1,0 +1,36 @@
+qemu-system-x86_64 -bios C:\Tools\qemu\share\ovmf_share\OVMF\OVMF.fd -accel whpx,kernel-irqchip=off -m 8G -smp 2 -hda ./qlinux.qcow2 -cdrom C:\Users\M\Desktop\MyData\000\2_System\Linux\Installers\DeveloperLinuxLive-Installer.iso -boot menu=on -vga virtio
+
+qemu-system-x86_64 -bios C:\Tools\qemu\share\ovmf_share\OVMF\OVMF.fd -accel whpx,kernel-irqchip=off -m 8G -smp 2 -hda C:\Users\M\Desktop\mywinpe.vhdx -boot menu=on -vga virtio
+
+qemu-system-x86_64 -m 8G -machine type=q35,accel=hvf -smp maxcpus=2,cpus=2,cores=2,threads=2 -cpu Nehalem hardDiskImage.qcow2
+
+qemu-img create -f xxx ./filename size
+
+qemu-img convert source.img -O format filename 
+
+qemu-img convert -O vdi C:\Users\M\Desktop\VMShare.vhd C:\Users\M\Desktop\VMShare.vdi
+
+qemu-system-x86_64 -m 8G -smp 2 -hda ./Windows.img -hdb ./WinInstall.img -boot d -cdrom ./StayboogyPE.iso -vga qxl
+
+
+
+\
+-enable-kvm                                                    \
+-m 4G                                                          \
+-smp 2                                                         \
+-hda myVirtualDisk.qcow2                                       \
+-boot d                                                        \
+-cdrom linuxmint-21.1-cinnamon-64bit.iso                       \
+-netdev user,id=net0,net=192.168.0.0/24,dhcpstart=192.168.0.9  \
+-device virtio-net-pci,netdev=net0                             \
+-vga qxl                                                       \
+-device AC97
+
+
+qemu-system-x86_64 -bios C:\Tools\qemu\share\ovmf_share\OVMF\OVMF.fd -accel whpx,kernel-irqchip=off -m 8G -smp 2 -hda ./Linux.img -cdrom ./DVRLinux.iso -boot menu=on
+
+qemu-system-x86_64 -bios C:\Tools\qemu\share\ovmf_share\OVMF\OVMF.fd -accel whpx,kernel-irqchip=off -m 8G -smp 2 -hda ./Linux.img -cdrom ./DVRLinux.iso -boot menu=on
+
+
+qemu-system-x86_64 -bios C:\Tools\qemu\share\ovmf_share\OVMF\OVMF.fd -accel whpx,kernel-irqchip=off -m 8G -smp 2 -hda ./Ventura-recovery.img -hdb ./macosdata.qcow2 -cdrom ./OpenCore.iso -boot menu=on
+

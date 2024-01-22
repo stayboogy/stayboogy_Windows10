@@ -1,0 +1,1 @@
+qemu-system-x86_64 -bios C:\Tools\qemu\share\ovmf_share\OVMF\OVMF.fd -accel whpx,kernel-irqchip=off -m 8G -smp 2 -hda ./qlinux.qcow2 -cdrom C:\Users\M\Desktop\MyData\000\2_System\Linux\Installers\DeveloperLinuxLive-Installer.iso -boot menu=on -vga virtio

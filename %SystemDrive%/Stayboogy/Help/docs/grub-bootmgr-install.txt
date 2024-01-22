@@ -1,0 +1,33 @@
+BCDEDIT.EXE /store B:\Boot\BCD /create /d "XP VHD" /application bootsector
+
+BCDEDIT.EXE /store B:\Boot\BCD /set {e943c35d-a572-11e4-bbb0-005056c00008} device boot
+
+BCDEDIT.EXE /store B:\Boot\BCD /set {e943c35d-a572-11e4-bbb0-005056c00008} path \grldr.mbr
+
+BCDEDIT.EXE /store B:\Boot\BCD /displayorder {e943c35d-a572-11e4-bbb0-005056c00008} /addlast
+
+
+
+
+
+
+
+BCDEDIT.EXE /store B:\Boot\BCD /create /d "vboot" /application bootsector
+
+BCDEDIT.EXE /store B:\Boot\BCD /set {e943c35d-a572-11e4-bbb0-005056c00008} device boot
+
+BCDEDIT.EXE /store B:\Boot\BCD /set {e943c35d-a572-11e4-bbb0-005056c00008} path \vbootldr.mbr
+
+BCDEDIT.EXE /store B:\Boot\BCD /displayorder {e943c35d-a572-11e4-bbb0-005056c00008} /addlast
+
+
+
+bcdedit /create {D3DCE997-7447-41FC-9740-A8D20EE3BF55} /d "VBoot" /application BOOTSECTOR
+
+bcdedit /set {ae868341-a578-11e4-9a50-005056c00008} device partition=B:
+
+bcdedit /set {ae868341-a578-11e4-9a50-005056c00008} path \vbootldr.mbr
+
+bcdedit /displayorder {ae868341-a578-11e4-9a50-005056c00008} /addlast
+
+bcdedit /timeout 30

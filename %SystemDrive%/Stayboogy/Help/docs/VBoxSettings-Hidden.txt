@@ -1,0 +1,11 @@
+VBoxManage setextradata global GUI/SuppressMessages "all"
+
+VBoxManage modifyvm Linux --bioslogodisplaytime 5000
+
+VBoxManage setextradata global GUI/SuppressMessages "all"
+
+VBoxManage setextradata global GUI/SuppressMessages remindAboutAutoCapture,remindAboutWrongColorDepth,remindAboutMouseIntegrationOn,remindAboutMouseIntegrationOff,confirmInputCapture,confirmGoingFullscreen
+
+VBoxManage setextradata global GUI/SuppressMessages "all"
+
+

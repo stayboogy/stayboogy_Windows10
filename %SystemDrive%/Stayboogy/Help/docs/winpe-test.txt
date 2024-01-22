@@ -1,0 +1,1 @@
+qemu-system-x86_64 -bios C:\Tools\qemu\share\ovmf_share\OVMF\OVMF.fd -accel whpx,kernel-irqchip=off -m 8G -smp 2 -hda C:\Users\M\Desktop\mywinpe.vhdx -boot menu=on -vga virtio
