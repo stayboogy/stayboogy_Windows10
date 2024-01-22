@@ -1,0 +1,8 @@
+apt install -y locales-all linux-image-amd64 live-boot systemd-sysv firmware-linux-free firmware-misc-nonfree debootstrap xorriso isolinux syslinux-efi mtools build-essential wget git cmake acpi software-properties-common menu libevdev-dev libevdev2 libudev-dev libudev1 dbus-x11 python3-gi git python3-setuptools python3-stdeb dh-python libev-dev libev4 devscripts libuv1 cron
+
+apt install -y xorg xcompmgr openbox tint2 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings xinit intel-media-va-driver-non-free intel-microcode intel-opencl-icd xserver-xorg-video-intel xserver-xorg-core ibverbs-providers xbacklight iucode-tool gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi libavcodec-extra
+
+apt install -y gnome-terminal gnome-disk-utility gedit gparted dosfstools exfat-utils grub-pc-bin grub-efi-amd64-bin grub-efi-ia32-bin grub-common thunar thunar-volman thunar-archive-plugin gvfs gvfs-backends gvfs-common gvfs-fuse gvfs-libs squashfs-tools fsarchiver rsync file-roller rar unrar mirage nitrogen bleachbit lxappearance gdebi synaptic network-manager-gnome network-manager net-tools wpasupplicant wireless-tools broadcom-sta-dkms broadcom-sta-common firmware-brcm80211 epiphany-browser pulseaudio volumeicon-alsa pavucontrol blueman bluez lxpolkit vlc timeshift tlp neofetch calamares calamares-settings-debian
+
+apt remove -y desktop-base
+

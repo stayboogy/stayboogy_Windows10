@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title>Accelerated KVM guests on WSL 2</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --button-bg-color: #ffffff;
+            --button-text-color: var(--color-darkgrey);
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="Accelerated%20KVM%20guests%20on%20WSL%202_files/screen.css">
+
+    <meta name="description" content="The internet asked for this.">
+    <link rel="icon" href="https://boxofcables.dev/favicon.png" type="image/png">
+    <link rel="canonical" href="https://boxofcables.dev/accelerated-kvm-guests-on-wsl-2/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="https://boxofcables.dev/accelerated-kvm-guests-on-wsl-2/amp/">
+    
+    <meta property="og:site_name" content="Box of Cables">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Accelerated KVM guests on WSL 2">
+    <meta property="og:description" content="The internet asked for this.">
+    <meta property="og:url" content="https://boxofcables.dev/accelerated-kvm-guests-on-wsl-2/">
+    <meta property="og:image" content="https://boxofcables.dev/content/images/2020/06/ezgif.com-video-to-gif.gif">
+    <meta property="article:published_time" content="2020-06-15T00:49:00.000Z">
+    <meta property="article:modified_time" content="2022-01-08T20:05:40.000Z">
+    <meta property="article:tag" content="Windows Subsystem for Linux">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Accelerated KVM guests on WSL 2">
+    <meta name="twitter:description" content="The internet asked for this.">
+    <meta name="twitter:url" content="https://boxofcables.dev/accelerated-kvm-guests-on-wsl-2/">
+    <meta name="twitter:image" content="https://boxofcables.dev/content/images/2020/06/ezgif.com-video-to-gif.gif">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Hayden Barnes">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Windows Subsystem for Linux">
+    <meta name="twitter:site" content="@unixterminal">
+    <meta name="twitter:creator" content="@unixterminal">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="436">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Box of Cables",
+        "url": "https://boxofcables.dev/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://boxofcables.dev/favicon.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Hayden Barnes",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://boxofcables.dev/content/images/2022/07/5546CC9B-B5B9-4408-BC28-DF22DB1F89AE.jpeg",
+            "width": 1536,
+            "height": 2048
+        },
+        "url": "https://boxofcables.dev/author/hayden/",
+        "sameAs": [
+            "https://twitter.com/unixterminal"
+        ]
+    },
+    "headline": "Accelerated KVM guests on WSL 2",
+    "url": "https://boxofcables.dev/accelerated-kvm-guests-on-wsl-2/",
+    "datePublished": "2020-06-15T00:49:00.000Z",
+    "dateModified": "2022-01-08T20:05:40.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://boxofcables.dev/content/images/2020/06/ezgif.com-video-to-gif.gif",
+        "width": 800,
+        "height": 436
+    },
+    "keywords": "Windows Subsystem for Linux",
+    "description": "The internet asked for this. ",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://boxofcables.dev/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 4.47">
+    <link rel="alternate" type="application/rss+xml" title="Box of Cables" href="https://boxofcables.dev/rss/">
+    <script defer="defer" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/portal.js" data-ghost="https://boxofcables.dev/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer="defer" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/cards.js"></script><style>:root {--ghost-accent-color: #15171A;}</style>
+    <link rel="stylesheet" type="text/css" href="Accelerated%20KVM%20guests%20on%20WSL%202_files/cards.css">
+
+<style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><style id="fit-vids-style">.fluid-width-video-container{flex-grow: 1;width:100%;}.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+<body class="post-template tag-wsl">
+<div class="viewport">
+
+    <header id="gh-head" class="gh-head has-cover">
+        <nav class="gh-head-inner inner gh-container">
+
+            <div class="gh-head-brand">
+                <a class="gh-head-logo" href="https://boxofcables.dev/">
+                        Box of Cables
+                </a>
+                <a class="gh-burger" role="button">
+                    <div class="gh-burger-box">
+                        <div class="gh-burger-inner"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://boxofcables.dev/">Home</a></li>
+</ul>
+
+            </div>
+            <div class="gh-head-actions">
+                <div class="gh-social">
+                        <a class="gh-social-twitter" href="https://twitter.com/unixterminal" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+</a>
+                </div>
+
+                    <a class="gh-head-button gh-portal-close" href="#/portal/signup" data-portal="signup">Subscribe</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="site-content">
+        
+
+
+
+<main id="site-main" class="site-main">
+    <article class="article post tag-wsl ">
+
+        <header class="article-header gh-canvas">
+
+            <section class="article-tag">
+                <a href="https://boxofcables.dev/tag/wsl/">Windows Subsystem for Linux</a>
+            </section>
+
+            <h1 class="article-title">Accelerated KVM guests on WSL 2</h1>
+
+            <p class="article-excerpt">The internet asked for this. </p>
+
+            <div class="article-byline">
+                <section class="article-byline-content">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <a href="https://boxofcables.dev/author/hayden/" class="author-avatar">
+                                <img class="author-profile-image" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/5546CC9B-B5B9-4408-BC28-DF22DB1F89AE.jpeg" alt="Hayden Barnes">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="article-byline-meta">
+                        <h4 class="author-name"><a href="https://boxofcables.dev/author/hayden/">Hayden Barnes</a></h4>
+                        <div class="byline-meta-content">
+                            <time class="byline-meta-date" datetime="2020-06-14">Jun 14, 2020</time>
+                            <span class="byline-reading-time"><span class="bull">•</span> 10 min read</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <figure class="article-image">
+                <img srcset="Accelerated%20KVM%20guests%20on%20WSL%202_files/ezgif_002.gif 300w, Accelerated%20KVM%20guests%20on%20WSL%202_files/ezgif_003.gif 600w, Accelerated%20KVM%20guests%20on%20WSL%202_files/ezgif_004.gif 1000w, Accelerated%20KVM%20guests%20on%20WSL%202_files/ezgif.gif 2000w" sizes="(min-width: 1400px) 1400px, 92vw" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/ezgif.gif" alt="Accelerated KVM guests on WSL 2">
+            </figure>
+        </header>
+
+        <section class="gh-content gh-canvas">
+            <hr><h2 id="this-guide-has-been-deprecated-in-favor-of-this-2022-update-"><a href="https://boxofcables.dev/kvm-optimized-custom-kernel-wsl2-2022/">This guide has been deprecated in favor of this 2022 update.</a></h2><p></p><hr><p></p><p><strong>Requirements</strong></p><p>Windows 10 Insider Fast Ring, tested on build 19645.1<br><a href="https://ubuntu.com/blog/ubuntu-on-wsl-2-is-generally-available">Ubuntu 20.04 on WSL 2</a><br>An Intel Core i5+ CPU* <br>An X server for Windows, e.g. <a href="https://x410.dev/">X410</a> or <a href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a> (For now, native GUI support and GPU acceleration <a href="https://ubuntu.com/blog/new-gpu-and-gui-features-announced-for-wsl-at-build">is coming</a>!)<br>At least 16GB RAM<br>At least 40GB free hard drive space</p><p>*AMD users: WSL 2 runs in a lightweight Hyper-V platform on any edition of Windows 10. Hyper-V <a href="https://techcommunity.microsoft.com/t5/virtualization/amd-nested-virtualization-support/ba-p/1434841">just got AMD nested virtualization support</a>. They have said Linux KVM guest support is coming.</p><p><strong>Recommended</strong></p><p>Familiarity with building a Linux kernel**<br>Familiarity with KVM, QEMU, or virtualization technology<br><a href="https://github.com/microsoft/terminal">Windows Terminal</a> (Get it. It's fast!)</p><p>**If you are not ready to build Linux kernel modules but want to get started, check out my guide on <a href="https://boxofcables.dev/running-windows-2000-on-wsl/">running Windows 2000 with QEMU on WSL</a>.</p><p><strong>Update, upgrade, and install dependencies</strong></p><p>You have been regularly updating your WSL distro, right?</p><pre><code>sudo apt update &amp;&amp; sudo apt -y upgrade
+sudo apt -y install build-essential libncurses-dev bison flex libssl-dev libelf-dev cpu-checker qemu-kvm aria2 </code></pre><p><strong>Get kernel sources</strong></p><p>You
+ need a kernel. You could use any kernel, including one from your 
+distro, but for simplicity I use the default Microsoft WSL terminal as a
+ base.</p><p>There may be more recent <a href="https://github.com/microsoft/WSL2-Linux-Kernel">WSL 2 kernels</a> available but this has only been tested on 4.19.104 (and you will need 4.19.121 or higher for GPU compute):</p><pre><code>cd ~
+aria2c -x 10 https://github.com/microsoft/WSL2-Linux-Kernel/archive/4.19.104-microsoft-standard.tar.gz
+tar -xf WSL2-Linux-Kernel-4.19.104-microsoft-standard.tar.gz
+cd WSL2-Linux-Kernel-4.19.104-microsoft-standard/</code></pre><p>If you are reading this in the future, you can check your current WSL 2 version number with:</p><pre><code>uname -r</code></pre><p>You can find all the WSL 2 kernel releases on <a href="https://github.com/microsoft/WSL2-Linux-Kernel/releases">GitHub</a>.</p><p>You could also use git to retrieve specific branches and tagged releases of the WSL 2 kernel.</p><p><strong>Optimize kernel config for KVM on WSL</strong></p><p>Start by borrowing the official WSL 2 kernel configuration:</p><pre><code>cp Microsoft/config-wsl .config</code></pre><p>Then let's customize it:</p><pre><code>make menuconfig</code></pre><p>Under
+ Virtualization I set KVM for Intel processor support to build as a 
+module (read below and decide if you should) and enable built-in virtio 
+net support:</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-12.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>Important note about building a module in WSL:</strong></p><p>Building KVM for Intel as a module &lt;M&gt; makes it easier to unload, tweak, and reload the module as needed, for example:</p><pre><code>sudo modprobe -r kvm_intel # removes the module
+
+modprobe kvm_intel enable_apicv=0 # reloads the module with apicv disable</code></pre><p>This might be useful getting certain operating systems to run or finetune their performance. <em><strong><u>But</u> </strong></em>it means you will have to load the module each time manually or add it to your .bashrc.</p><p><strong>If you don't want to do this</strong>,
+ just leave KVM for Intel processors support as built-in &lt;*&gt;, and 
+you can skip the make modules_install step below, but make sure you 
+still add KVM guest support and configure kvm_intel in 
+/etc/modprobe.d/kvm-nested.conf as described below.</p><p>Exit the 
+Virtualization menu and then proceed to Processor type and features 
+-&gt; Linux guest support enable built-in KVM guest support:</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-2.png" class="kg-image" alt="" loading="lazy"></figure><p>Exit and save as .config.</p><p><strong>Flags</strong></p><p>If you are 10x and too cool to use a GUI, you can edit your .config directly in vim:</p><pre><code>KVM_GUEST=y
+CONFIG_KVM=y
+CONFIG_KVM_INTEL=m
+CONFIG_VHOST_NET=y
+CONFIG_VHOST=y</code></pre><p><strong>Build the new kernel</strong></p><pre><code>make -j 8</code></pre><p>Sit back and watch a movie while you wait:</p><figure class="kg-card kg-embed-card"><div class="fluid-width-video-container"><div class="fluid-width-video-wrapper" style="padding-top: 56.2092%;"><iframe src="Accelerated%20KVM%20guests%20on%20WSL%202_files/JUt2nb0mgwg.htm" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" name="fitvid0" frameborder="0"></iframe></div></div></figure><p><strong>Install your kernel modules</strong></p><pre><code>sudo make modules_install</code></pre><p><strong>Install your kernel in WSL 2 and enable nested KVM</strong></p><pre><code>cp arch/x86/boot/bzImage /mnt/c/Users/&lt;username&gt;/bzImage
+nano /mnt/c/Users/&lt;username&gt;/.wslconfig</code></pre><p><em>Paste </em><strong>but </strong>don't forget to change &lt;username&gt; to your Windows username:</p><pre><code>[wsl2]
+nestedVirtualization=true
+kernel=C:\\Users\\&lt;username&gt;\\bzImage</code></pre><p><strong>WSL 2 Settings Pro Tip</strong></p><ul><li><a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf">/etc/wsl.conf</a> manages your distro-specific WSL settings</li><li><a href="https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig">%HOMEPATH%\.wslconfig</a> manages for global WSL settings</li></ul><p><strong>Reboot WSL 2</strong></p><p>Close
+ all open WSL instances. If you are using Windows Terminal just open a 
+PowerShell terminal tab and close the other tabs. See, I told you to get
+ Windows Terminal.</p><p>In a new PowerShell terminal:</p><pre><code>wsl.exe --shutdown Ubuntu</code></pre><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-14.png" class="kg-image" alt="" loading="lazy"></figure><p>Re-open Ubuntu on WSL:</p><pre><code>wsl.exe -d Ubuntu</code></pre><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-15.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>Check you are running your new kernel</strong></p><pre><code>uname -ar</code></pre><p>should show today's date and the time should be a few minutes ago.</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-16.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>Configure kvm-intel</strong></p><pre><code>nano /etc/modprobe.d/kvm-nested.conf</code></pre><p><em>Paste</em>:</p><pre><code>options kvm-intel nested=1
+options kvm-intel enable_shadow_vmcs=1
+options kvm-intel enable_apicv=1
+options kvm-intel ept=1</code></pre><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-3.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>Load kernel module</strong></p><pre><code>sudo modprobe kvm_intel</code></pre><p>Test KVM with:</p><pre><code>kvm-ok</code></pre><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-17.png" class="kg-image" alt="" loading="lazy"></figure><p>Check for nested KVM with:</p><pre><code>cat /sys/module/kvm_intel/parameters/nested</code></pre><p>should report "Y"</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-18.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>Configure X for WSL 2</strong></p><p>Install
+ X410 or VcXsrv and configure firewall settings to allow on Public 
+network. I prefer X410 because it does it for you, but it costs about 
+$10 USD in the Store. VcXsrc is free and open source but requires a bit 
+more manual configuration Native GUI support <a href="https://ubuntu.com/blog/new-gpu-and-gui-features-announced-for-wsl-at-build">is coming</a>, more details later in 2020.</p><p>Once you are running X on Windows, redirect your WSL X output to Windows by setting the DISPLAY environmental variable:</p><pre><code class="language-bash">export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0</code></pre><p>You can add this command to ~/.bashrc to run every time you open Ubuntu WSL:</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-19.png" class="kg-image" alt="" loading="lazy"></figure><p>If you add this command to your .bashrc file, then to load it for this session just:</p><pre><code>source ~/.bashrc</code></pre><p><strong>Download an Ubuntu desktop install ISO</strong></p><p>Go
+ back to your home folder, or make a folder inside WSL to keep this 
+project (NOT on /mnt/c/ it will slow you down), and then download the 
+nightly Ubuntu desktop install ISO with aria2:</p><pre><code class="language-bash">cd ~
+aria2c -x 10 http://cdimage.ubuntu.com/daily-live/current/groovy-desktop-amd64.iso</code></pre><p>You can ISOs for Ubuntu 20.04 LTS (focal) and many of the official flavors <a href="http://cdimage.ubuntu.com/">here</a>.</p><p><strong>aria2</strong></p><p><a href="https://aria2.github.io/">aria2</a> is a next generation download utility.</p><p>Use
+ aria2c in place of wget for all your downloads, add -x 10 to break the 
+download up into 10 download threads, it speeds things up quite a bit.</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-20.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>Create a qcow2 virtual hard drive for QEMU</strong></p><p>This
+ will be our virtual hard drive for our Ubuntu . qcow2 is the default 
+virtual hard drive container for QEMU, similar to .vhd, .vdi, .vmdk 
+files.</p><pre><code>qemu-img create -f qcow2 ubuntu.qcow2 15G</code></pre><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-21.png" class="kg-image" alt="" loading="lazy"></figure><p>The
+ Ubuntu installer will detect the virtual drive, partition, install, and
+ install a bootloader. If you are installing another distro or operating
+ system you may need to manually format and partition as part of the 
+install process.</p><p><strong>Boot from the ISO and install to the virtual hard drive</strong></p><p><a href="https://pastebin.ubuntu.com/p/GqHbMQSN99/">Pastebin</a></p><pre><code class="language-bash">qemu-system-x86_64 \
+	-drive file=ubuntu.qcow2,format=qcow2 \
+	-drive file=groovy-desktop-amd64.iso,media=cdrom,readonly \
+	-net nic -net user \
+	-m 5172 \
+	-vga qxl \
+	--enable-kvm \
+	-smp 4 \
+	-cpu kvm64,+vmx,+vme,+msr,+x2apic,+hypervisor,+aes,+vmx-activity-hlt,+vmx-cr3-load-noexit,+vmx-cr3-store-noexit,+vmx-cr8-load-exit,+vmx-cr8-store-exit,+vmx-desc-exit,+vmx-entry-ia32e-mode,+vmx-entry-load-efer,+vmx-entry-load-pat,+vmx-entry-noload-debugctl,+vmx-ept,+vmx-ept-1gb,+vmx-ept-2mb,+vmx-ept-execonly,+vmx-eptad,+vmx-exit-ack-intr,+vmx-exit-load-efer,+vmx-exit-load-pat,+vmx-exit-nosave-debugctl,+vmx-exit-save-efer,+vmx-exit-save-pat,+vmx-exit-save-preemption-timer,+vmx-flexpriority,+vmx-hlt-exit,+vmx-intr-exit,+vmx-invept,+vmx-invept-all-context,+vmx-invept-single-context,+vmx-invept-single-context,+vmx-invept-single-context-noglobals,+vmx-invlpg-exit,+vmx-invvpid,+vmx-invvpid-all-context,+vmx-invvpid-single-addr,+vmx-io-bitmap,+vmx-io-exit,+vmx-monitor-exit,+vmx-movdr-exit,+vmx-msr-bitmap,+vmx-mwait-exit,+vmx-nmi-exit,+vmx-page-walk-4,+vmx-pause-exit,+vmx-pml,+vmx-preemption-timer,+vmx-rdpmc-exit,+vmx-rdtsc-exit,+vmx-secondary-ctls,+vmx-shadow-vmcs,+vmx-store-lma,+vmx-true-ctls,+vmx-tsc-offset,+vmx-unrestricted-guest,+vmx-vintr-pending,+vmx-vmwrite-vmexit-fields,+vmx-vnmi,+vmx-vnmi-pending,+vmx-vpid,+de,+pse,+tsc,+msr,+pae,+mce,+cx8,+apic,+sep,+mtrr,+pge,+mca,+cmov,+pat,+pse36,+clflush,+mmx,+fxsr,+sse,+sse2,+ss,+ht,+syscall,+nx,+pdpe1gb,+rdtscp,+lm,+pni,+pclmulqdq,+vmx,+ssse3,+fma,+cx16,+pcid,+sse4_1,+sse4_2,+movbe,+popcnt,+aes,+xsave,+avx,+f16c,+rdrand,+hypervisor,+lahf_lm,+abm,+3dnowprefetch,+ssbd,+ibpb,+stibp,+fsgsbase,+bmi1,+avx2,+smep,+bmi2,+erms,+invpcid,+rdseed,+adx,+smap,+clflushopt,+xsaveopt,+xsavec,+xgetbv1,+xsaves \
+</code></pre><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-7.png" class="kg-image" alt="" loading="lazy"></figure><p>Then follow normal Ubuntu installation steps:</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-9.png" class="kg-image" alt="" loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-11.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>What is all this?</strong></p><p>This launches <a href="https://wiki.qemu.org/Main_Page">QEMU</a>,
+ an open source system emulator/virtualizer. QEMU is a powerful tool I 
+use often. One of my favorite uses is to emulate vintage hardware to run
+ vintage operating systems. I wrote a guide to <a href="https://boxofcables.dev/running-windows-2000-on-wsl/">run Windows 2000</a> on WSL using QEMU. </p><p>Most of the flags, like mounting the virtual hard drive and ISO as a cdrom, are self explanatory.</p><p>For more, check the QEMU manual page:</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://manpages.debian.org/testing/qemu-system-common/qemu-system.1.en.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">qemu-system(1) — qemu-system-common — Debian testing — Debian Manpages</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"></div></div><div class="kg-bookmark-thumbnail"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/openlogo-50.svg" alt=""></div></a></figure><p>There are more links to docs on WSL 2, QEMU. and KVM below.</p><p><em><strong>Why such a long CPU line though?</strong></em></p><p>None
+ of the stock CPU types in QEMU matched well with the WSL environment so
+ I started with a basic kvm64 and then added back all of the CPU flags 
+supported in Hyper-V and then tested to see which of the vmx flags 
+worked. VMX extensions are the Intel VT-x extensions to accelerate 
+virtual machines.</p><p>After tweaking the kernel and exposing these CPU
+ flags I found significant performance improvements in KVM on Ubuntu WSL
+ and, much to my surprise, the ability to run nested-upon-nested KVM.</p><p><strong>Future boots</strong></p><p>You can omit the boot ISO line:</p><pre><code>drive file=groovy-desktop-arm64.iso,media=cdrom,readonly \</code></pre><p>after you install Ubuntu to ubuntu.qcow2:</p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/image-8.png" class="kg-image" alt="" loading="lazy"></figure><p><strong>Make a boot script</strong></p><pre><code>cd ~
+nano boot_ubuntu_kvm.sh</code></pre><p>Paste:</p><pre><code>#!/bin/bash
+qemu-system-x86_64 \
+	-drive file=ubuntu.qcow2,format=qcow2 \
+	-net nic -net user \
+	-m 5172 \
+	-vga qxl \
+	--enable-kvm \
+	-smp 4 \
+	-cpu kvm64,+vmx,+vme,+msr,+x2apic,+hypervisor,+aes,+vmx-activity-hlt,+vmx-cr3-load-noexit,+vmx-cr3-store-noexit,+vmx-cr8-load-exit,+vmx-cr8-store-exit,+vmx-desc-exit,+vmx-entry-ia32e-mode,+vmx-entry-load-efer,+vmx-entry-load-pat,+vmx-entry-noload-debugctl,+vmx-ept,+vmx-ept-1gb,+vmx-ept-2mb,+vmx-ept-execonly,+vmx-eptad,+vmx-exit-ack-intr,+vmx-exit-load-efer,+vmx-exit-load-pat,+vmx-exit-nosave-debugctl,+vmx-exit-save-efer,+vmx-exit-save-pat,+vmx-exit-save-preemption-timer,+vmx-flexpriority,+vmx-hlt-exit,+vmx-intr-exit,+vmx-invept,+vmx-invept-all-context,+vmx-invept-single-context,+vmx-invept-single-context,+vmx-invept-single-context-noglobals,+vmx-invlpg-exit,+vmx-invvpid,+vmx-invvpid-all-context,+vmx-invvpid-single-addr,+vmx-io-bitmap,+vmx-io-exit,+vmx-monitor-exit,+vmx-movdr-exit,+vmx-msr-bitmap,+vmx-mwait-exit,+vmx-nmi-exit,+vmx-page-walk-4,+vmx-pause-exit,+vmx-pml,+vmx-preemption-timer,+vmx-rdpmc-exit,+vmx-rdtsc-exit,+vmx-secondary-ctls,+vmx-shadow-vmcs,+vmx-store-lma,+vmx-true-ctls,+vmx-tsc-offset,+vmx-unrestricted-guest,+vmx-vintr-pending,+vmx-vmwrite-vmexit-fields,+vmx-vnmi,+vmx-vnmi-pending,+vmx-vpid,+de,+pse,+tsc,+msr,+pae,+mce,+cx8,+apic,+sep,+mtrr,+pge,+mca,+cmov,+pat,+pse36,+clflush,+mmx,+fxsr,+sse,+sse2,+ss,+ht,+syscall,+nx,+pdpe1gb,+rdtscp,+lm,+pni,+pclmulqdq,+vmx,+ssse3,+fma,+cx16,+pcid,+sse4_1,+sse4_2,+movbe,+popcnt,+aes,+xsave,+avx,+f16c,+rdrand,+hypervisor,+lahf_lm,+abm,+3dnowprefetch,+ssbd,+ibpb,+stibp,+fsgsbase,+bmi1,+avx2,+smep,+bmi2,+erms,+invpcid,+rdseed,+adx,+smap,+clflushopt,+xsaveopt,+xsavec,+xgetbv1,+xsaves \
+</code></pre><p>Exit and save.</p><p>Mark the file executable:</p><pre><code>sudo chmod u+x boot_ubuntu_kvm.sh</code></pre><p>Now it can be run as:</p><pre><code>./boot_ubuntu_kvm.sh</code></pre><p><strong>Other Distros</strong></p><p>You
+ can create as many different qcow2 virtual hard drives as you have 
+space for and install different distros on each. For other distros just 
+create a new qcow2 file, download the bootable ISO (use aria again to 
+speed it up, tip: aria works on .torrent files too!), mount both in your
+ qemu options, and install onto the virtual hard drive.</p><p><strong>Other Operating Systems</strong></p><figure class="kg-card kg-image-card"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/EYQBisWWkAEdxPX.jpg" class="kg-image" alt="" loading="lazy"></figure><p>Haiku</p><ul><li>Download an ISO from the <a href="https://download.haiku-os.org/nightly-images/x86_64/">nightly images</a>.</li><li>Follow the approach used above.</li></ul><p>macOS</p><ul><li>You must comply with the terms of the macOS EULA.</li><li>Once the KVM configuration above is in place, <a href="https://github.com/foxlet/macOS-Simple-KVM">this works</a> quite well.</li><li>In basic.sh usb-tablet works better than usb-mouse.</li></ul><p><strong>Additional Reading</strong></p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/sirredbeard/Awesome-WSL"><div class="kg-bookmark-content"><div class="kg-bookmark-title">sirredbeard/Awesome-WSL</div><div class="kg-bookmark-description">Awesome list dedicated to Windows Subsystem for Linux - sirredbeard/Awesome-WSL</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/favicon.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">sirredbeard</span></div></div><div class="kg-bookmark-thumbnail"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/33820650.jpg" alt=""></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.qemu.org/docs/master/system/index.html"><div class="kg-bookmark-content"><div class="kg-bookmark-title">QEMU System Emulation User’s Guide — QEMU 5.0.50 (v5.0.0-1244-g7d3660e798) documentation</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><span class="kg-bookmark-author">QEMU</span></div></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://wiki.archlinux.org/index.php/QEMU"><div class="kg-bookmark-content"><div class="kg-bookmark-title">QEMU - ArchWiki</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/favicon_002.ico" alt=""><span class="kg-bookmark-author">ArchWiki</span></div></div><div class="kg-bookmark-thumbnail"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/Merge-arrows-2.png" alt=""></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://www.linux-kvm.org/page/Nested_Guests"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Nested Guests - KVM</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/favicon.ico" alt=""><span class="kg-bookmark-author">KVM</span></div></div><div class="kg-bookmark-thumbnail"><img src="Accelerated%20KVM%20guests%20on%20WSL%202_files/kvmbanner-logo3.png" alt=""></div></a></figure><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://wiki.ubuntu.com/WSL"><div class="kg-bookmark-content"><div class="kg-bookmark-title">WSL - Ubuntu Wiki</div><div class="kg-bookmark-description"></div><div class="kg-bookmark-metadata"><span class="kg-bookmark-author">Ubuntu Wiki</span></div></div></a></figure><figure class="kg-card kg-embed-card"><blockquote class="wp-embedded-content"><a href="https://microhobby.com.br/blog/2019/09/21/compiling-your-own-linux-kernel-for-windows-wsl2/">Compiling Your Own Linux Kernel for Windows? WSL 2</a></blockquote>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+		!function(a,b){"use strict";function c(){if(!e){e=!0;var a,c,d,f,g=-1!==navigator.appVersion.indexOf("MSIE 10"),h=!!navigator.userAgent.match(/Trident.*rv:11\./),i=b.querySelectorAll("iframe.wp-embedded-content");for(c=0;c<i.length;c++){if(d=i[c],!d.getAttribute("data-secret"))f=Math.random().toString(36).substr(2,10),d.src+="#?secret="+f,d.setAttribute("data-secret",f);if(g||h)a=d.cloneNode(!0),a.removeAttribute("security"),d.parentNode.replaceChild(a,d)}}}var d=!1,e=!1;if(b.querySelector)if(a.addEventListener)d=!0;if(a.wp=a.wp||{},!a.wp.receiveEmbedMessage)if(a.wp.receiveEmbedMessage=function(c){var d=c.data;if(d)if(d.secret||d.message||d.value)if(!/[^a-zA-Z0-9]/.test(d.secret)){var e,f,g,h,i,j=b.querySelectorAll('iframe[data-secret="'+d.secret+'"]'),k=b.querySelectorAll('blockquote[data-secret="'+d.secret+'"]');for(e=0;e<k.length;e++)k[e].style.display="none";for(e=0;e<j.length;e++)if(f=j[e],c.source===f.contentWindow){if(f.removeAttribute("style"),"height"===d.message){if(g=parseInt(d.value,10),g>1e3)g=1e3;else if(~~g<200)g=200;f.height=g}if("link"===d.message)if(h=b.createElement("a"),i=b.createElement("a"),h.href=f.getAttribute("src"),i.href=d.value,i.host===h.host)if(b.activeElement===f)a.top.location.href=d.value}else;}},d)a.addEventListener("message",a.wp.receiveEmbedMessage,!1),b.addEventListener("DOMContentLoaded",c,!1),a.addEventListener("load",c,!1)}(window,document);
+//--><!]]>
+</script><iframe sandbox="allow-scripts" security="restricted" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/a.htm" title="“Compiling Your Own Linux Kernel for Windows? WSL 2” — MicroHobby" marginwidth="0" marginheight="0" scrolling="no" class="wp-embedded-content" data-secret="0v6jwjkohv" width="600" height="527" frameborder="0"></iframe></figure>
+        </section>
+
+
+    </article>
+</main>
+
+
+    <section class="footer-cta ">
+        <div class="inner">
+            <h2>Sign up for more like this.</h2>
+            <a class="footer-cta-button gh-portal-close" href="#/portal" data-portal="">
+                <div class="footer-cta-input">Enter your email</div>
+                <span>Subscribe</span>
+            </a>
+        </div>
+    </section>
+
+
+
+
+            <aside class="read-more-wrap">
+                <div class="read-more inner">
+                        
+<article class="post-card post ">
+
+    <a class="post-card-image-link" href="https://boxofcables.dev/windows-dev-drive-benchmarks/">
+        <img class="post-card-image" srcset="Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2023-05-30-104009.png 300w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2023-05-30-104009_003.png 600w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2023-05-30-104009_002.png 1000w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2023-05-30-104009_004.png 2000w" sizes="(max-width: 1000px) 400px, 800px" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2023-05-30-104009_003.png" alt="Windows Dev Drive Benchmarks" loading="lazy">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="https://boxofcables.dev/windows-dev-drive-benchmarks/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">Windows Dev Drive Benchmarks</h2>
+            </header>
+            <div class="post-card-excerpt">
+                <p>Putting Windows Dev Drive through it's paces on the Windows Dev Kit 2023.</p>
+            </div>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="https://boxofcables.dev/author/hayden/" class="static-avatar">
+                        <img class="author-profile-image" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/5546CC9B-B5B9-4408-BC28-DF22DB1F89AE.jpeg" alt="Hayden Barnes" loading="lazy">
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span class="post-card-byline-author"><a href="https://boxofcables.dev/author/hayden/">Hayden Barnes</a></span>
+                <span class="post-card-byline-date"><time datetime="2023-05-30">May 30, 2023</time> <span class="bull">•</span> 3 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post ">
+
+    <a class="post-card-image-link" href="https://boxofcables.dev/the-github-copilot-lawsuit-threatens-open-source-and-human-progress-1/">
+        <img class="post-card-image" srcset="Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-07-090626_004.png 300w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-07-090626_003.png 600w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-07-090626.png 1000w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-07-090626_002.png 2000w" sizes="(max-width: 1000px) 400px, 800px" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-07-090626_003.png" alt="The GitHub Copilot Lawsuit Threatens Open Source and Human Progress" loading="lazy">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="https://boxofcables.dev/the-github-copilot-lawsuit-threatens-open-source-and-human-progress-1/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">The GitHub Copilot Lawsuit Threatens Open Source and Human Progress</h2>
+            </header>
+            <div class="post-card-excerpt">
+                <p>The vague complaints of the Copilot plaintiffs are 
+nothing compared to the damage to free software and human progress if 
+they won.</p>
+            </div>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="https://boxofcables.dev/author/hayden/" class="static-avatar">
+                        <img class="author-profile-image" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/5546CC9B-B5B9-4408-BC28-DF22DB1F89AE.jpeg" alt="Hayden Barnes" loading="lazy">
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span class="post-card-byline-author"><a href="https://boxofcables.dev/author/hayden/">Hayden Barnes</a></span>
+                <span class="post-card-byline-date"><time datetime="2022-11-07">Nov 7, 2022</time> <span class="bull">•</span> 8 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                        
+<article class="post-card post ">
+
+    <a class="post-card-image-link" href="https://boxofcables.dev/cbl-delridge-is-dead-long-live-cbl-mariner/">
+        <img class="post-card-image" srcset="Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-03-174613-2_002.png 300w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-03-174613-2_003.png 600w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-03-174613-2_004.png 1000w, Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-03-174613-2.png 2000w" sizes="(max-width: 1000px) 400px, 800px" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/Screenshot-2022-11-03-174613-2_003.png" alt="Microsoft's CBL-Delridge is 404, long live CBL-Mariner" loading="lazy">
+    </a>
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="https://boxofcables.dev/cbl-delridge-is-dead-long-live-cbl-mariner/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">Microsoft's CBL-Delridge is 404, long live CBL-Mariner</h2>
+            </header>
+            <div class="post-card-excerpt">
+                <p>Microsoft is increasingly standardizing on its in-house CBL-Mariner Linux distribution. Is this Microsoft Linux?</p>
+            </div>
+        </a>
+
+        <footer class="post-card-meta">
+            <ul class="author-list">
+                <li class="author-list-item">
+                    <a href="https://boxofcables.dev/author/hayden/" class="static-avatar">
+                        <img class="author-profile-image" src="Accelerated%20KVM%20guests%20on%20WSL%202_files/5546CC9B-B5B9-4408-BC28-DF22DB1F89AE.jpeg" alt="Hayden Barnes" loading="lazy">
+                    </a>
+                </li>
+            </ul>
+            <div class="post-card-byline-content">
+                <span class="post-card-byline-author"><a href="https://boxofcables.dev/author/hayden/">Hayden Barnes</a></span>
+                <span class="post-card-byline-date"><time datetime="2022-11-03">Nov 3, 2022</time> <span class="bull">•</span> 4 min read</span>
+            </div>
+        </footer>
+
+    </div>
+
+</article>
+                </div>
+            </aside>
+
+
+
+    </div>
+
+    <footer class="site-footer outer">
+        <div class="inner">
+            <section class="copyright"><a href="https://boxofcables.dev/">Box of Cables</a> © 2023</section>
+            <nav class="site-footer-nav">
+                
+            </nav>
+            <div><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script src="Accelerated%20KVM%20guests%20on%20WSL%202_files/jquery-3.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+</script>
+<script src="Accelerated%20KVM%20guests%20on%20WSL%202_files/casper.js"></script>
+<script>
+$(document).ready(function () {
+    // Mobile Menu Trigger
+    $('.gh-burger').click(function () {
+        $('body').toggleClass('gh-head-open');
+    });
+    // FitVids - Makes video embeds responsive
+    $(".gh-content").fitVids();
+});
+</script>
+
+
+
+
+
+<div id="ghost-portal-root"></div></body></html>

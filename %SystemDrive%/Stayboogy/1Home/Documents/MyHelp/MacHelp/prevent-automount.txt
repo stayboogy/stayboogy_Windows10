@@ -1,0 +1,27 @@
+diskutil info /Volumes/"Volume Name" | grep 'Volume UUID'
+
+UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX none hfs rw,noauto
+
+sudo nano /etc/fstab
+
+diskutil info /Volumes/Windows | grep 'Volume UUID'
+
+diskutil info /Volumes/Studio | grep 'Volume UUID'
+
+   Volume UUID:               39FEC2B0-D082-4BB3-AA2B-766F81BF6EE4
+   Volume UUID:               C565AE34-1994-4367-893C-013FF557324A
+   
+sudo vifs
+   
+o
+   
+UUID=39FEC2B0-D082-4BB3-AA2B-766F81BF6EE4 none hfs rw,noauto
+UUID=C565AE34-1994-4367-893C-013FF557324A none hfs rw,noauto
+   
+esc
+shift+zz
+
+sudo automount -vc
+
+
+   

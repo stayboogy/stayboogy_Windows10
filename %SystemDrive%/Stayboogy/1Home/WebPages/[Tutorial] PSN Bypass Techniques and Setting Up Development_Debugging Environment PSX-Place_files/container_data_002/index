@@ -1,0 +1,38 @@
+
+var ftGUID_4399073="54421AE85FEE38";
+var ftConfID_4399073="0";
+var ftParams_4399073="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_ifb=1&ft_domain=www.psx-place.com&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.psx-place.com%2F&cachebuster=49803.67946527886";
+var ftKeyword_4399073="";
+var ftCustom_4399073="";
+var ftSection_4399073="";
+var ftSegment_4399073="";
+var ftSegmentList_4399073=[];
+var ftRuleMatch_4399073="0";
+var ftTimestamp_4399073="1669359818";
+var ftGeoC2_4399073="us";
+var ftGeoState_4399073="va";
+var ftGeoCity_4399073="ashburn";
+var ftISP_4399073="verizon business";
+var ftSpeed_4399073="mobile";
+var ftDMA_4399073="511";
+var ftLong_4399073="-77.49";
+var ftLat_4399073="39.03";
+var ftPostal_4399073="20147";
+var ftTimeZone_4399073="-500";
+var ftMobileCarrier_4399073="verizon";
+var ftImp4399073 = {};
+ftImp4399073.privacy = "x";
+ftImp4399073.guidAge = "-1";
+ftImp4399073.impID = "B4B1F648-3520-7D71-32F3-7B8A8BF1F5FD";
+ftImp4399073.duid = "FT:54421AE85FEE38";
+
+ftImp4399073.ft_tpplid = "";
+ftImp4399073.ft_c = {};
+ftImp4399073.gdpr = "";
+ftImp4399073.gdpr_consent = "";
+ftImp4399073.gdpr_pd = "";
+ftImp4399073.oob_consent = "";
+ftImp4399073.gdprStoredConsent = "";
+ftImp4399073.us_privacy = "";
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/439/4399073/4080658/js/j-4399073-4080658.js" id="ftscript_m4399073" name="ftscript_m4399073"></scr'+'ipt>');

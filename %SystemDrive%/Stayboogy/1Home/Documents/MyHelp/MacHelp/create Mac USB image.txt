@@ -1,0 +1,6 @@
+create blank image
+MacOS Extended Journaled
+Guid Partition Map
+read write image
+
+sudo /Applications/Install\ macOS\ Ventura.app/Contents/Resources/createinstallmedia --volume /Volumes/stayboogy_VenturaUSB

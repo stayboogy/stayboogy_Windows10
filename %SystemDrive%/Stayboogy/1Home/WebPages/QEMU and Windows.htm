@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="QEMU%20and%20Windows_files/js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XN83XW7S3V');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://umhau.github.io/favicon.ico?">
+    <title>QEMU and Windows</title>
+
+    <link rel="stylesheet" type="text/css" href="QEMU%20and%20Windows_files/styles.css">
+    <meta name="viewport" content="width=device-width">
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="QEMU%20and%20Windows_files/jquery.js"></script>
+    <script src="QEMU%20and%20Windows_files/infinite-jekyll.js"></script>
+
+  </head>
+  <body>
+    <box class="wrapper">
+      <header>
+        <a href="https://umhau.github.io/"> <h1>the notebook</h1> </a>
+        <!-- <h4>stuff worth documenting</h5> -->
+        <h4>memories of bygone projects</h4>
+        <hr>
+        <p class="view"><a href="https://github.com/umhau/umhau.github.io">github</a> | <a href="https://umhau.github.io/about">about</a> | <a href="https://umhau.github.io/explore">explore</a> | <a href="https://umhau.github.io/feed.xml">rss</a></p>
+        
+        <div id="categories">
+          <hr>
+          <h3>categories</h3>
+          <p><a href="https://umhau.github.io/explore/experiments">experiments</a></p>
+          <p><a href="https://umhau.github.io/explore/walkthroughs">walkthroughs</a></p>
+          <p><a href="https://umhau.github.io/explore/memos">memos</a></p>
+          <p><a href="https://umhau.github.io/explore/tools">tools</a></p>
+          <p><a href="https://umhau.github.io/explore/cheatsheets">cheatsheets</a></p>
+          <p><a href="https://umhau.github.io/explore/other">other</a></p>
+          <hr>
+
+        </div>
+
+      </header>
+      <section>
+
+      <div class="post">
+
+    <header class="post-header">
+        
+    <h1 class="post-title">QEMU and Windows</h1>
+    <p class="post-meta">Aug 22, 2021 • <a href="https://umhau.github.io/QEMU-under-Windows/">permalink</a>
+        <i>  • QEMU • virtualization • Linux • Windows</i> • <b>walkthroughs</b>
+    </p>
+    </header>
+
+    <article class="post-content">
+    <p>This is a quick lesson in how to use <a href="https://www.qemu.org/">QEMU</a>
+ for all your Windows VM hosting needs. Personally, I just want want a 
+linux box within easy reach of my Windows machine…this is a quick and 
+dirty way to do that.</p>
+
+<p>I’m using batch files (<code class="language-plaintext highlighter-rouge">.bat</code>) and commands for what follows. They’re what runs in <code class="language-plaintext highlighter-rouge">cmd.exe</code>, <em>not</em> powershell (though that might work too…).</p>
+
+<p>I’m also using powershell.</p>
+
+<h2 id="install-qemu">Install QEMU</h2>
+
+<p>Go to the <a href="https://www.qemu.org/download/#windows">QEMU site</a> and <a href="https://qemu.weilnetz.de/w64/">download</a> the Windows installer, then run it. It’s the <code class="language-plaintext highlighter-rouge">qemu-w64-setup-20210817.exe</code> file (as of writing) in case you’re wondering.  The installation will put a bunch of files in the <code class="language-plaintext highlighter-rouge">C:\Program Files\qemu\</code> directory.</p>
+
+<p>Once installed, add the QEMU installation location to the system path (this is temporary). (powershell only)</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">Path</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">";C:\Program Files\qemu"</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="create-the-qemu-disk-image">create the QEMU disk image</h2>
+
+<p>This is the ‘hard drive’ you’re installing the OS on. First you have 
+to make it, then you can use it. I’m putting this drive in a subfolder 
+of <code class="language-plaintext highlighter-rouge">My Documents</code> called <code class="language-plaintext highlighter-rouge">virtual_machines</code>.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="kd">Documents</span>
+<span class="nb">mkdir</span> <span class="kd">virtual_machines</span>
+<span class="nb">cd</span> <span class="kd">virtual_machines</span>
+<span class="nb">dir</span>
+<span class="s2">"C:\Program Files\qemu\qemu-img.exe"</span> <span class="kd">create</span> <span class="kd">void</span>.musl.img <span class="m">8</span><span class="kd">G</span>
+</code></pre></div></div>
+
+<h2 id="install-the-os">Install the OS</h2>
+
+<p>Download the OS installation disk - this can be the ‘CD’ or ‘DVD’ 
+version instead of the USB version, since it’ll be presented to the OS 
+as an optical disk.  Beware! This is a very long command.</p>
+
+<p>I’m using Void Linux for the guest OS, so the file is downloaded from <a href="https://alpha.de.repo.voidlinux.org/live/current/void-live-x86_64-musl-20210218.iso">here</a> (as of publication date - otherwise, go looking <a href="https://voidlinux.org/download/">here</a> for the latest version).  The name of the downloaded file is <code class="language-plaintext highlighter-rouge">void-live-x86_64-musl-20210218.iso</code>. Put it in the same folder where the virtual disks are.</p>
+
+<p>Note the hardcoded values in the command below: 2G of RAM; the VM’s name is <code class="language-plaintext highlighter-rouge">void_musl</code>; the name of the virtual disk file is <code class="language-plaintext highlighter-rouge">void.musl.img</code>. The values have been made consistent throughout this post, so copy-paste (shameful as that is) shouldn’t break.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">start</span> <span class="s2">"QEMU"</span> <span class="s2">"C:\Program Files\qemu\qemu-system-x86_64.exe"</span> <span class="na">-drive </span><span class="kd">file</span><span class="o">=</span><span class="kd">void</span>.musl.img<span class="o">,</span><span class="kd">index</span><span class="o">=</span><span class="m">0</span><span class="o">,</span><span class="kd">media</span><span class="o">=</span><span class="kd">disk</span><span class="o">,</span><span class="nb">format</span><span class="o">=</span><span class="kd">raw</span> <span class="na">-cdrom </span><span class="kd">void</span><span class="na">-live-x</span><span class="m">86</span>_64<span class="na">-musl</span><span class="o">-</span><span class="m">20210218</span>.iso <span class="na">-m </span><span class="m">2</span><span class="kd">G</span> <span class="na">-L </span><span class="kd">Bios</span> <span class="na">-usbdevice </span><span class="kd">mouse</span> <span class="na">-usbdevice </span><span class="kd">keyboard</span> <span class="na">-boot </span><span class="kd">menu</span><span class="o">=</span><span class="na">on</span> <span class="na">-rtc </span><span class="kd">base</span><span class="o">=</span><span class="kd">localtime</span><span class="o">,</span><span class="kd">clock</span><span class="o">=</span><span class="kd">host</span> <span class="na">-parallel </span><span class="kd">none</span> <span class="na">-serial </span><span class="kd">none</span> <span class="na">-name </span><span class="kd">void_musl</span> <span class="na">-no-acpi -no-hpet -no-reboot 
+</span></code></pre></div></div>
+
+<p>This will run the VM with a console (virtual monitor screen). To run it without that screen, use <code class="language-plaintext highlighter-rouge">qemu-system-x86_64w.exe</code> as the executable. (Note the <code class="language-plaintext highlighter-rouge">w</code>.)</p>
+
+<h2 id="run-the-vm">Run the VM</h2>
+
+<p>Once the VM has been set up, the day-to-day execution of the VM will 
+use a slightly different command from that last one: specifically, the 
+VM virtual HDD will be the boot disk, rather than the optical 
+installation disk.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">start</span> <span class="s2">"QEMU"</span> <span class="s2">"C:\Program Files\qemu\qemu-system-x86_64w.exe"</span> <span class="na">-drive </span><span class="kd">file</span><span class="o">=</span><span class="kd">void</span>.musl.img<span class="o">,</span><span class="kd">index</span><span class="o">=</span><span class="m">0</span><span class="o">,</span><span class="kd">media</span><span class="o">=</span><span class="kd">disk</span><span class="o">,</span><span class="nb">format</span><span class="o">=</span><span class="kd">raw</span> <span class="na">-m </span><span class="m">2</span><span class="kd">G</span> <span class="na">-L </span><span class="kd">Bios</span> <span class="na">-usbdevice </span><span class="kd">mouse</span> <span class="na">-usbdevice </span><span class="kd">keyboard</span> <span class="na">-boot </span><span class="kd">menu</span><span class="o">=</span><span class="na">on</span> <span class="na">-rtc </span><span class="kd">base</span><span class="o">=</span><span class="kd">localtime</span><span class="o">,</span><span class="kd">clock</span><span class="o">=</span><span class="kd">host</span> <span class="na">-parallel </span><span class="kd">none</span> <span class="na">-serial </span><span class="kd">none</span> <span class="na">-name </span><span class="kd">void_musl</span> <span class="na">-no-acpi -no-hpet -no-reboot -device </span><span class="kd">e1000</span><span class="o">,</span><span class="kd">netdev</span><span class="o">=</span><span class="kd">user</span>.0 <span class="na">-netdev </span><span class="kd">user</span><span class="o">,</span><span class="kd">id</span><span class="o">=</span><span class="kd">user</span>.0<span class="o">,</span><span class="kd">hostfwd</span><span class="o">=</span><span class="kd">tcp</span>::2222<span class="o">-</span>:22
+</code></pre></div></div>
+
+<p>Note that the last set of configs in the command will allow ssh access to the VM: ssh into <code class="language-plaintext highlighter-rouge">username@localhost:2222</code>.</p>
+
+<p>There’s also an accelleration option. https://dev.to/whaleshark271/using-qemu-on-windows-10-home-edition-4062</p>
+
+<p>When you’re ready to streamline it, create a file named <code class="language-plaintext highlighter-rouge">void.bat</code> and put it in the same <code class="language-plaintext highlighter-rouge">virtual_machines</code> folder as everything else. Inside, put the following:</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">start</span> <span class="s2">"QEMU"</span> <span class="s2">"C:\Program Files\qemu\qemu-system-x86_64w.exe"</span> <span class="na">-drive </span><span class="kd">file</span><span class="o">=</span><span class="kd">void</span>.musl.img<span class="o">,</span><span class="kd">index</span><span class="o">=</span><span class="m">0</span><span class="o">,</span><span class="kd">media</span><span class="o">=</span><span class="kd">disk</span><span class="o">,</span><span class="nb">format</span><span class="o">=</span><span class="kd">raw</span> <span class="na">-m </span><span class="m">2</span><span class="kd">G</span> <span class="na">-L </span><span class="kd">Bios</span> <span class="na">-usbdevice </span><span class="kd">mouse</span> <span class="na">-usbdevice </span><span class="kd">keyboard</span> <span class="na">-boot </span><span class="kd">menu</span><span class="o">=</span><span class="na">on</span> <span class="na">-rtc </span><span class="kd">base</span><span class="o">=</span><span class="kd">localtime</span><span class="o">,</span><span class="kd">clock</span><span class="o">=</span><span class="kd">host</span> <span class="na">-nographic -parallel </span><span class="kd">none</span> <span class="na">-serial </span><span class="kd">none</span> <span class="na">-name </span><span class="kd">void_musl</span> <span class="na">-no-acpi -no-hpet -no-reboot -device </span><span class="kd">e1000</span><span class="o">,</span><span class="kd">netdev</span><span class="o">=</span><span class="kd">user</span>.0 <span class="na">-netdev </span><span class="kd">user</span><span class="o">,</span><span class="kd">id</span><span class="o">=</span><span class="kd">user</span>.0<span class="o">,</span><span class="kd">hostfwd</span><span class="o">=</span><span class="kd">tcp</span>::2222<span class="o">-</span>:22
+</code></pre></div></div>
+
+<p>Save it, right click, and “ceate a shortcut”. Then put the shortcut 
+in your start menu, or on your desktop, or wherever. This will open the 
+virtual machine without graphical output (a display), but after a minute
+ or so, you’ll be able to get in with ssh! Pretty cool stuff.</p>
+
+<p>Just don’t open it twice. ;)</p>
+
+<h1 id="other-opinionated-examples">other opinionated examples</h1>
+
+<h2 id="alpine-linux">alpine linux</h2>
+
+<p>There’s a special ‘virtual’ <a href="https://alpinelinux.org/downloads/">version</a> of this OS, just for us. <code class="language-plaintext highlighter-rouge">&lt;3</code> <a href="https://dl-cdn.alpinelinux.org/alpine/v3.14/releases/x86_64/alpine-virt-3.14.2-x86_64.iso">Go get it.</a></p>
+
+<p>We don’t need a lot of space here, so don’t waste it. 1 GB should be enough.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="kd">Documents</span>
+<span class="nb">cd</span> <span class="kd">virtual_machines</span>
+<span class="s2">"C:\Program Files\qemu\qemu-img.exe"</span> <span class="kd">create</span> <span class="kd">alpine</span>.img <span class="m">1</span><span class="kd">G</span>
+</code></pre></div></div>
+
+<p>We’re also going easy on the RAM allocation: 128M instead of 2G.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">start</span> <span class="s2">"QEMU"</span> <span class="s2">"C:\Program Files\qemu\qemu-system-x86_64.exe"</span> <span class="se">^
+</span><span class="na">-drive </span><span class="kd">file</span><span class="o">=</span><span class="kd">alpine</span>.img<span class="o">,</span><span class="kd">index</span><span class="o">=</span><span class="m">0</span><span class="o">,</span><span class="kd">media</span><span class="o">=</span><span class="kd">disk</span><span class="o">,</span><span class="nb">format</span><span class="o">=</span><span class="kd">raw</span> <span class="se">^
+</span><span class="na">-cdrom </span><span class="kd">alpine</span><span class="na">-virt</span><span class="o">-</span><span class="m">3</span>.14.2<span class="na">-x</span><span class="m">86</span>_64.iso <span class="na">-m </span><span class="m">128</span> <span class="na">-L </span><span class="kd">Bios</span> <span class="se">^
+</span><span class="na">-usbdevice </span><span class="kd">mouse</span> <span class="na">-usbdevice </span><span class="kd">keyboard</span> <span class="na">-boot </span><span class="kd">menu</span><span class="o">=</span><span class="na">on</span> <span class="se">^
+</span><span class="na">-rtc </span><span class="kd">base</span><span class="o">=</span><span class="kd">localtime</span><span class="o">,</span><span class="kd">clock</span><span class="o">=</span><span class="kd">host</span> <span class="na">-parallel </span><span class="kd">none</span> <span class="na">-serial </span><span class="kd">none</span> <span class="na">-name </span><span class="kd">alpine</span> <span class="se">^
+</span><span class="na">-no-acpi -no-hpet -no-reboot 
+</span></code></pre></div></div>
+
+<p>Alpine has a thing where by default, it won’t let you ssh in as root 
+with a mere password. Boot the newly installed OS once with graphics 
+attached, then add another account that will let you ssh with a 
+password.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">start</span> <span class="s2">"QEMU"</span> <span class="s2">"C:\Program Files\qemu\qemu-system-x86_64.exe"</span> <span class="se">^
+</span><span class="na">-drive </span><span class="kd">file</span><span class="o">=</span><span class="kd">alpine</span>.img<span class="o">,</span><span class="kd">index</span><span class="o">=</span><span class="m">0</span><span class="o">,</span><span class="kd">media</span><span class="o">=</span><span class="kd">disk</span><span class="o">,</span><span class="nb">format</span><span class="o">=</span><span class="kd">raw</span> <span class="na">-m </span><span class="m">128</span> <span class="na">-L </span><span class="kd">Bios</span> <span class="se">^
+</span><span class="na">-usbdevice </span><span class="kd">mouse</span> <span class="na">-usbdevice </span><span class="kd">keyboard</span> <span class="na">-boot </span><span class="kd">menu</span><span class="o">=</span><span class="na">on</span> <span class="se">^
+</span><span class="na">-rtc </span><span class="kd">base</span><span class="o">=</span><span class="kd">localtime</span><span class="o">,</span><span class="kd">clock</span><span class="o">=</span><span class="kd">host</span> <span class="na">-parallel </span><span class="kd">none</span> <span class="na">-serial </span><span class="kd">none</span> <span class="na">-name </span><span class="kd">alpine</span> <span class="se">^
+</span><span class="na">-no-acpi -no-hpet -no-reboot -device </span><span class="kd">e1000</span><span class="o">,</span><span class="kd">netdev</span><span class="o">=</span><span class="kd">user</span>.0 <span class="se">^
+</span><span class="na">-netdev </span><span class="kd">user</span><span class="o">,</span><span class="kd">id</span><span class="o">=</span><span class="kd">user</span>.0<span class="o">,</span><span class="kd">hostfwd</span><span class="o">=</span><span class="kd">tcp</span>::2223<span class="o">-</span>:22
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adduser bob
+poweroff
+</code></pre></div></div>
+
+<p>Once that’s done, we don’t need the graphic output anymore. Put the following into an <code class="language-plaintext highlighter-rouge">alpine.headless.bat</code> file, just as with the void linux example above.  After that, you can create a shortcut that gets shoved anywhere you like.</p>
+
+<div class="language-batch highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">start</span> <span class="s2">"QEMU"</span> <span class="s2">"C:\Program Files\qemu\qemu-system-x86_64w.exe"</span> <span class="se">^
+</span><span class="na">-drive </span><span class="kd">file</span><span class="o">=</span><span class="kd">alpine</span>.img<span class="o">,</span><span class="kd">index</span><span class="o">=</span><span class="m">0</span><span class="o">,</span><span class="kd">media</span><span class="o">=</span><span class="kd">disk</span><span class="o">,</span><span class="nb">format</span><span class="o">=</span><span class="kd">raw</span> <span class="na">-m </span><span class="m">128</span> <span class="na">-L </span><span class="kd">Bios</span> <span class="se">^
+</span><span class="na">-usbdevice </span><span class="kd">mouse</span> <span class="na">-usbdevice </span><span class="kd">keyboard</span> <span class="na">-boot </span><span class="kd">menu</span><span class="o">=</span><span class="na">on</span> <span class="na">-nographic </span><span class="se">^
+</span><span class="na">-rtc </span><span class="kd">base</span><span class="o">=</span><span class="kd">localtime</span><span class="o">,</span><span class="kd">clock</span><span class="o">=</span><span class="kd">host</span> <span class="na">-parallel </span><span class="kd">none</span> <span class="na">-serial </span><span class="kd">none</span> <span class="na">-name </span><span class="kd">alpine</span> <span class="se">^
+</span><span class="na">-no-acpi -no-hpet -no-reboot -device </span><span class="kd">e1000</span><span class="o">,</span><span class="kd">netdev</span><span class="o">=</span><span class="kd">user</span>.0 <span class="se">^
+</span><span class="na">-netdev </span><span class="kd">user</span><span class="o">,</span><span class="kd">id</span><span class="o">=</span><span class="kd">user</span>.0<span class="o">,</span><span class="kd">hostfwd</span><span class="o">=</span><span class="kd">tcp</span>::2223<span class="o">-</span>:22
+</code></pre></div></div>
+
+<p>One trouble with the headless version is (big surprise…), there’s no 
+real indication (besides the the task manager) of whether it’s running 
+and if it’s finished turning on yet.</p>
+
+<p>Note that the ssh port is 2223 for this one.</p>
+
+<p>It looks like QEMU uses nearly a gigabyte of RAM for its overhead. 
+Kindof annoying, when I was hoping for a cheap, low-resource local VM.</p>
+
+<h2 id="raspberry-pi">raspberry pi</h2>
+
+<p>For that sweet, sweet Mathematica access, yo</p>
+
+<p>Grab the <a href="http://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip">raspbian image file</a>. Put it in the <code class="language-plaintext highlighter-rouge">Documents\virtual_machines</code> folder.</p>
+
+<p>It’s a little more complicated, since the disk image has to be manipulated by hand…but it’s still doable.</p>
+
+
+    </article>
+
+    <p class="extra-space"></p>
+    <hr>
+    <p class="extra-space"></p>
+
+</div>
+
+
+
+
+
+      </section>
+      <footer>
+        <!-- <p><small>Hosted on GitHub.</small></p> -->
+        <p><small>  </small></p>
+      </footer>
+    </box>
+    <script src="QEMU%20and%20Windows_files/scale.js"></script>
+
+
+  
+
+
+
+  
+
+</body></html>

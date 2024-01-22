@@ -1,0 +1,39 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\background\shell]
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\Bash]
+@="Open Linux Terminal Here"
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\Bash\command]
+@="wsl.exe --cd \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\cmd]
+@="@shell32.dll,-8506"
+"Extended"=""
+"HideBasedOnVelocityId"=dword:00639bc8
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\cmd\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\cmdprompt]
+@="@shell32.dll,-8506"
+"NoWorkingDirectory"=""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\cmdprompt\command]
+@="cmd.exe /s /k pushd \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\OpenElevatedCmd]
+@="Open command prompt here as administrator"
+"Icon"="imageres.dll,-5324"
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\OpenElevatedCmd\command]
+@="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k,pushd,%V' -Verb RunAs\""
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\PS]
+@="Open PowerShell Terminal Here"
+
+[HKEY_CLASSES_ROOT\Directory\background\shell\PS\command]
+@="powershell.exe -noexit -command Set-Location -literalPath '%V'"
+

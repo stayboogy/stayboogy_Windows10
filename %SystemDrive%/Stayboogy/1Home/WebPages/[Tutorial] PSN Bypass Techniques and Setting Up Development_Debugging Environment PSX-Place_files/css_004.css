@@ -1,0 +1,1476 @@
+@charset "UTF-8";
+
+/* --- EWRporta2_Global.css --- */
+
+.leftContainer { float: right; margin-left: -260px; width: 100%; }
+.leftContent { margin-left: 260px; }
+.leftSidebar { float: left; width: 250px; }
+
+.splitWidgets .section:first-child,
+.splitWidgets .sectionMain:first-child { margin-top: 0; }
+
+.sidebar.noFloats { float: none; width: auto !important; margin-bottom: 10px; }
+.sidebar.a-leftWidgets { float: left; width: 350px; }
+.sidebar.a-rightWidgets { margin-left: 360px; }
+.sidebar.b-leftWidgets { float: left; width: 350px; }
+.sidebar.b-rightWidgets { margin-left: 360px; }
+.sidebar.footerWidgets { clear: both; }
+/* clearfix */ .splitWidgets { zoom: 1; } .splitWidgets:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
+
+.copyright { text-align: center; font-size: 11px; margin: 10px; }
+
+
+	@media (max-width:800px)
+	{
+		.Responsive .leftContainer { float: none; margin: 0 auto; }
+		.Responsive .leftContent { margin-left: 0; }
+	}
+	@media (max-width:610px)
+	{
+		.Responsive .sidebar.b-leftWidgets { float: none; margin: 0 auto; }
+		.Responsive .sidebar.b-rightWidgets { margin-left: 0px; }
+	}
+
+
+/* --- bb_code.css --- */
+
+/* .bbCodeX classes are designed to exist inside .baseHtml. ie: they have no CSS reset applied */
+
+.bbCodeBlock
+{
+	margin: 1em 216px 1em 0;
+border: 1px solid #eeeeee;
+border-radius: 5px;
+overflow: auto;
+
+}
+
+	.bbCodeBlock .bbCodeBlock,
+	.hasJs .bbCodeBlock .bbCodeSpoilerText,
+	.messageList.withSidebar .bbCodeBlock
+	{
+		margin-right: 0;
+	}
+
+	/* mini CSS reset */
+	.bbCodeBlock pre,
+	.bbCodeBlock blockquote
+	{
+		margin: 0;
+	}
+	
+	.bbCodeBlock img
+	{
+		border: none;
+	}
+
+.bbCodeBlock .type
+{
+	font-size: 11px;
+font-family: Lato, Helvetica, sans-serif;
+color: rgb(20,20,20);
+background-color: rgb(226, 226, 226);
+padding: 3px 8px;
+border-bottom: 1px solid rgb(209, 209, 209);
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+
+}
+
+.bbCodeBlock pre,
+.bbCodeBlock .code
+{
+	font-size: 10pt;
+font-family: Consolas, 'Courier New', Courier, monospace;
+background: #f6f6f6 url('styles/nerva/xenforo/gradients/category-23px-light.png') repeat-x top;
+padding: 10px;
+border-radius: 5px;
+word-wrap: normal;
+overflow: auto;
+line-height: 1.24;
+min-height: 30px;
+max-height: 500px;
+_width: 600px;
+direction: ltr;
+
+}
+
+.bbCodeBlock .code
+{
+	white-space: nowrap;
+}
+
+.bbCodeQuote
+{
+	border-color: #f9d9b0;
+overflow: auto;
+
+}
+
+.bbCodeQuote .attribution
+{
+	color: rgb(20,20,20);
+background: #f9d9b0 url('styles/nerva/xenforo/gradients/form-button-white-25px.png') repeat-x top;
+border-bottom: 1px solid #f9bc6d;
+
+}
+
+.bbCodeQuote .quoteContainer
+{
+	overflow: hidden;
+	position: relative;
+	
+	font-style: italic;
+font-size: 9pt;
+background: #fff4e5 url('styles/nerva/xenforo/gradients/category-23px-light.png') repeat-x top;
+padding: 10px;
+border-radius: 4px;
+
+}
+
+
+	.bbCodeQuote .quoteContainer .quote
+	{
+		max-height: 150px;
+		overflow: hidden;
+		padding-bottom: 1px;
+	}
+	
+		.NoJs .bbCodeQuote .quoteContainer .quote
+		{
+			max-height: none;
+		}
+
+	.bbCodeQuote .quoteContainer .quoteExpand
+	{		
+		display: none;
+		box-sizing: border-box;
+		position: absolute;
+		height: 80px;
+		top: 90px;
+		left: 0;
+		right: 0;
+		
+		font-size: 11px;
+		line-height: 1;
+		text-align: center;
+		color: #f9bc6d;
+		cursor: pointer;
+		padding-top: 65px;
+		background: -webkit-linear-gradient(top, rgba(255, 244, 229, 0) 0%, #fff4e5 80%);
+		background: -moz-linear-gradient(top, rgba(255, 244, 229, 0) 0%, #fff4e5 80%);
+		background: -o-linear-gradient(top, rgba(255, 244, 229, 0) 0%, #fff4e5 80%);
+		background: linear-gradient(to bottom, rgba(255, 244, 229, 0) 0%, #fff4e5 80%);
+		
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+	
+	.bbCodeQuote .quoteContainer .quoteExpand.quoteCut
+	{
+		display: block;
+	}
+	
+	.bbCodeQuote .quoteContainer.expanded .quote
+	{
+		max-height: none;
+	}
+	
+	.bbCodeQuote .quoteContainer.expanded .quoteExpand
+	{
+		display: none;
+	}
+
+
+	.bbCodeQuote img
+	{
+		max-height: 150px;
+	}
+	
+	.bbCodeQuote iframe,
+	.bbCodeQuote .fb_iframe_widget,
+	.bbCodeQuote object,
+	.bbCodeQuote embed
+	{
+		max-width: 200px;
+		max-height: 150px;
+	}
+	
+	.bbCodeQuote iframe:-webkit-full-screen
+	{
+		max-width: none;
+		max-height: none;
+	}
+	
+	.bbCodeQuote iframe:-moz-full-screen
+	{
+		max-width: none;
+		max-height: none;
+	}
+	
+	.bbCodeQuote iframe:-ms-fullscreen
+	{
+		max-width: none;
+		max-height: none;
+	}
+	
+	.bbCodeQuote iframe:fullscreen
+	{
+		max-width: none;
+		max-height: none;
+	}
+	
+.bbCodeSpoilerButton
+{
+	margin: 5px 0;
+	max-width: 99%;
+}
+
+	.bbCodeSpoilerButton > span
+	{
+		display: inline-block;
+		max-width: 100%;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	
+.hasJs .bbCodeSpoilerText
+{
+	display: none;
+	background-color: #f6f6f6;
+padding: 5px;
+margin-top: 5px;
+margin-right: 216px;
+margin-bottom: 5px;
+border: 1px solid #eeeeee;
+border-radius: 5px;
+overflow: auto;
+
+}
+
+	.hasJs .bbCodeSpoilerText .bbCodeSpoilerText,
+	.hasJs .bbCodeSpoilerText .bbCodeBlock,
+	.hasJs .messageList.withSidebar .bbCodeSpoilerText
+	{
+		margin-right: 0;
+	}
+	
+.NoJs .bbCodeSpoilerContainer
+{
+	background-color: rgb(20,20,20); /* fallback for browsers without currentColor */
+	background-color: currentColor;
+}
+
+	.NoJs .bbCodeSpoilerContainer > .bbCodeSpoilerText
+	{
+		visibility: hidden;
+	}
+
+	.NoJs .bbCodeSpoilerContainer:hover
+	{
+		background-color: transparent;
+	}
+	
+		.NoJs .bbCodeSpoilerContainer:hover > .bbCodeSpoilerText
+		{
+			visibility: visible;
+		}
+
+
+@media (max-width:800px)
+{
+	.Responsive .bbCodeBlock,
+	.Responsive.hasJs .bbCodeSpoilerText
+	{
+		margin-right: 0;
+	}
+}
+
+
+/* --- bbcode_tabs.css --- */
+
+.tabsBb ul {
+	list-style: none;
+}
+
+.tabsBb ul.mainTabs {
+	border-bottom: 0;
+	background: transparent;
+	margin: 0 0 0 20px;
+}
+
+.tabsBb ul.tabs li.bbTab, .tabsBb ul.tabsContent li.bbTabContent {
+	list-style: none outside none;
+}
+
+.tabsBb ul.tabs li {
+	clear: none;
+	margin-right: 10px;
+}
+
+.tabsBb .tabs.mainTabs li.active a {
+	background: #ffffff;
+}
+
+.tabsBb .tabs.mainTabs li a {
+    font-weight: bold;
+    height: 22px;
+    line-height: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+
+
+.tabsBb ul.tabsContent {
+	border: rgb(209, 209, 209) 1px solid;
+	margin: -1px 0 0 10px;
+	padding: 10px;
+	border-top: rgb(209, 209, 209) 5px solid;
+}
+
+
+
+
+/* --- facebook.css --- */
+
+a.fbLogin,
+#loginBar a.fbLogin
+{
+	display: inline-block;
+	width: 180px;
+	height: 22px;
+	box-sizing: border-box;
+	cursor: pointer;
+	
+	background: #29447e url('styles/nerva/xenforo/connect_sprite.png');
+	background-repeat: no-repeat;
+	border-radius: 3px;
+	background-position: left -188px;
+	padding: 0px 0px 0px 1px;
+	outline: none;
+	
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 14px;
+}
+
+a.fbLogin:active,
+#loginBar a.fbLogin:active
+{
+	background-position: left -210px;
+}
+
+a.fbLogin:hover,
+#loginBar a.fbLogin:hover
+{
+	text-decoration: none;
+}
+
+	a.fbLogin span
+	{
+		background: #5f78ab url('styles/nerva/xenforo/connect_sprite.png');
+		border-top: solid 1px #879ac0;
+		border-bottom: solid 1px #1a356e;
+		display: block;
+		padding: 2px 4px 3px;
+		margin: 1px 1px 0px 21px;
+		text-shadow: none;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	a.fbLogin:active span
+	{
+		border-bottom: solid 1px #29447e;
+		border-top: solid 1px #45619d;
+		background: #4f6aa3;
+		text-shadow: none;
+	}
+
+/* --- ipbf_footerSocial.css --- */
+
+	/* IPBForo Social Links
+-------------------------------------------------- */
+.social {
+	position: relative;
+top: 30px;
+
+}
+
+.social a 
+{
+	font-size: 16px;
+color: #ffffff;
+background-color: rgb(39, 48, 55);
+padding: 10px;
+margin: 0 1px;
+border-radius: 4px;
+display: inline-block;
+line-height: 20px;
+text-align: center;
+width: 20px;
+height: 20px;
+
+}
+
+.social a:hover
+{
+	color: #fff;
+
+}
+.social a.facebook:hover      { background-color:#3b5998; }
+.social a.twitter:hover       { background-color:#47c0d8; }
+.social a.google-plus:hover   { background-color:#ce482b; }
+.social a.linkedin:hover      { background-color:#0073B2; }
+.social a.youtube:hover       { background-color:#b72d24; }
+.social a.flickr:hover       { background-color:#fe2997; }
+
+
+@media (max-width:800px)
+{
+	
+	.Responsive .social 
+	{
+		top: 10px;
+		text-align: center;
+	}
+	
+}
+@media (max-width:610px)
+{
+	.Responsive .social 
+	{
+		top: 10px;
+		text-align: center;
+	}
+}
+@media (max-width:480px)
+{
+	.Responsive .social 
+	{
+		top: 5px;
+		text-align: center;
+	}
+	
+}
+
+
+/* --- ipbf_footer_layouts.css --- */
+
+.ipbf_advancedFooter
+{
+	font-size: 13px;
+color: rgb(255, 255, 255);
+background: #37474F url('styles/nerva/_custom/ipbs_box_pattern.png') repeat;
+padding-top: 10px;
+padding-bottom: 10px;
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+display: block;
+overflow: hidden;
+line-height: 1.7;
+
+}
+.footerColumnContainer
+{
+	display: table;
+box-sizing: border-box;
+width: 100%;
+
+}
+.footerColumn
+{
+	padding: 0px 15px;
+display: table-cell;
+box-sizing: border-box;
+
+}
+.footer_col1 { 
+	width: 25%;
+		
+}
+.footer_col2 { 
+	width: 25%;
+		
+}
+.footer_col3 { 
+	width: 25%;
+		
+}
+.footer_col4 { 
+	width: 25%;
+		
+}
+
+.footerColumn p
+{
+	color: #cfd9e6;
+line-height: 1.7;
+display: flex;
+
+}
+.ipbf_advancedFooter h3
+{
+	font-size: 18px;
+color: #e5f2ff;
+margin: 0 auto 5px;
+font-weight: 300;
+text-transform: uppercase;
+
+}
+
+/* Typography - Dividers */
+.ipbf_advancedFooter .divider
+{
+    margin: 0 0 8px;
+border-top:  1px solid rgb(255,255,255); border-top:  1px solid rgba(255,255,255, 0.15); _border-top:  1px solid rgb(255,255,255);
+display: inline-block;
+width: 100%;
+
+}
+.divider:after 
+{
+	@property "ipbf_advancedFooterDividerAfter";
+	position:absolute;
+	display:inline;
+	content: "";
+	width:7%;
+	margin-top:-1px;
+	border-top: 1px solid #31c0be;
+	z-index:9;
+	@property "ipbf_advancedFooterDividerAfter";
+}
+.ipbf_advancedFooter .footerList li {
+	@property "ipbf_advancedFooterList";
+	border-bottom: 1px dashed #9db7c3;
+	@property "/ipbf_advancedFooterList";
+}
+.footerColumn ul.footerList li a
+{
+	@property "ipbf_advancedFooterLink";
+	color: #cfd9e6;
+	padding: 6px 0;
+	display: block;
+	@property "/ipbf_advancedFooterLink";
+}
+
+.footerColumn ul.footerList li a:hover
+{
+	@property "ipbf_advancedFooterLinkHover";
+	color: #eeeeee;
+	text-decoration: none;
+	@property "/ipbf_advancedFooterLinkHover";
+}
+.footerColumn ul.footerList li i
+{
+	@property "ipbf_advancedFooterLinkIcon";
+	color: #ffffff;
+	background-color: #31c0be;
+	padding: 10px 11px 10px 9px;
+	margin-right: 10px;
+	border-radius: 2px;
+	display: inline-table;
+	position: relative;
+	@property "/ipbf_advancedFooterLinkIcon";
+}
+.footerColumn ul.footerList li i:after {
+    top: 50%;
+    right: -12px;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-left-color: #31c0be;
+    border-width: 6px;
+    margin: -6px 0 0 0;
+}
+
+.footerLegal, .footerLegal a, .footerLegal .pairsInline dt, #copyright {
+    color: rgb(200,200,200);
+}
+
+
+@media (max-width:610px)
+{
+	.Responsive .ipbf_advancedFooter .footerColumn { width: 100% !important; display: block; float: none;}
+	.Responsive .ipbf_advancedFooter h3 { margin: 0 auto; padding: 10px 0;}
+	.Responsive .divider:after { width: 30%; }
+}
+
+@media (max-width:800px)
+{
+	.Responsive .ipbf_advancedFooter .footerColumn { width: 50%; display: block; float: left; }
+	.Responsive .ipbf_advancedFooter h3 { margin: 0 auto; padding: 10px 0;}
+	.Responsive .divider:after { width: 20%; }
+}
+@media (max-width:480px)
+{
+
+}
+
+
+/* --- likes_summary.css --- */
+
+.likesSummary
+{
+	overflow: hidden; zoom: 1;
+	font-size: 11px;
+}
+
+	.LikeText
+	{
+		float: left;
+	}
+	
+	.likeInfo
+	{
+		float: right;
+	}
+
+/* --- login_bar.css --- */
+
+/** Login bar basics **/
+
+#loginBar
+{
+	color: #f6f6f6;
+background-color: rgb(12, 12, 12);
+border-bottom: 1px solid rgb(43, 72, 92);
+position: relative;
+z-index: 1;
+
+}
+
+	#loginBar .ctrlWrapper
+	{
+		margin: 0 10px;
+	}
+
+	#loginBar .pageContent
+	{
+		padding-top: 0;
+		position: relative;
+		_height: 0px;
+	}
+
+	#loginBar a
+	{
+		color: #6cb2e4;
+
+	}
+
+	#loginBar form
+	{
+		padding: 5px 0;
+margin: 0 auto;
+display: none;
+line-height: 20px;
+position: relative;
+
+	}
+	
+		#loginBar .xenForm .ctrlUnit,		
+		#loginBar .xenForm .ctrlUnit > dt label
+		{
+			margin: 0;
+			border: none;
+		}
+	
+		#loginBar .xenForm .ctrlUnit > dd
+		{
+			position: relative;
+		}
+	
+	#loginBar .lostPassword,
+	#loginBar .lostPasswordLogin
+	{
+		font-size: 11px;
+	}
+	
+	#loginBar .rememberPassword
+	{
+		font-size: 11px;
+	}
+
+	#loginBar .textCtrl
+	{
+		color: #f6f6f6;
+background-color: rgb(43, 72, 92);
+border-color: #65a5d1;
+
+	}
+	
+	#loginBar .textCtrl[type=text]
+	{
+		font-weight: bold;
+font-size: 18px;
+
+	}
+
+	#loginBar .textCtrl:-webkit-autofill /* http://code.google.com/p/chromium/issues/detail?id=1334#c35 */
+	{
+		background: rgb(43, 72, 92) !important;
+		color: #f6f6f6;
+	}
+
+	#loginBar .textCtrl:focus
+	{
+		background: black none;
+
+	}
+	
+	#loginBar input.textCtrl.disabled
+	{
+		color: rgb(209, 209, 209);
+background-color: #032A46;
+border-style: dashed;
+
+	}
+	
+	#loginBar .button
+	{
+		min-width: 85px;
+		*width: 85px;
+	}
+	
+		#loginBar .button.primary
+		{
+			font-weight: bold;
+		}
+		
+/** changes when eAuth is present **/
+
+#loginBar form.eAuth
+{
+	-x-max-width: 700px; /* normal width + 170px */
+}
+
+	#loginBar form.eAuth .ctrlWrapper
+	{
+		border-right: 1px dotted rgb(39, 48, 55);
+		margin-right: 200px;
+		box-sizing: border-box;
+	}
+
+	#loginBar form.eAuth #eAuthUnit
+	{
+		position: absolute;
+		top: 0px;
+		right: 10px;
+	}
+
+		#eAuthUnit li
+		{
+			margin-top: 10px;
+			line-height: 0;
+		}
+	
+/** handle **/
+
+#loginBar #loginBarHandle
+{
+	font-size: 11px;
+color: #f6f6f6;
+background-color: #032A46;
+padding: 0 10px;
+margin-right: 20px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+position: absolute;
+right: 0px;
+bottom: -20px;
+text-align: center;
+z-index: 1;
+line-height: 20px;
+box-shadow: 0px 2px 5px #032A46;
+
+}
+
+
+@media (max-width:800px)
+{
+	.Responsive #loginBar form.eAuth .ctrlWrapper
+	{
+		border-right: none;
+		margin-right: 10px;
+	}
+
+	.Responsive #loginBar form.eAuth #eAuthUnit
+	{
+		position: static;
+		width: 180px;
+		margin: 0 auto 10px;
+	}
+}
+
+
+/* --- message.css --- */
+
+
+
+.messageList
+{
+	
+}
+
+.messageList .message
+{
+	padding-top: 10px;
+padding-bottom: 30px;
+border-top: 1px solid #eeeeee;
+
+}
+
+/* clearfix */ .messageList .message { zoom: 1; } .messageList .message:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
+
+/*** Message block ***/
+
+.message .messageInfo
+{
+	padding: 10px;
+margin-left: 216px;
+border-bottom: 1px none black;
+
+	zoom: 1;
+}
+
+	.message .newIndicator
+	{
+		font-size: 11px;
+color: rgb(39, 48, 55);
+background: #6cb2e4 url('styles/nerva/xenforo/gradients/form-button-white-25px.png') repeat-x top;
+padding: 1px 5px;
+margin: -5px -5px 5px 5px;
+border: 1px solid #6cb2e4;
+border-radius: 3px;
+border-top-right-radius: 0px;
+display: block;
+float: right;
+position: relative;
+box-shadow: 1px 1px 3px rgba(0,0,0, 0.25);
+
+		
+		margin-right: -17px;
+	}
+	
+		.message .newIndicator span
+		{
+			background-color: #6cb2e4;
+border-top-right-radius: 3px;
+position: absolute;
+top: -4px;
+right: -1px;
+width: 5px;
+height: 4px;
+
+		}
+
+	.message .messageContent
+	{
+		padding-bottom: 2px;
+min-height: 100px;
+overflow: hidden;
+*zoom: 1;
+
+	}
+	
+	.message .messageTextEndMarker
+	{
+		height: 0;
+		font-size: 0;
+		overflow: hidden;
+	}
+	
+	.message .editDate
+	{
+		text-align: right;
+		margin-top: 5px;
+		font-size: 11px;
+		color: rgb(150, 150, 150);
+	}
+
+	.message .signature
+	{
+		font-size: 9pt;
+color: rgb(150, 150, 150);
+padding: 5px 0 0;
+margin-top: 5px;
+border-top: 1px dashed rgb(209, 209, 209);
+
+	}
+
+	.message .messageMeta
+	{
+		font-size: 11px;
+padding: 15px 5px 5px;
+margin: -5px;
+overflow: hidden;
+zoom: 1;
+
+	}
+
+		.message .privateControls
+		{
+			float: left;
+
+		}
+
+		.message .publicControls
+		{
+			float: right;
+
+		}
+		
+			.message .privateControls .item
+			{
+				margin-right: 10px;
+				float: left;
+			}
+
+				.message .privateControls .item:last-child
+				{
+					margin-right: 0;
+				}
+
+			.message .publicControls .item
+			{
+				margin-left: 10px;
+				float: left;
+			}
+	
+				.message .messageMeta .control
+				{
+					
+				}
+				
+					.message .messageMeta .control:focus
+					{
+						
+					}
+				
+					.message .messageMeta .control:hover
+					{
+						
+					}
+				
+					.message .messageMeta .control:active
+					{
+						
+					}
+	/*** multiquote +/- ***/
+			
+	.message .publicControls .MultiQuoteControl
+	{
+		padding-left: 4px;
+		padding-right: 4px;
+		border-radius: 2px;
+		margin-left: 6px;
+		margin-right: -4px;
+	}
+	
+	
+	.message .publicControls .MultiQuoteControl.active
+	{
+		background-color: #eeeeee;
+	}
+	
+		.messageNotices li
+	{
+		font-size: 11px;
+background: #f9d9b0 url('styles/nerva/xenforo/gradients/form-button-white-25px.png') repeat-x top;
+padding: 5px;
+margin: 10px 0;
+border: 1px solid #f9d9b0;
+border-radius: 5px;
+line-height: 16px;
+
+	}
+	
+		.messageNotices .icon
+		{
+			float: right;
+			width: 16px;
+			height: 16px;
+			background: url('styles/nerva/xenforo/xenforo-ui-sprite.png') no-repeat 1000px 1000px;
+		}
+	
+			.messageNotices .warningNotice .icon { background-position: -48px -32px; }		
+			.messageNotices .deletedNotice .icon { background-position: -64px -32px; }		
+			.messageNotices .moderatedNotice .icon {background-position: -32px -16px; }
+	
+	.message .likesSummary
+	{
+		padding: 5px;
+margin-top: 10px;
+border: 1px solid #eeeeee;
+border-radius: 5px;
+
+	}
+	
+	.message .messageText > *:first-child
+	{
+		margin-top: 0;
+	}
+
+/* inline moderation changes */
+
+.InlineModChecked .messageUserBlock,
+.InlineModChecked .messageInfo,
+.InlineModChecked .messageNotices,
+.InlineModChecked .bbCodeBlock .type,
+.InlineModChecked .bbCodeBlock blockquote,
+.InlineModChecked .attachedFiles .attachedFilesHeader,
+.InlineModChecked .attachedFiles .attachmentList
+{
+	background: rgb(255, 255, 200) url('styles/nerva/xenforo/gradients/category-23px-light.png') repeat-x top;
+
+}
+
+.InlineModChecked .messageUserBlock div.avatarHolder,
+.InlineModChecked .messageUserBlock .extraUserInfo
+{
+	background: transparent;
+}
+
+.InlineModChecked .messageUserBlock .arrow span
+{
+	border-left-color: rgb(255, 255, 200);
+}
+
+/* message list */
+
+.messageList .newMessagesNotice
+{
+	margin: 10px auto;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px solid rgb(209, 209, 209);
+	background: #eeeeee url(styles/nerva/xenforo/gradients/category-23px-light.png) repeat-x top;
+	font-size: 11px;
+}
+
+/* deleted / ignored message placeholder */
+
+.messageList .message.placeholder
+{
+}
+
+.messageList .placeholder .placeholderContent
+{	
+	overflow: hidden; zoom: 1;
+	color: #65a5d1;
+	font-size: 11px;
+}
+
+	.messageList .placeholder a.avatar
+	{
+		float: left;
+		display: block;
+	}
+	
+		.messageList .placeholder a.avatar img
+		{
+			display: block;
+			width: 32px;
+			height: 32px;
+		}
+		
+	.messageList .placeholder .privateControls
+	{
+		margin-top: -5px;
+	}
+	
+
+/* messages remaining link */
+
+.postsRemaining a,
+a.postsRemaining
+{
+	font-size: 11px;
+	color: rgb(150, 150, 150);
+}
+
+
+@media (max-width:800px)
+{
+	.Responsive .message .newIndicator
+	{
+		margin-right: 0;
+		border-top-right-radius: 3px;
+	}
+	
+		.Responsive .message .newIndicator span
+		{
+			display: none;
+		}
+}
+
+@media (max-width:480px)
+{
+	.Responsive .message .messageInfo
+	{
+		margin-left: 0;
+		padding: 0 10px;
+	}
+
+	.Responsive .message .messageContent
+	{
+		min-height: 0;
+	}	
+
+	.Responsive .message .newIndicator
+	{
+		margin-right: -5px;
+		margin-top: -16px;
+	}
+
+	.Responsive .message .postNumber,
+	.Responsive .message .authorEnd
+	{
+		display: none;
+	}
+	
+	.Responsive .message .signature
+	{
+		display: none;
+	}
+	
+	.Responsive .messageList .placeholder a.avatar
+	{
+		margin-right: 10px;
+	}
+}
+
+
+/* --- message_user_info.css --- */
+
+.messageUserInfo
+{
+	float: left;
+width: 200px;
+
+}
+
+	.messageUserBlock
+	{
+		background-color: rgb(226, 226, 226);
+border: 1px solid rgb(226, 226, 226);
+border-radius: 5px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-khtml-border-radius: 3px;
+background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 50%, rgba(255, 255, 255, 0) 100%), -webkit-linear-gradient(top, #ECECEC 0%, #EAEAEA 10px, rgb(226, 226, 226) 50px);
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 50%, rgba(255, 255, 255, 0) 100%), linear-gradient(to bottom, #ECECEC 0%, #EAEAEA 10px, rgb(226, 226, 226) 50px);
+-webkit-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset, 0 0 3px 1px rgba(128, 128, 128, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 0.15), 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+-moz-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset, 0 0 3px 1px rgba(128, 128, 128, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 0.15), 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+-khtml-box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset, 0 0 3px 1px rgba(128, 128, 128, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 0.15), 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.5) inset, 0 0 3px 1px rgba(128, 128, 128, 0.1) inset, 1px 1px 3px rgba(0, 0, 0, 0.15), 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+
+		
+		position: relative;
+	}
+		
+		.messageUserBlock div.avatarHolder
+		{
+			background-color: #f6f6f6;
+padding: 10px 34px 10px 10px;
+border-radius: 4px;
+
+			
+			position: relative;	
+		}
+		
+			.messageUserBlock div.avatarHolder .avatar
+			{
+				display: block;
+				font-size: 0;
+			}
+			
+			.messageUserBlock div.avatarHolder .onlineMarker
+			{
+				position: absolute;
+				top: 9px;
+				left: 33px;
+				
+				border: 7px solid transparent;
+border-top-color: rgb(127, 185, 0);
+border-left-color: rgb(127, 185, 0);
+border-top-left-radius: 5px;
+border-top-right-radius: 3px;
+border-bottom-left-radius: 3px;
+
+			}
+			
+		.messageUserBlock h3.userText
+		{
+			padding: 6px;
+
+		}
+		
+		.messageUserBlock .userBanner
+		{
+			display: block;
+			margin-bottom: 5px;
+			margin-left: -12px;
+			margin-right: -12px;
+		}
+		
+		.messageUserBlock .userBanner:last-child
+		{
+			margin-bottom: 0;
+		}
+	
+		.messageUserBlock a.username
+		{
+			font-weight: bold;
+display: block;
+overflow: hidden;
+line-height: 16px;
+
+			
+		}
+		
+		.messageUserBlock .userTitle
+		{
+			font-size: 11px;
+display: block;
+
+		}
+		
+		.messageUserBlock .extraUserInfo
+		{
+			font-size: 10px;
+background-color: #f6f6f6;
+padding: 4px 6px;
+border-radius: 4px;
+
+		}
+		
+			.messageUserBlock .extraUserInfo dl
+			{
+				margin: 2px 0 0;
+			}
+							
+			.messageUserBlock .extraUserInfo img
+			{
+				max-width: 100%;
+			}
+		
+		.messageUserBlock .arrow
+		{
+			position: absolute;
+			top: 10px;
+			right: -10px;
+			
+			display: block;
+			width: 0px;
+			height: 0px;
+			line-height: 0px;
+			
+			border: 10px solid transparent;
+			border-left-color: rgb(226, 226, 226);
+			-moz-border-left-colors: rgb(226, 226, 226);
+			border-right: none;
+			
+			/* Hide from IE6 */
+			_display: none;
+		}
+		
+			.messageUserBlock .arrow span
+			{
+				position: absolute;
+				top: -10px;
+				left: -11px;
+				
+				display: block;
+				width: 0px;
+				height: 0px;
+				line-height: 0px;
+				
+				border: 10px solid transparent;
+				border-left-color: #f6f6f6;
+				-moz-border-left-colors: #f6f6f6;
+				border-right: none;
+			}
+
+
+@media (max-width:480px)
+{
+	.Responsive .messageUserInfo
+	{
+		float: none;
+		width: auto; 
+	}
+
+	.Responsive .messageUserBlock
+	{
+		overflow: hidden;
+		margin-bottom: 5px;
+		position: relative;
+	}
+
+	.Responsive .messageUserBlock div.avatarHolder
+	{
+		float: left;
+		padding: 5px;
+	}
+
+		.Responsive .messageUserBlock div.avatarHolder .avatar img
+		{
+			width: 48px;
+			height: 48px;
+		}
+		
+		.Responsive .messageUserBlock div.avatarHolder .onlineMarker
+		{
+			top: 4px;
+			left: 4px;
+			border-width: 6px;
+		}
+
+	.Responsive .messageUserBlock h3.userText
+	{
+		margin-left: 64px;
+	}
+	
+	.Responsive .messageUserBlock .userBanner
+	{
+		max-width: 150px;
+		margin-left: 0;
+		margin-right: 0;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		position: static;
+		display: inline-block;
+	}
+	
+		.Responsive .messageUserBlock .userBanner span
+		{
+			display: none;
+		}
+
+	.Responsive .messageUserBlock .extraUserInfo
+	{
+		display: none;
+	}
+
+	.Responsive .messageUserBlock .arrow
+	{
+		display: none;
+	}
+}
+
+
+/* --- share_page.css --- */
+
+.sharePage
+{
+}
+
+/* clearfix */ .sharePage { zoom: 1; } .sharePage:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
+
+	.sharePage .shareControl
+	{
+		float: left;
+	}
+	
+	.sharePage .tweet
+	{
+		margin-right: 30px;
+	}
+
+	.sharePage .facebookLike .label
+	{
+		font-size: 11px;
+		line-height: 24px;
+		float: left;
+		margin-right: 7px;
+		display: none;
+	}
+	
+	.sharePage iframe
+	{
+		height: 20px;
+	}
+	
+	.sharePage .facebookLike iframe
+	{
+		z-index: 52;
+	}
+	
+
+
+
+@media (max-width:480px)
+{
+	.Responsive .sharePage
+	{
+		display: none;
+	}
+}
+
+
+/* --- thread_view.css --- */
+
+.thread_view .threadAlerts
+{
+	border: 1px solid #eeeeee;
+	border-radius: 5px;
+	font-size: 11px;
+	margin: 10px 0;
+	padding: 5px;
+	line-height: 16px;
+	background-image: url('styles/nerva/xenforo/gradients/form-button-white-25px.png');
+}
+	
+	.thread_view .threadAlerts dt
+	{
+		color: #6cb2e4;
+		display: inline;
+	}
+	
+	.thread_view .threadAlerts dd
+	{
+		color: rgb(43, 72, 92);
+		font-weight: bold;
+		display: inline;
+	}
+	
+		.thread_view .threadAlerts .icon
+		{
+			float: right;
+			width: 16px;
+			height: 16px;
+			margin-left: 5px;
+			background: url('styles/nerva/xenforo/xenforo-ui-sprite.png') no-repeat -1000px -1000px;
+		}
+		
+			.thread_view .threadAlerts .deletedAlert .icon { background-position: -64px -32px; }
+			.thread_view .threadAlerts .moderatedAlert .icon { background-position: -32px -16px; }
+			.thread_view .threadAlerts .lockedAlert .icon { background-position: -16px -16px; }
+	
+.thread_view .threadAlerts + * > .messageList
+{
+	border-top: none;
+}
+
+.thread_view .threadNotices
+{
+	background-color: #f6f6f6;
+	border: 1px solid rgb(209, 209, 209);
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px auto;
+}
+
+.thread_view .InlineMod
+{
+	overflow: hidden; zoom: 1;
+}

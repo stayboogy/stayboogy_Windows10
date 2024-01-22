@@ -1,0 +1,14 @@
+
+.cf7-submit {
+  float: right;
+}
+
+.wpcf7 .screen-reader-response {
+  opacity: 0;
+}
+
+.wpcf7-response-output {
+  font-size: 1.8rem;
+  position:absolute;
+  top: -1rem;
+}

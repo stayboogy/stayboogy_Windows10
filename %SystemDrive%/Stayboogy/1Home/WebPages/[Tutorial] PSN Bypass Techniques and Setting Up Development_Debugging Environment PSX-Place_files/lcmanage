@@ -1,0 +1,1 @@
+try{var iqscript=document.createElement("script");iqscript.src="https://resources.infolinks.com/static/usync/iqusync-1.18.min.js";iqscript.setAttribute("data-ifbip","2933171310");document.body&&document.body.appendChild(iqscript)}catch(a){console.log(a.message)};

@@ -1,0 +1,134 @@
+/*  General  */
+
+html {
+    scroll-padding-top: 70px /* This allows on-page linked content to appear below fixed headers.  The value should be the height of the sticky header. */
+}
+
+
+
+
+
+/* List Page Navigation Interface - paginator phase 4 */
+
+div#listpage-navigation-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: minmax(50px, auto);
+}
+
+div#listpage-navigation-panel {
+    display: grid;
+    grid-template-areas: 
+        "left pagexofy right"
+        "left allpostlink right";
+    grid-template-columns: repeat(3, minmax(50px, 300px));
+    justify-items: stretch;
+}
+
+a#listpage-navigation-left {
+    grid-area: left;
+    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#listpage-navigation-pagexofy {
+    grid-area: pagexofy;
+    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#listpage-navigation-allpostlink {
+    grid-area: allpostlink;
+    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a#listpage-navigation-right {
+    grid-area: right;
+    text-align: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+/*  Overriding Bootstrap Formatting  */
+
+/*  Overriding Bootstrap Formatting  - Headings */
+
+h1, .h1 {
+    margin-top: 100px;
+}
+
+h2, .h2 {
+    margin-top: 80px;
+}
+
+h3, .h3 {
+    margin-top: 40px;
+}
+
+h4, .h4 {
+    margin-top: 40px;
+}
+
+h4#listpage-item {
+    margin-top: 10px;
+}
+
+h5 {
+    font-size: 16px;
+
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-block-start: 40px;
+    margin-block-end: 10px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+}
+
+/*  Overriding Bootstrap Formatting  - Miscellaneous */
+
+blockquote {
+    font-size: 15px;
+    font-style: italic;
+}
+
+ul ul {
+    margin-bottom: 10px;
+}
+
+label.form-label {
+    display: grid;
+    justify-items: baseline;
+    margin-top: 10px;
+}
+
+div.buffer {
+    margin-top: 10px;
+}
+
+button.buffer {
+    margin-top: 10px;
+}
+
+
+
+/*  TESTING  */
+
+/* * {
+    outline: 1px solid red !important;
+} */

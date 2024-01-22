@@ -1,0 +1,16 @@
+sudo apt install -y linux-image-amd64 live boot systemd-sysv firmware-linux-free firmware-misc-nonfree debootstrap xorriso isolinux syslinux-efi mtools build-essential wget git cmake acpi software-properties-common menu
+
+sudo apt install -y xorg xcompmgr openbox tint2 lightdm-gtk-greeter lightdm-gtk-greeter-settings xinit intel-media-va-driver-non-free intel-microcode intel-opencl-icd xserver-xorg-video-intel xserver-xorg-core ibverbs-providers xbacklight iucode-tool gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi libavcodec-extra ttf-mscorefonts-installer
+
+sudo apt install -y gnome-terminal gnome-disk-utility gedit gparted dosfstools exfat-utils grub-pc-bin grub-efi-amd64-bin grub-efi-ia32-bin grub-common
+
+sudo apt install -y thunar thunar-volman thunar-archive-plugin gvfs gvfs-backends gvfs-common gvfs-fuse gvfs-libs squashfs-tools fsarchiver rsync file-roller rar unrar mirage nitrogen bleachbit lxappearance
+
+sudo apt install -y gdebi synaptic network-manager-gnome network-manager net-tools wpasupplicant wireless-tools broadcom-sta-dkms broadcom-sta-common firmware-brcm80211 epiphany-browser pulseaudio volumeicon-alsa pavucontrol blueman bluez lxpolkit vlc timeshift tlp neofetch
+
+xfconf-query --channel thunar --property /misc-remember-geometry --create --type bool --set true
+xfconf-query --channel thunar --property /misc-exec-shell-scripts-by-default --create --type bool --set true
+
+sudo mv /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper-plugin.so /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper-plugin.bak
+
+

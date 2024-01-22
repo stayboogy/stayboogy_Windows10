@@ -1,0 +1,5 @@
+split -b 9M ./DeveloperLinuxLive-Installer.iso
+
+cat x* > DeveloperLinuxLive-Installer.iso
+
+

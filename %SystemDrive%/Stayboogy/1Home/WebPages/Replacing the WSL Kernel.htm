@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Replacing the WSL Kernel</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="Replacing%20the%20WSL%20Kernel_files/screen.css">
+
+    <meta name="description" content="Replacing the WSL kernel with a custom configuration">
+    <link rel="canonical" href="https://blog.dan.drown.org/replacing-the-wsl-kernel/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="https://blog.dan.drown.org/replacing-the-wsl-kernel/amp/">
+    
+    <meta property="og:site_name" content="Dan's notes">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Replacing the WSL Kernel">
+    <meta property="og:description" content="Replacing the WSL kernel with a custom configuration">
+    <meta property="og:url" content="https://blog.dan.drown.org/replacing-the-wsl-kernel/">
+    <meta property="article:published_time" content="2020-08-28T06:20:47.000Z">
+    <meta property="article:modified_time" content="2020-08-28T06:24:31.000Z">
+    <meta property="article:tag" content="wsl">
+    <meta property="article:tag" content="Linux">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Replacing the WSL Kernel">
+    <meta name="twitter:description" content="Replacing the WSL kernel with a custom configuration">
+    <meta name="twitter:url" content="https://blog.dan.drown.org/replacing-the-wsl-kernel/">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Dan Drown">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="wsl, Linux">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dan&#x27;s notes",
+        "url": "https://blog.dan.drown.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.dan.drown.org/content/images/2016/08/IMG_20160820_215114-25-1.jpg"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Dan Drown",
+        "url": "https://blog.dan.drown.org/author/dan/",
+        "sameAs": []
+    },
+    "headline": "Replacing the WSL Kernel",
+    "url": "https://blog.dan.drown.org/replacing-the-wsl-kernel/",
+    "datePublished": "2020-08-28T06:20:47.000Z",
+    "dateModified": "2020-08-28T06:24:31.000Z",
+    "keywords": "wsl, Linux",
+    "description": "Backstory\nI had a dual boot Windows/Fedora machine, and I wanted to be able to run the\nFedora install as a VM inside WSL.  To do this, I needed the physical disk\naccessible from the WSL kernel.  Since the WSL kernel has no access to physical\nhardware like that, I wanted to try using a nbd server on Windows and a nbd\nclient on Linux.\n\nDoes the default WSL kernel support nbd?\n\n$ zgrep NBD /proc/config.gz\n# CONFIG_BLK_DEV_NBD is not set\n\n\nThe answer is no, it does not.  You can, however, use your o",
+    "mainEntityOfPage": "https://blog.dan.drown.org/replacing-the-wsl-kernel/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.53">
+    <link rel="alternate" type="application/rss+xml" title="Dan's notes" href="https://blog.dan.drown.org/rss/">
+    
+    <script defer="defer" src="Replacing%20the%20WSL%20Kernel_files/sodo-search.js" data-key="4dbe03c6e5c4694deef8c69159" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://admin.blog.dan.drown.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.dan.drown.org/webmentions/receive/" rel="webmention">
+    <script defer="defer" src="Replacing%20the%20WSL%20Kernel_files/cards.js"></script><style>:root {--ghost-accent-color: #15171A;}</style>
+    <link rel="stylesheet" type="text/css" href="Replacing%20the%20WSL%20Kernel_files/cards.css">
+
+<style>.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    -webkit-animation: App-logo-spin infinite 20s linear;
+            animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGNBQWM7RUFDZCxvQkFBb0I7QUFDdEI7O0FBRUE7RUFDRTtJQUNFLG9EQUE0QztZQUE1Qyw0Q0FBNEM7RUFDOUM7QUFDRjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixpQkFBaUI7RUFDakIsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLDZCQUE2QjtFQUM3QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0U7SUFDRSwrQkFBdUI7WUFBdkIsdUJBQXVCO0VBQ3pCO0VBQ0E7SUFDRSxpQ0FBeUI7WUFBekIseUJBQXlCO0VBQzNCO0FBQ0Y7O0FBUEE7RUFDRTtJQUNFLCtCQUF1QjtZQUF2Qix1QkFBdUI7RUFDekI7RUFDQTtJQUNFLGlDQUF5QjtZQUF6Qix5QkFBeUI7RUFDM0I7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi5BcHAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5BcHAtbG9nbyB7XG4gIGhlaWdodDogNDB2bWluO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiBuby1wcmVmZXJlbmNlKSB7XG4gIC5BcHAtbG9nbyB7XG4gICAgYW5pbWF0aW9uOiBBcHAtbG9nby1zcGluIGluZmluaXRlIDIwcyBsaW5lYXI7XG4gIH1cbn1cblxuLkFwcC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xuICBtaW4taGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogY2FsYygxMHB4ICsgMnZtaW4pO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5BcHAtbGluayB7XG4gIGNvbG9yOiAjNjFkYWZiO1xufVxuXG5Aa2V5ZnJhbWVzIEFwcC1sb2dvLXNwaW4ge1xuICBmcm9tIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style></head>
+<body class="post-template tag-wsl tag-linux">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="https://blog.dan.drown.org/"><img src="Replacing%20the%20WSL%20Kernel_files/IMG_20160820_215114-25-1.jpg" alt="Dan's notes"></a>
+            <ul class="nav">
+    <li class="nav-home"><a href="https://blog.dan.drown.org/">Home</a></li>
+    <li class="nav-ntp"><a href="https://blog.dan.drown.org/tag/ntp/">NTP</a></li>
+    <li class="nav-router"><a href="https://blog.dan.drown.org/tag/router/">router</a></li>
+    <li class="nav-android"><a href="https://blog.dan.drown.org/tag/android/">android</a></li>
+</ul>
+
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+        </div>
+            <a class="rss-button" href="https://feedly.com/i/subscription/feed/https://blog.dan.drown.org/rss/" title="RSS" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="6.18" cy="17.82" r="2.18"></circle><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg>
+</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post tag-wsl tag-linux no-image no-image">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2020-08-28">28 August 2020</time>
+                        <span class="date-divider">/</span> <a href="https://blog.dan.drown.org/tag/wsl/">wsl</a>
+                </section>
+                <h1 class="post-full-title">Replacing the WSL Kernel</h1>
+            </header>
+
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <h3 id="backstory">Backstory</h3><p>I had a dual 
+boot Windows/Fedora machine, and I wanted to be able to run the Fedora 
+install as a VM inside WSL. &nbsp;To do this, I needed the physical disk
+ accessible from the WSL kernel. &nbsp;Since the WSL kernel has no 
+access to physical hardware like that, I wanted to try using a nbd 
+server on Windows and a nbd client on Linux.</p><p>Does the default WSL kernel support nbd?</p><!--kg-card-begin: markdown--><pre><code>$ zgrep NBD /proc/config.gz
+# CONFIG_BLK_DEV_NBD is not set
+</code></pre>
+<!--kg-card-end: markdown--><p>The answer is no, it does not. &nbsp;You can, however, use your own kernel.</p><h3 id="prep-work">Prep work</h3><p>Use git to check out this repo: <a href="https://github.com/microsoft/WSL2-Linux-Kernel?ref=blog.dan.drown.org">https://github.com/microsoft/WSL2-Linux-Kernel</a></p><p>I'm
+ using the linux-msft-4.19.128 tag, but it looks like there's a 5.4.x 
+branch as well. That repo has a file README-Microsoft.WSL2 with details 
+on what packages are needed. They have their default config in 
+Microsoft/config-wsl, which I turned on NBD support.</p><h3 id="gcc-version">gcc version</h3><p>I had tried compiling 4.19.121 on a system with gcc 10.2.1, and that got me a kernel that wouldn't boot. &nbsp;Looks like <a href="https://lwn.net/Articles/820974/?ref=blog.dan.drown.org">4.19.124</a> has some fixes for gcc 10. &nbsp;Building with gcc 9.3.0 worked.</p><h3 id="building-the-kernel">Building the kernel</h3><p>make -j4 KCONFIG_CONFIG=Microsoft/config-wsl</p><p>This
+ will produce the kernel (we need the vmlinux file) and modules. 
+&nbsp;You can change the 4 to match the number of cores you have.</p><h3 id="installing-the-kernel">Installing the kernel</h3><p>I put the kernel on my Windows partition:</p><!--kg-card-begin: markdown--><pre><code>mkdir /mnt/c/Users/myuser/kernel
+cp vmlinux /mnt/c/Users/myuser/kernel/vmlinux-4.19.128
+</code></pre>
+<!--kg-card-end: markdown--><p>And then I set the wsl config file to use it:</p><!--kg-card-begin: markdown--><blockquote>
+<p>c:\Users\myuser\.wslconfig</p>
+</blockquote>
+<pre><code>[wsl2]
+kernel=C:\\users\\myuser\\kernel\\vmlinux-4.19.128
+</code></pre>
+<!--kg-card-end: markdown--><p>The kernel path does need double \\</p><h3 id="running-the-kernel">Running the kernel</h3><p>I shutdown my WSL VMs with "wsl --shutdown", and then started them with the new kernel.</p><!--kg-card-begin: markdown--><pre><code>C:\Users\myuser&gt;wsl cat /proc/version
+Linux version 4.19.128-microsoft-standard+ (myuser@wsl) (gcc version 9.3.0 (Ubuntu 9.3.0-10ubuntu2)) #3 SMP Fri Aug 28 01:10:03 CDT 2020
+</code></pre>
+<!--kg-card-end: markdown--><p>And now it has nbd support!</p><!--kg-card-begin: markdown--><pre><code>$ zgrep NBD /proc/config.gz
+CONFIG_BLK_DEV_NBD=y</code></pre>
+<!--kg-card-end: markdown--><h3 id="final-thoughts">Final thoughts</h3><p>I had hoped to use cygwin to run nbd-server on Windows, but cygwin's pread does not work against physical drives, only files.</p><p>If you make your own kernel, remember to keep it up to date.</p>
+                </div>
+            </section>
+
+
+            <footer class="post-full-footer">
+
+
+                    
+<section class="author-card">
+        <span class="avatar-wrapper"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"></path></g></svg>
+</span>
+    <section class="author-card-content">
+        <h4 class="author-card-name"><a href="https://blog.dan.drown.org/author/dan/">Dan Drown</a></h4>
+            <p>Read <a href="https://blog.dan.drown.org/author/dan/">more posts</a> by this author.</p>
+    </section>
+</section>
+<div class="post-full-footer-right">
+    <a class="author-card-button" href="https://blog.dan.drown.org/author/dan/">Read More</a>
+</div>
+
+
+            </footer>
+
+
+        </article>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card">
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">— Dan's notes —</small>
+                        <h3 class="read-next-card-header-title"><a href="https://blog.dan.drown.org/tag/wsl/">wsl</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="https://blog.dan.drown.org/u2f-fido2-based-ssh-keys-on-windows/">U2F/Fido2 based SSH keys on Windows</a></li>
+                            <li><a href="https://blog.dan.drown.org/mounting-a-dedicated-disk-in-wsl2/">Mounting a dedicated disk in WSL2</a></li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="https://blog.dan.drown.org/tag/wsl/">See all 2 posts →</a>
+                    </footer>
+                </article>
+
+                <article class="post-card post tag-arduino tag-nrf52832 tag-bluetooth no-image no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="https://blog.dan.drown.org/bluetooth-low-energy-sensor/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">arduino</span>
+                <h2 class="post-card-title">Bluetooth Low Energy sensor</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>I have some ideas for a low power wireless sensor. &nbsp;I want something that will
+last more than a month on 2x rechargeable AA or AAA batteries. &nbsp;I first tried an
+esp8266 and</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Dan Drown
+                    </div>
+
+                        <a href="https://blog.dan.drown.org/author/dan/" class="static-avatar author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"></path></g></svg>
+</a>
+                </li>
+            </ul>
+
+            <span class="reading-time">4 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+                <article class="post-card post tag-teensy tag-arduino tag-arm tag-hardware-timestamps no-image no-image">
+
+
+    <div class="post-card-content">
+
+        <a class="post-card-content-link" href="https://blog.dan.drown.org/teensy-4-1-ethernet/">
+
+            <header class="post-card-header">
+                    <span class="post-card-tags">teensy</span>
+                <h2 class="post-card-title">Teensy 4.1 ethernet</h2>
+            </header>
+
+            <section class="post-card-excerpt">
+                <p>I'm a fan of the Teensy [https://www.pjrc.com/teensy/] line of microcontrollers.
+I have a whole pile of them for various projects. When I saw that 4.1 was
+combining a</p>
+            </section>
+
+        </a>
+
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Dan Drown
+                    </div>
+
+                        <a href="https://blog.dan.drown.org/author/dan/" class="static-avatar author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"></path></g></svg>
+</a>
+                </li>
+            </ul>
+
+            <span class="reading-time">3 min read</span>
+
+        </footer>
+
+    </div>
+
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://blog.dan.drown.org/">
+            <span>Dan's notes</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">—</span>
+    <div class="floating-header-title">Replacing the WSL Kernel</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"></path>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Replacing%20the%20WSL%20Kernel&amp;url=https://blog.dan.drown.org/replacing-the-wsl-kernel/" onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"></path></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.dan.drown.org/replacing-the-wsl-kernel/" onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"></path></svg>
+        </a>
+    </div>
+    <progress id="reading-progress" class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://blog.dan.drown.org/">Dan's notes</a> © 2023</section>
+                <nav class="site-footer-nav">
+                    <a href="https://blog.dan.drown.org/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+
+
+    <script src="Replacing%20the%20WSL%20Kernel_files/jquery-3.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="Replacing%20the%20WSL%20Kernel_files/jquery.js"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('#reading-progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+
+});
+</script>
+
+
+    <!-- You can safely delete this line if your theme does not require jQuery -->
+<script type="text/javascript" src="Replacing%20the%20WSL%20Kernel_files/jquery-1.js"></script>
+
+
+
+<div id="sodo-search-root"></div></body></html>

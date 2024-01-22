@@ -1,0 +1,4508 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+	
+	
+		
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+	
+		
+	
+	
+	
+		
+	
+
+
+<html id="XenForo" lang="en-US" dir="LTR" class="Public NoJs  LoggedOut NoSidebar  Responsive pageIsLtr   not_hasTabLinks  hasSearch   is-sidebarOpen hasRightSidebar is-setWidth navStyle_0 pageStyle_0 hasFlexbox" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+
+
+
+<script type="text/javascript">var tyche = { mode: 'tyche', config: '//config.playwire.com/1022816/v2/websites/70668/banner.json' };</script><script async type="text/javascript" id="tyche" src="//cdn.intergient.com/pageos/pageos.js"></script>
+
+
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	
+		<base href="https://sefemedical.com/" />
+		<script>
+			var _b = document.getElementsByTagName('base')[0], _bH = "https://sefemedical.com/";
+			if (_b && _b.href != _bH) _b.href = _bH;
+		</script>
+	
+
+	<title>sefemedical.com - The Independent Video Game Community</title>
+
+	
+	<link rel="stylesheet" href="css.php?css=xenforo,form,public&amp;style=11&amp;dir=LTR&amp;d=1613564126" />
+
+	<link rel="stylesheet" href="css.php?css=bbcode_tabs,facebook,gbatemp_portal,login_bar,resource_list_mini,twitter,uix_extendedFooter,xfa_blogs_nav&amp;style=11&amp;dir=LTR&amp;d=1613564126" />
+
+
+	<link rel="stylesheet" href="css.php?css=uix,uix_style&amp;style=11&amp;dir=LTR&amp;d=1613564126" />
+
+	<style>
+	/*** UIX -- PER USER STYLES ***/
+
+	
+
+	
+
+
+	
+
+</style>
+
+	<link rel="manifest" href="/manifest.json">
+
+	<link rel="stylesheet" href="css.php?css=EXTRA&amp;style=11&amp;dir=LTR&amp;d=1613564126" />
+
+	
+
+	<style>
+/* Node Styling */
+
+</style>
+
+	
+
+	
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2061983-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+	
+		gtag('config', 'UA-2061983-1', {
+			// <!-- slot: ga_config_start -->
+			
+			
+		});
+	</script>
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,700,600|News+Cycle:400,700' rel='stylesheet' type='text/css'>
+
+
+<script src="js/jquery/jquery-1.11.0.min.js"></script>
+
+
+
+<script src="js/xenforo/xenforo.js?_v=2f092203"></script>
+
+
+<style>
+.redi { background: red !important; }
+
+.bmedrecti { min-height: 250px !important; background: yellow !important;  border: 2px solid black !important; }
+.bleaderboardi { min-height: 100px !important; background: blue !important;  border: 2px solid black !important; }
+.amedrecti { min-height: 250px !important; background: red !important;  border: 2px solid black !important; }
+.aleaderboardi { min-height: 100px !important; background: purple !important; border: 2px solid black !important; }
+
+.bmedrectimob { min-height: 250px !important; background: yellow !important;  border: 2px solid pink !important; }
+.bleaderboardimob { min-height: 100px !important; background: blue !important;  border: 2px solid pink !important; }
+.amedrectimob { min-height: 250px !important; background: red !important;  border: 2px solid pink !important; }
+.aleaderboardimob { min-height: 100px !important; background: purple !important; border: 2px solid pink !important; }
+
+</style>
+
+<script>
+   
+function DEBUGADS() {
+	$("[data-pw-mobi!=''][data-pw-mobi]").show();
+	$("[data-pw-mobi!=''][data-pw-mobi]").addClass("redi").css("background", "red");
+	$("[data-pw-desk!=''][data-pw-desk]").show();
+	$("[data-pw-desk!=''][data-pw-desk]").addClass("redi").css("background", "red");
+
+	// Add sizes
+	$("[data-pw-mobi='med_rect_btf'][data-pw-mobi]").addClass("bmedrectimob");
+	$("[data-pw-desk='med_rect_btf'][data-pw-desk]").addClass("bmedrecti");
+	$("[data-pw-mobi='med_rect_atf'][data-pw-mobi]").addClass("amedrectimob");
+	$("[data-pw-desk='med_rect_atf'][data-pw-desk]").addClass("amedrecti");
+	$("[data-pw-mobi='leaderboard_atf'][data-pw-mobi]").addClass("aleaderboardimob");
+	$("[data-pw-desk='leaderboard_atf'][data-pw-desk]").addClass("aleaderboardi");
+	$("[data-pw-mobi='leaderboard_btf'][data-pw-mobi]").addClass("bleaderboardimob");
+	$("[data-pw-desk='leaderboard_btf'][data-pw-desk]").addClass("bleaderboardi");
+}
+   
+try {
+$(document).ready(function(){
+	$('.PageJump').each(function(){
+		this.firstChild.type="number";
+		this.firstChild.addEventListener('keydown', function(evt){
+			if (evt.keyCode == 13 || evt.keyCode == 9) { this.nextSibling.click() }
+		});
+		this.firstChild.nextSibling.addEventListener('click', function(){
+			var s = $('.PageNav').data('sentinel');
+			var b = $('.PageNav').data('baseurl');
+			var v = parseInt(this.previousSibling.value);
+			
+			if(v) window.location = b.replace(s, v).replace(escape(s), v);
+		});
+	});
+});
+} catch(e) {}
+</script>
+
+
+
+<script>
+	uix = {
+		elm: {},
+		fn:{},
+		init: function(){
+			if (uix.betaMode) {
+				console.group('uix.%cinit()', 'color:#3498DB');
+			}
+			for(var x=0;x<uix.events.init.length;x++){
+				uix.events.init[x]()
+		  	}
+		  	console.groupEnd('uix.%cinit()','color:#3498DB')
+		},
+	  	events: {init:[]},
+	  	on: function(event, fn){
+	  		if(event=='init'){
+	  			uix.events.init.push(fn)
+	  		}
+	  	},
+
+		betaMode				: parseInt('0'),
+		jsPathUsed				: 'uix_style',
+		jsGlobal				: parseInt('0'),
+
+
+	  	version					: '1.5.22.0',
+	  	jsHeadVersion				: '1.5.16.0a',
+	  	addonVersion				: '1010270',
+	  	jsCacheBust				: '2',
+	  	contentTemplate				: 'gbatemp_portal_index',
+
+		javascriptInitHide			: parseInt('0'),
+		globalPadding 				: parseInt('10px'),
+		sidebarWidth				: parseInt('300px'),
+		mainContainerMargin  	        	: '310px',
+		maxResponsiveWideWidth   		: parseInt('900px'),
+		maxResponsiveMediumWidth 		: parseInt('700px'),
+		maxResponsiveNarrowWidth 		: parseInt('600px'),
+		sidebarMaxResponsiveWidth		: parseInt('900px'),
+		
+			responsiveMessageBreakpoint		: parseInt('700px'),
+		
+		sidebarMaxResponsiveWidthStr		: '900px',
+
+		
+			offCanvasRightTriggerWidth	: parseInt('600px'),
+		
+
+		
+			offCanvasLeftTriggerWidth	: parseInt('600px'),
+		
+
+		
+			
+				offCanvasNavTriggerWidth	: parseInt('600px'),
+			
+		
+		
+			
+				offCanvasVisitorTriggerWidth	: parseInt('600px'),
+			
+		
+
+		offcanvasTriggerAnimationDuration	: parseInt('250ms'),
+
+
+
+
+		dropdownMenuAnimationSpeed		: parseInt('50ms'),
+		inlineAlertBalloons			: (parseInt('0') && !parseInt('0')) || parseInt('0'),
+
+		jumpToFixedDelayHide			: parseInt('1'),
+
+		stickyNavigationMinWidth 		: parseInt('0'),
+		stickyNavigationMinHeight		: parseInt('0'),
+		stickyNavigationMaxWidth 		: parseInt('0'),
+		stickyNavigationMaxHeight		: parseInt('0'),
+		stickyNavigationPortraitMinWidth 	: parseInt('0'),
+		stickyNavigationPortraitMinHeight	: parseInt('0'),
+		stickyNavigationPortraitMaxWidth 	: parseInt('0'),
+		stickyNavigationPortraitMaxHeight	: parseInt('0'),
+		stickySidebar 				: 0,
+		
+			sidebarInnerFloat		: "right",
+		
+		RTL					: 0,
+		stickyItems 				: {},
+		stickyGlobalMinimumPosition		: parseInt('200px'),
+		stickyGlobalScrollUp			: parseInt('0'),
+		stickyDisableIOSThirdParty		: parseInt('0'),
+		preventAlwaysSticky			: parseInt('0'),
+
+		searchMinimalSize			: parseInt('600px'),
+
+		searchPosition				: parseInt('2'),
+
+		nodeStyle				: parseInt('0'),
+		pageStyle				: parseInt('0'),
+
+		enableBorderCheck			: parseInt('0'),
+		enableULManager				: parseInt('0'),
+
+		threadSlidingAvatar			: parseInt('0'),
+		threadSlidingExtra			: parseInt('0'),
+		threadSlidingHover			: parseInt('0'),
+		threadSlidingStaffShow			: parseInt('0'),
+		threadSlidingGlobalEnable		: parseInt('1'),
+
+		signatureHidingEnabled			: parseInt('1'),
+		signatureHidingEnabledAddon		: parseInt('1'),
+		signatureMaxHeight			: parseInt('160px'),
+		signatureHoverEnabled			: parseInt('0'),
+
+		enableStickyFooter 			: parseInt('1'),
+		stickyFooterBottomOffset 		: parseInt('10px') * 2,
+
+		
+			sidebarStickyBottomOffset	: parseInt(0),
+		
+
+	  	
+			offCanvasSidebar			: 1,
+
+			
+				offCanvasSidebarVisitorTabs		: 1,
+			
+
+		
+
+		offcanvasLeftStatic			: 1 && parseInt('0') && parseInt('1'),
+		offcanvasRightStatic			: 0 && parseInt('0') && parseInt('1'),
+		offcanvasLeftStaticBreakpoint		: parseInt('1300px'),
+		offcanvasRightStaticBreakpoint		: parseInt('1300px'),
+
+		reinsertWelcomeBlock			: parseInt('0'),
+
+		sidebarCookieExpire			: '',
+		canCollapseSidebar			: '',
+
+		cookiePrefix				: 'xf_',
+		sidebarLocation 			: parseInt('0'),
+
+		collapsibleSidebar			: parseInt('1'),
+		collapsedNodesDefault			: '',
+		nodeGridCollapseEnabled			: parseInt('1'),			
+		widthToggleUpper			: '100%',
+		widthToggleLower			: '1300px',
+		
+			toggleWidthEnabled		: parseInt('1'),
+		
+		toggleWidthBreakpoint			: parseInt('1320'),
+		collapsibleNodes			: parseInt('1'),
+		collapsibleSticky			: parseInt('0'),
+		ajaxWidthToggleLink			: 'uix/toggle-width',
+		ajaxStickyThreadToggleLink		: 'uix/toggle-sticky-threads',
+		ajaxStickyThreadExpandLink		: 'uix/expand-sticky-threads',
+		ajaxStickyThreadCollapseLink		: 'uix/collapse-sticky-threads',
+		ajaxSidebarToggleLink			: 'uix/toggle-sidebar',
+
+		stickySidebarDelayInit			: parseInt('1'),
+		stickySidebarLegacy			: parseInt('0'),
+		stickySidebarDisableIOS			: parseInt('1'),
+
+		user					: {
+								'themeName'		: 'tempStyle 3',
+								'-themeParents'		: '11,10,0',
+								'-themeModified'	: '1613564126',
+								'-themeSelectable'	: '1',
+								languageName		: 'English (US)',
+								stickyEnableUserbar	: (parseInt('') == parseInt('')) ? parseInt('') : true,
+								stickyEnableNav		: (parseInt('') == parseInt('')) ? parseInt('') : true,
+								stickyEnableSidebar	: (parseInt('') == parseInt('')) ? parseInt('') : true,
+								widthToggleState	: (parseInt('0') == parseInt('0')) ? parseInt('0') : parseInt('0'),
+								stickyThreadsState	: (parseInt('') == parseInt('')) ? (parseInt('') > 0) : 0,
+								
+									sidebarState	: 0,
+								
+								
+									collapseUserInfo : 1,
+								
+								
+									signatureHiding : 1,
+								
+								isAdmin			: parseInt('0"')
+							}
+	};
+
+	if(uix.stickyNavigationMaxWidth == 0){uix.stickyNavigationMaxWidth = 999999}
+	if(uix.stickyNavigationMaxHeight == 0){uix.stickyNavigationMaxHeight = 999999}
+	if(uix.stickyNavigationPortraitMaxWidth == 0){uix.stickyNavigationPortraitMaxWidth = 999999}
+	if(uix.stickyNavigationPortraitMaxHeight == 0){uix.stickyNavigationPortraitMaxHeight = 999999}
+
+	
+		uix.stickyItems['#navigation'] = {normalHeight:parseInt('48'), stickyHeight:parseInt('48')}
+
+		var subElement = null;
+		
+			uix.stickyItems['#navigation'].options = {scrollSticky: uix.stickyGlobalScrollUp }
+		
+
+	
+
+	
+
+	$(document).ready(function(){
+
+	//put jquery code here
+
+
+});
+
+	uix.debug = function() {
+		result = "\n\n############============   Begin Copying Here   ============############\n\n";
+		result += "Error: the functions file was not found.";
+		result += "\n\n############============   End Copying Here   ============############\n\n";
+
+		uix.fixJsVisibility();
+
+		console.log(result);
+	}
+
+</script>
+
+<script src="js/audentio/uix_style/functions.min.js?_v=2f092203_1.5.22.0_2"></script>
+
+<script>
+	uix.adminJsError = function(errMsg) {
+		console.error(errMsg);
+
+		
+	}
+
+	uix.fixJsVisibility = function() {
+		var userBar = $('.hasJs #userBar');
+		var nodeList = $('.hasJs #forums, .hasJs .category_view .nodeList, .hasJs .watch_forums .nodeList');
+		var panels = $('.js-uix_panels')
+		if (userBar.length) userBar.css('display', 'block');
+		if (nodeList.length) nodeList.css('visibility', 'visible');
+		if (panels.length) $('.js-uix_panels').removeClass('needsInit');
+		$('html').removeClass('uix_javascriptNeedsInit');
+	}
+
+	uix.catchJsError = function(err) {
+		console.log("\n\n############============   Begin Copying Here   ============############\n\n")
+		var errMsg = "Uh Oh!  It looks like there's an error in your page's javascript.  There will likely be significant issues with the use of the forum until this is corrected.  If you are unable to resolve this and believe it is due to a bug in your Audentio Design theme, contact Audentio support and include a copy of the text between the designated areas from your javascript console.  This is the error: \n\n" + err ;
+		uix.fixJsVisibility();
+		uix.adminJsError(errMsg);
+		console.log("\n\n");
+		console.log(err);
+		console.log("\n\n");
+		try {
+			uix.debug(true);
+		} catch (err) {
+			console.log("Unable to include uix.debug();");
+		}
+
+		console.log("\n\n############============   End Copying Here   ============############\n\n");
+	}
+
+	$(document).ready(function(){
+		if (typeof(audentio) === 'undefined' || typeof(uix.jsVersion) === 'undefined') {
+			var errMsg = 'Uh Oh!  It looks like the javascript for your theme was not found in /js/audentio/uix_style/.\n\n';
+			if (uix.jsGlobal) {
+				errMsg += 'Your forum is set to use the same javascript directory for all your themes.  Consider disabling this or modifying the directory.  Options are located under Options > [UI.X] General.\n\n'
+			} else {
+				errMsg += 'Your theme has set the location of its javascript directory.  You may need to modify the javascript directory location style property located under [UI.X] Global Settings > Javascript Path.\n\n'
+			}
+			errMsg += 'If your files are in the directory specified, ensure that your file permissions allow them to be read.  There will likely be significant issues with the use of the forum until this is corrected.  If you are unable to resolve this, contact Audentio support.  This error has also been logged to the javascript console.';
+
+			uix.fixJsVisibility();
+
+			uix.adminJsError(errMsg);
+		} else if (uix.jsHeadVersion.split('_')[0] != uix.jsVersion.split('_')[0]) {
+			var errMsg = 'Uh Oh! It looks like the version of your javascript functions file does not match the version of your page_container_js_head template.  \n\nYour javascript functions file is version "' + uix.jsVersion + '". \nYour page_container_js_head is version "' + uix.jsHeadVersion + '".  \n\nIf your functions file version number is higher, ensure that you have merged all templates (especially page_container_js_head).  If your page_container_js_head version number is higher, ensure that you have correctly uploaded the latest version of the javascript functions file and that you have cleared anything that could cache an old version of the javascript (CDN / Cloudflare / etc.). \n\nThis issue could cause parts of your forum to not display or function correctly.  If this does not resolve the issue contact Audentio support.  This error has also been logged to the javascript console.';
+			
+			uix.fixJsVisibility();
+			
+			uix.adminJsError(errMsg);
+		}
+	});
+</script>
+
+<script>
+	try {
+		uix.dateHelper.phrase = {
+			now: 'now',
+			second: 's',
+			minute: 'm',
+			hour: 'h',
+			day: 'd',
+			week: 'w',
+			year: 'y',
+			century: 'c',
+			ago: '{time} ago',
+			future: 'in {time}'
+		}
+
+
+		uix.sticky.stickyMinDist = parseInt('50');
+
+		$(document).ready(function(){
+			try {
+				
+				
+
+				uix.initFunc();
+			} catch (err) {
+				uix.catchJsError(err);
+			}
+		});
+	} catch (err) {
+		uix.catchJsError(err);
+	}
+</script>
+
+
+	
+	
+
+	<link href="https://sefemedical.com/favicon.ico" rel="icon" type="image/x-icon" />
+	
+<link rel="apple-touch-icon" href="https://sefemedical.com/styles/ts2/tempy.png" />
+	<link rel="alternate" type="application/rss+xml" title="RSS feed for sefemedical.com - The Independent Video Game Community" href="forums/-/index.rss" />
+	
+	
+<script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"url": "https://sefemedical.com",
+	"name" : "GBAtemp"
+}</script>
+<link rel="canonical" href="https://sefemedical.com" />
+
+		<meta property="og:site_name" content="sefemedical.com - The Independent Video Game Community" />
+	<meta property="og:image" content="https://sefemedical.com/styles/ts2/tempy.png" />
+	
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://sefemedical.com/" />
+	<meta property="og:title" content="sefemedical.com - The Independent Video Game Community" />
+	
+	
+	<meta property="fb:app_id" content="305495069464531" />
+	<meta property="fb:admins" content="3337119825753" />
+
+		<meta name="description" content="GBAtemp is a user friendly independent video game community with millions of posts about 3DS and Nintendo DS, Wii and Wii U, Switch and other general consoles including PC gaming." />
+	
+<!-- Tapatalk Detect style start -->
+<style type="text/css">
+.ui-mobile [data-role="page"], .ui-mobile [data-role="dialog"], .ui-page
+{
+top:auto;
+}
+</style>
+<!-- Tapatalk Detect banner style end -->
+                    <link rel="manifest" href="os_manifest">
+
+
+
+	
+		<meta name="theme-color" content="rgb(42, 72, 120)">
+		<meta name="msapplication-TileColor" content="rgb(42, 72, 120)">
+	
+	
+	
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+</head>
+
+
+	
+	
+
+
+<body>
+
+	
+
+	
+		
+
+<div id="loginBar">
+	<div class="pageContent">
+		<span class="helper"></span>
+	</div>
+	<div class="pageWidth">
+
+		
+
+	</div>
+</div>
+	
+
+	
+		
+		<div class="js-uix_panels uix_panels ">
+			
+				
+
+<aside class="js-sidePanelWrapper sidePanelWrapper  sidePanelWrapper--left">
+	<a href="#" class="js-panelMask uix_panelMask"></a>
+	
+		<div class="sidePanel sidePanel--nav">
+			<nav>
+<ul class="sidePanel__navTabs">
+	
+							
+							<li id="logo_small" class="banner">
+								<a href="https://sefemedical.com/">
+								
+									<svg class="tempy" width="40" height="40">
+									  <image xlink:href="styles/ts3/tempy_reduced.svg" src="styles/ts3/tempy_reduced.png" width="40" height="40" />
+									</svg>
+									<svg class="logo_text" width="120" height="16">
+									  <image xlink:href="styles/ts3/gbatemp_text_only.svg" src="styles/ts3/gbatemp_text_only.png" width="120" height="16" />
+									</svg>
+								
+								</a>
+								
+							</li>
+							
+
+
+							<!-- home -->
+							
+
+
+								<!-- extra tabs: home -->
+								
+								
+									
+										
+											<li class="navTab home selected">
+												<a href="https://sefemedical.com/" class="navLink">Home</a>
+											</li>
+										
+									
+								
+								
+
+
+								<!-- forums -->
+								
+									
+										<li class="navTab forums ">
+											<a href="https://sefemedical.com/forums/" class="navLink">Forums</a>
+											<a href="https://sefemedical.com/forums/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+									
+													<ul class="secondaryContent blockLinksList">
+													
+														
+														<li><a href="search/?type=post">Search Forums</a></li>
+														
+														<li><a href="find-new/posts" rel="nofollow">Recent Posts</a></li>
+													
+													</ul>
+									
+											</div>
+										</li>
+								
+
+								<!-- extra tabs: middle -->
+								
+								
+									
+										
+											<li class="navTab siropuCustomTab custom-tab-1 ">
+								
+											<a href="/new/" class="navLink newTab">New</a>
+											<a href="/new/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+												<ul class="secondaryContent blockLinksList">
+	
+		
+			<li><a href="/new/" class="">All Content</a></li>
+		
+	
+		
+			<li><a href="/new/threads/" class="">New Threads</a></li>
+		
+	
+		
+			<li><a href="/new/blogs/" class="">New Blogs</a></li>
+		
+	
+		
+			<li><a href="/new/reviews/" class="">New Reviews</a></li>
+		
+	
+		
+			<li><a href="/new/questions/" class="">New Questions</a></li>
+		
+	
+</ul>
+											</div>
+										</li>
+										
+									
+								
+									
+										
+											<li class="navTab siropuCustomTab custom-tab-9 ">
+								
+											<a href="/tutorials/" class="navLink tutsTab">Tutorials</a>
+											<a href="/tutorials/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+												<ul class="secondaryContent blockLinksList">
+	
+		
+			<li><a href="/tutorials/" class="">All tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/switch-tutorials.289/" class="">Switch tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/3ds-tutorials.234/" class="">3DS tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/nds-tutorials.233/" class="">DS tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/wii-u-tutorials.265/" class="">Wii U tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/wii-tutorials.235/" class="">Wii tutorials</a></li>
+		
+	
+</ul>
+											</div>
+										</li>
+										
+									
+								
+									
+										
+											<li class="navTab siropuCustomTab custom-tab-10 ">
+								
+											<a href="/games/" class="navLink gcTab">Games</a>
+											<a href="/games/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+												<ul class="secondaryContent blockLinksList">
+	
+		
+			<li><a href="/platform/all/list/" class="">All games</a></li>
+		
+	
+		
+			<li><a href="/platform/list/" class="">All platforms</a></li>
+		
+	
+		
+			<li><a href="/platform/all/list/hottest/" class="">Hottest games</a></li>
+		
+	
+</ul>
+											</div>
+										</li>
+										
+									
+								
+									
+										
+											<li class="navTab reviews ">
+								
+											<a href="reviews/" class="navLink">Reviews</a>
+											<a href="reviews/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+												<ul class="secondaryContent blockLinksList">
+	<li><a href="reviews/">Overview</a></li>
+	
+	
+	
+</ul>
+											</div>
+										</li>
+										
+									
+								
+									
+										
+											<li class="navTab ask ">
+								
+											<a href="ask/" class="navLink">Ask!</a>
+											<a href="ask/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+												<ul class="secondaryContent blockLinksList">
+	<li><a href="ask/">Overview</a></li>
+	
+	<li><a href="ask/unanswered-questions">Unanswered Questions</a></li>
+	
+</ul>
+											</div>
+										</li>
+										
+									
+								
+									
+										
+											<li class="navTab resources ">
+								
+											<a href="https://sefemedical.com/download/" class="navLink">Downloads</a>
+											<a href="https://sefemedical.com/download/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+												<ul class="secondaryContent blockLinksList">
+	<li><a href="search/?type=resource_update">Search Files</a></li>
+	<li><a href="download/authors">Most Active Authors</a></li>
+	<li><a href="download/reviews">Latest Reviews</a></li>
+	
+	
+	
+</ul>
+											</div>
+										</li>
+										
+									
+								
+									
+										
+											<li class="navTab xfa-blogs ">
+								
+											<a href="blogs/" class="navLink">Blogs</a>
+											<a href="blogs/" class="SplitCtrl"><i class="uix_icon js-offcanvasIcon uix_icon-expandDropdown"></i></a>
+								
+											<div class="tabLinks">
+												<ul class="secondaryContent blockLinksList">
+	<li><a href="blogs/">Blogs Home Page</a></li>
+	
+</ul>
+											</div>
+										</li>
+										
+									
+								
+								
+
+								
+
+								<!-- extra tabs: end -->
+								
+								
+									
+										
+											<li class="navTab siropuCustomTab custom-tab-12 ">
+												<a href="https://wiki.sefemedical.com" class="navLink wikiTab" target="_blank">Wiki</a>
+											</li>
+										
+									
+									
+								
+								
+
+	
+</ul>
+</nav>
+		</div>
+	
+</aside>
+			
+			
+				
+
+<aside class="js-sidePanelWrapper sidePanelWrapper  sidePanelWrapper--right">
+	<a href="#" class="js-panelMask uix_panelMask"></a>
+	
+		
+			<div class="sidePanel sidePanel--login">
+				<form action="login/login" method="post" class="xenForm--uixLoginForm xenForm">
+
+	<dl class="ctrlUnit fullWidth">
+		<dt><label for="ctrl_pageLogin_login">Your name or email address:</label></dt>
+		<dd><input type="text" name="login" value="" id="ctrl_pageLogin_login" class="textCtrl uix_fixIOSClickInput" tabindex="21" /></dd>
+	</dl>
+
+	<dl class="ctrlUnit fullWidth">
+		<dt><label for="ctrl_pageLogin_password">Password:</label></dt>
+		<dd>
+			<input type="password" name="password" class="textCtrl uix_fixIOSClickInput" id="ctrl_pageLogin_password" tabindex="22" />
+			<div><a href="lost-password/" class="OverlayTrigger OverlayCloser" tabindex="26">Forgot your password?</a></div>
+		</dd>
+	</dl>
+
+	
+
+	<dl class="ctrlUnit submitUnit">
+		<dd>
+			<input type="submit" class="button primary" value="Log in" data-loginPhrase="Log in" data-signupPhrase="Sign up" tabindex="24" />
+			<label class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_pageLogin_remember" tabindex="23" /> Stay logged in</label>
+		</dd>
+	</dl>
+
+	
+	<dl class="ctrlUnit fullWidth">
+	
+
+	
+		
+		<dt></dt>
+		<dd><a href="register/facebook?reg=1" class="fbLogin" tabindex="210"><span>Log in with Facebook</span></a></dd>
+	
+
+	
+		
+		<dt></dt>
+		<dd><a href="register/twitter?reg=1" class="twitterLogin" tabindex="210"><span>Log in with Twitter</span></a></dd>
+	
+
+	
+
+	
+	</dl>
+	
+
+	<input type="hidden" name="cookie_check" value="1" />
+	<input type="hidden" name="_xfToken" value="" />
+	<input type="hidden" name="redirect" value="/" />
+	
+
+</form>
+			</div>
+		
+	
+</aside>
+			
+
+			<div class="mainPanelWrapper">
+				<a href="#" class="js-panelMask uix_panelMask"></a>
+
+	
+	
+	
+
+	
+
+<div class="uix_wrapperFix" style="height: 1px; margin-bottom: -1px;"></div>
+
+<div id="uix_wrapper">
+<div class="uix_wrapperFix" style="height: 1px; margin-bottom: -1px;"></div>
+
+<div id="headerMover">
+	<div id="headerProxy"></div>
+<header>
+	
+
+
+<div id="header">
+	
+
+	
+
+	
+		<div id="logoBlock" class="header__blockItem ">
+
+	
+	<div class="pageWidth">
+	
+
+		<div class="pageContent">
+
+		
+
+		
+		<div id="logo"><a title="sefemedical.com - The Independent Video Game Community" href="https://sefemedical.com/">
+			<span></span>
+			<img src="styles/ts3/complete_logo_new.svg" alt="sefemedical.com - The Independent Video Game Community" />
+			
+		</a></div>
+		
+
+		
+			
+		
+
+		<span class="helper"></span>
+		</div>
+	</div>
+</div>
+	
+
+	
+
+
+
+<div id="navigation" class="header__blockItem withSearch stickyTop no_adStyler ">
+	
+	<div id="navigation_sub" class="sticky_wrapper">
+		<div class="uix_navigationWrapper">
+		
+		<div class="pageWidth">
+		
+			<div class="pageContent">
+				<nav>
+					<div class="navTabs">
+						
+							<ul class="publicTabs navLeft">
+							
+
+
+
+
+
+	
+
+	
+		
+	
+
+
+	
+
+	
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<li class="navTab navTab--justIcon navTab--panelTrigger navTab--navPanelTrigger PopupClosed">
+		<a class="navLink js-leftPanelTrigger" href="#">
+			<i class="uix_icon uix_icon-menu"></i>
+		</a>
+	</li>
+
+
+
+							
+							<li id="logo_small" class="banner">
+								<a href="https://sefemedical.com/">
+								
+									<svg class="tempy" width="40" height="40">
+									  <image xlink:href="styles/ts3/tempy_reduced.svg" src="styles/ts3/tempy_reduced.png" width="40" height="40" />
+									</svg>
+									<svg class="logo_text" width="120" height="16">
+									  <image xlink:href="styles/ts3/gbatemp_text_only.svg" src="styles/ts3/gbatemp_text_only.png" width="120" height="16" />
+									</svg>
+								
+								</a>
+								
+							</li>
+							
+
+
+							<!-- home -->
+							
+
+
+								<!-- extra tabs: home -->
+								
+								
+									
+										
+											<li class="navTab home selected">
+												<a href="https://sefemedical.com/" class="navLink NoPopupGadget" rel="Menu">Home</a>
+												
+											</li>
+										
+									
+								
+								
+
+
+								<!-- forums -->
+								
+									
+										<li class="navTab forums  Popup PopupControl PopupClosed">
+											<a href="https://sefemedical.com/forums/" class="navLink NoPopupGadget" rel="Menu">Forums</a>
+											<a href="https://sefemedical.com/forums/" class="SplitCtrl" rel="Menu"></a>
+	
+											<div class="Menu JsOnly tabMenu forumsTabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="https://sefemedical.com/forums/">Forums</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+									
+													<ul class="secondaryContent blockLinksList">
+													
+														
+														<li><a href="search/?type=post">Search Forums</a></li>
+														
+														<li><a href="find-new/posts" rel="nofollow">Recent Posts</a></li>
+													
+													</ul>
+									
+													
+												
+									
+											</div>
+										</li>
+								
+
+								<!-- extra tabs: middle -->
+								
+								
+									
+										
+										<li class="navTab siropuCustomTab custom-tab-1  Popup PopupControl PopupClosed">
+	
+											<a href="/new/" class="navLink newTab">New</a>
+											<a href="/new/" class="SplitCtrl" rel="Menu"></a>
+											
+											<div class="Menu JsOnly tabMenu siropuCustomTab custom-tab-1TabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="/new/" class="navLink newTab">New</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+													<ul class="secondaryContent blockLinksList">
+	
+		
+			<li><a href="/new/" class="">All Content</a></li>
+		
+	
+		
+			<li><a href="/new/threads/" class="">New Threads</a></li>
+		
+	
+		
+			<li><a href="/new/blogs/" class="">New Blogs</a></li>
+		
+	
+		
+			<li><a href="/new/reviews/" class="">New Reviews</a></li>
+		
+	
+		
+			<li><a href="/new/questions/" class="">New Questions</a></li>
+		
+	
+</ul>
+													
+												
+											</div>
+										</li>
+										
+									
+								
+									
+										
+										<li class="navTab siropuCustomTab custom-tab-9  Popup PopupControl PopupClosed">
+	
+											<a href="/tutorials/" class="navLink tutsTab">Tutorials</a>
+											<a href="/tutorials/" class="SplitCtrl" rel="Menu"></a>
+											
+											<div class="Menu JsOnly tabMenu siropuCustomTab custom-tab-9TabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="/tutorials/" class="navLink tutsTab">Tutorials</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+													<ul class="secondaryContent blockLinksList">
+	
+		
+			<li><a href="/tutorials/" class="">All tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/switch-tutorials.289/" class="">Switch tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/3ds-tutorials.234/" class="">3DS tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/nds-tutorials.233/" class="">DS tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/wii-u-tutorials.265/" class="">Wii U tutorials</a></li>
+		
+	
+		
+			<li><a href="/forums/wii-tutorials.235/" class="">Wii tutorials</a></li>
+		
+	
+</ul>
+													
+												
+											</div>
+										</li>
+										
+									
+								
+									
+										
+										<li class="navTab siropuCustomTab custom-tab-10  Popup PopupControl PopupClosed">
+	
+											<a href="/games/" class="navLink gcTab">Games</a>
+											<a href="/games/" class="SplitCtrl" rel="Menu"></a>
+											
+											<div class="Menu JsOnly tabMenu siropuCustomTab custom-tab-10TabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="/games/" class="navLink gcTab">Games</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+													<ul class="secondaryContent blockLinksList">
+	
+		
+			<li><a href="/platform/all/list/" class="">All games</a></li>
+		
+	
+		
+			<li><a href="/platform/list/" class="">All platforms</a></li>
+		
+	
+		
+			<li><a href="/platform/all/list/hottest/" class="">Hottest games</a></li>
+		
+	
+</ul>
+													
+												
+											</div>
+										</li>
+										
+									
+								
+									
+										
+										<li class="navTab reviews  Popup PopupControl PopupClosed">
+	
+											<a href="reviews/" class="navLink NoPopupGadget" rel="Menu">Reviews</a>
+											<a href="reviews/" class="SplitCtrl" rel="Menu"></a>
+											
+											<div class="Menu JsOnly tabMenu reviewsTabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="reviews/">Reviews</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+													<ul class="secondaryContent blockLinksList">
+	<li><a href="reviews/">Overview</a></li>
+	
+	
+	
+</ul>
+													
+												
+											</div>
+										</li>
+										
+									
+								
+									
+										
+										<li class="navTab ask  Popup PopupControl PopupClosed">
+	
+											<a href="ask/" class="navLink NoPopupGadget" rel="Menu">Ask!</a>
+											<a href="ask/" class="SplitCtrl" rel="Menu"></a>
+											
+											<div class="Menu JsOnly tabMenu askTabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="ask/">Ask!</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+													<ul class="secondaryContent blockLinksList">
+	<li><a href="ask/">Overview</a></li>
+	
+	<li><a href="ask/unanswered-questions">Unanswered Questions</a></li>
+	
+</ul>
+													
+												
+											</div>
+										</li>
+										
+									
+								
+									
+										
+										<li class="navTab resources  Popup PopupControl PopupClosed">
+	
+											<a href="https://sefemedical.com/download/" class="navLink NoPopupGadget" rel="Menu">Downloads</a>
+											<a href="https://sefemedical.com/download/" class="SplitCtrl" rel="Menu"></a>
+											
+											<div class="Menu JsOnly tabMenu resourcesTabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="https://sefemedical.com/download/">Downloads</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+													<ul class="secondaryContent blockLinksList">
+	<li><a href="search/?type=resource_update">Search Files</a></li>
+	<li><a href="download/authors">Most Active Authors</a></li>
+	<li><a href="download/reviews">Latest Reviews</a></li>
+	
+	
+	
+</ul>
+													
+												
+											</div>
+										</li>
+										
+									
+								
+									
+										
+										<li class="navTab xfa-blogs  Popup PopupControl PopupClosed">
+	
+											<a href="blogs/" class="navLink NoPopupGadget" rel="Menu">Blogs</a>
+											<a href="blogs/" class="SplitCtrl" rel="Menu"></a>
+											
+											<div class="Menu JsOnly tabMenu xfa-blogsTabLinks">
+												
+													<div class="primaryContent menuHeader">
+														<h3><a href="blogs/">Blogs</a></h3>
+														<div class="muted">Quick Links</div>
+													</div>
+													<ul class="secondaryContent blockLinksList">
+	<li><a href="blogs/">Blogs Home Page</a></li>
+	
+</ul>
+													
+												
+											</div>
+										</li>
+										
+									
+								
+								
+
+								
+
+								<!-- extra tabs: end -->
+								
+								
+									
+										
+											<li class="navTab siropuCustomTab custom-tab-12 PopupClosed">
+												<a href="https://wiki.sefemedical.com" class="navLink wikiTab" target="_blank">Wiki</a>
+												
+											</li>
+										
+									
+									
+								
+								
+
+								<!-- responsive popup -->
+								<li class="navTab navigationHiddenTabs navTab--justIcon Popup PopupControl PopupClosed" style="display:none">
+
+									<a rel="Menu" class="navLink NoPopupGadget uix_dropdownDesktopMenu"><i class="uix_icon uix_icon-navOverflow"></i><span class="uix_hide menuIcon">Menu</span></a>
+
+									<div class="Menu JsOnly blockLinksList primaryContent" id="NavigationHiddenMenu"></div>
+								</li>
+
+								
+
+								
+
+							</ul>
+
+							
+
+								<ul class="navRight visitorTabs">
+
+								
+
+									
+
+									
+									
+									
+										
+
+		<li class="navTab uix_searchTab">
+
+			
+
+<div id="searchBar" class="hasSearchButton">
+	
+	<i id="QuickSearchPlaceholder" class="uix_icon uix_icon-search" title="Search"></i>
+
+	
+
+
+	<fieldset id="QuickSearch">
+		<form action="search/search" method="post" class="formPopup">
+
+			<div class="primaryControls">
+				<!-- block: primaryControls -->
+				<i class="uix_icon uix_icon-search" onclick='$("#QuickSearch form").submit()'></i>
+				<input type="search" name="keywords" value="" class="textCtrl" placeholder="Search..." results="0" title="Enter your search and hit enter" id="QuickSearchQuery" />
+				<!-- end block: primaryControls -->
+			</div>
+
+			<div class="secondaryControls">
+				<div class="controlsWrapper">
+
+					<!-- block: secondaryControls -->
+					<dl class="ctrlUnit">
+						<dt></dt>
+						<dd><ul>
+							<li><label><input type="checkbox" name="title_only" value="1"
+								id="search_bar_title_only" class="AutoChecker"
+								data-uncheck="#search_bar_thread" /> Search titles only</label></li>
+						</ul></dd>
+					</dl>
+
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_users">Posted by Member:</label></dt>
+						<dd>
+							<input type="text" name="users" value="" class="textCtrl AutoComplete" id="searchBar_users" />
+							<p class="explain">Separate names with a comma.</p>
+						</dd>
+					</dl>
+
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_date">Newer Than:</label></dt>
+						<dd><input type="date" name="date" value="" class="textCtrl" id="searchBar_date" /></dd>
+					</dl>
+
+					
+				</div>
+				<!-- end block: secondaryControls -->
+
+				<dl class="ctrlUnit submitUnit">
+					<dt></dt>
+					<dd>
+						<input type="submit" value="Search" class="button primary Tooltip" title="Find Now" />
+						<a href="search/" class="button moreOptions Tooltip" title="Advanced Search">More...</a>
+						<div class="Popup" id="commonSearches">
+							<a rel="Menu" class="button NoPopupGadget Tooltip" title="Useful Searches" data-tipclass="flipped"><span class="arrowWidget"></span></a>
+							<div class="Menu">
+								<div class="primaryContent menuHeader">
+									<h3>Useful Searches</h3>
+								</div>
+								<ul class="secondaryContent blockLinksList">
+									<!-- block: useful_searches -->
+									<li><a href="find-new/posts?recent=1" rel="nofollow">Recent Posts</a></li>
+									
+									<!-- end block: useful_searches -->
+								</ul>
+							</div>
+						</div>
+					</dd>
+				</dl>
+
+			</div>
+
+			<input type="hidden" name="_xfToken" value="" />
+		</form>
+	</fieldset>
+	
+
+</div>
+		</li>
+
+
+									
+									
+									
+										
+									
+
+									
+										
+
+	<li class="navTab login PopupClosed">
+		
+			<a href="login/" class="navLink uix_dropdownDesktopMenu OverlayTrigger" data-cacheOverlay="false">
+				<i class="uix_icon uix_icon-signIn"></i> 
+				<strong class="loginText desktopOnly">Log in</strong>
+			</a>
+		
+
+		
+
+	</li>
+
+	
+	<li class="navTab register PopupClosed">
+		<a href="register/" class="navLink desktopOnly">
+			<i class="uix_icon uix_icon-register"></i> 
+			<strong>Sign up</strong>
+		</a>
+	</li>
+	
+
+
+									
+
+									
+
+									
+
+
+
+
+
+	
+
+	
+		
+	
+
+
+	
+
+	
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+									
+
+								
+
+								</ul>
+
+							
+
+							
+								
+
+	
+
+	<div id="uix_searchMinimal">
+		<form action="search/search" method="post">
+			<i id="uix_searchMinimalClose" class="uix_icon uix_icon-close"  title="Close"></i>
+			<i id="uix_searchMinimalOptions" class="uix_icon uix_icon-cog" title="Options"></i>
+			<div id="uix_searchMinimalInput" >
+				<input type="search" name="keywords" value="" placeholder="Search..." results="0" />
+			</div>
+			<input type="hidden" name="_xfToken" value="" />
+		</form>
+	</div>
+
+
+
+
+
+							
+
+
+						
+					</div>
+
+				<span class="helper"></span>
+
+				</nav>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+	
+</div>
+
+	
+	
+</header>
+	
+
+	
+<div id="content" class="gbatemp_portal_index">
+	
+	<div class="pageWidth">
+		<div class="pageContent" ">
+	
+			<!-- main content area -->
+
+			
+
+			
+
+			
+			
+			<div class="breadBoxTop  ">
+				
+				
+
+<nav>
+
+	
+
+	
+
+	<fieldset class="breadcrumb">
+		<a href="/#footer" class="iconItem" title="jump_to_bottom"><i class="uix_icon uix_icon-jumpToBottom"></i><!-- ... --></a>
+		<a id="mobileSubMenu" href="#" class="iconItem JsOnly ToggleTrigger mobileOnly" data-target=".linkGroup,.InlineModCheck.item,.InlineModCheck" title="Toggle extra page tools and info"><i class="uix_icon uix_icon-ellipsis-v"></i><!-- ... --></a>
+		<a href="misc/quick-navigation-menu" class="OverlayTrigger jumpMenuTrigger" data-cacheOverlay="true" title="Open quick navigation"><i class="uix_icon uix_icon-sitemap"></i><!--Jump to...--></a>
+
+		<div class="boardTitle"><strong>sefemedical.com - The Independent Video Game Community</strong></div>
+
+		<span class="crumbs">
+			
+
+			
+				<span class="crust selectedTabCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+					<a href="https://sefemedical.com/" class="crumb" rel="up" itemprop="url"><span itemprop="title">Home</span></a>
+					<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+				</span>
+			
+
+			
+		</span>
+	</fieldset>
+</nav>
+				
+			</div>
+			
+			
+
+			
+
+			
+
+			
+
+			
+
+
+	
+	
+	
+	
+	
+
+	
+
+
+	
+
+			
+				<div class="mainContainer_noSidebar">
+			
+					<div class="mainContent">
+					
+						
+						
+						<!--[if lt IE 8]>
+							<p class="importantMessage">You are using an out of date browser. It  may not display this or other websites correctly.<br />You should upgrade or use an <a href="https://www.google.com/chrome/browser/" target="_blank">alternative browser</a>.</p>
+						<![endif]-->
+
+						
+						
+						
+	
+
+	
+
+
+						
+						
+
+						
+
+						
+
+						
+							
+						
+						
+
+						
+
+						<!-- main template -->
+						
+
+
+
+
+
+
+
+
+
+
+	
+
+
+<div id="gbatemp_portal" class="withSidebar">
+
+	<div id="gbatemp_portal_header">
+		
+			
+
+<ul id="portal_left_navigation">
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/nintendo-switch-discussions.282/" rel="Menu">Nintendo Switch</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/switch-games-content.283/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/switch-console-accessories-hardware.284/">Console, Accessories &amp; Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/switch-exploits-custom-firmwares-soft-mods.285/">Exploits, Custom Firmwares &amp; Soft Mods</a>
+								</li>
+							
+								<li>
+									<a href="forums/switch-emulation-homebrew-software-projects.292/">Emulation, Homebrew &amp; Software Projects</a>
+								</li>
+							
+								<li>
+									<a href="forums/switch-backup-loaders-modchips.293/">Backup Loaders &amp; Modchips</a>
+								</li>
+							
+								<li>
+									<a href="forums/switch-rom-hacking-saves-translations-tools.294/">ROM Hacking, Saves, Translations &amp; Tools</a>
+								</li>
+							
+								<li>
+									<a href="forums/switch-tutorials.289/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/nintendo-wii-u-discussions.244/" rel="Menu">Nintendo Wii U</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/wii-u-games-content.245/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-u-console-accessories-and-hardware.247/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-u-homebrew.281/">Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-u-hacking-backup-loaders.248/">Hacking &amp; Backup Loaders</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-u-emulation-cemu.280/">Emulation &amp; CEMU</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-u-nintendo-network.249/">Nintendo Network</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-u-tutorials.265/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/nintendo-3ds-discussions.198/" rel="Menu">Nintendo 3DS</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/3ds-games-content.199/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/3ds-console-accessories-and-hardware.200/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/3ds-homebrew-development-and-emulators.275/">Homebrew Development and Emulators</a>
+								</li>
+							
+								<li>
+									<a href="forums/3ds-flashcards-custom-firmwares.201/">Flashcards &amp; Custom Firmwares</a>
+								</li>
+							
+								<li>
+									<a href="forums/3ds-hacks-translations-and-utilities.296/">Hacks, Translations and Utilities</a>
+								</li>
+							
+								<li>
+									<a href="forums/3ds-nintendo-network.242/">Nintendo Network</a>
+								</li>
+							
+								<li>
+									<a href="forums/3ds-tutorials.234/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/nintendo-ds-discussions.37/" rel="Menu">Nintendo DS</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/nds-console-and-game-discussions.27/">Console and Game Discussions</a>
+								</li>
+							
+								<li>
+									<a href="forums/nds-flashcarts-and-accessories.40/">Flashcarts and Accessories</a>
+								</li>
+							
+								<li>
+									<a href="forums/nds-rom-hacking-and-translations.41/">ROM Hacking and Translations</a>
+								</li>
+							
+								<li>
+									<a href="forums/nds-nintendo-wi-fi-connection.58/">Nintendo Wi-Fi Connection</a>
+								</li>
+							
+								<li>
+									<a href="forums/nds-emulation-and-homebrew.177/">Emulation and Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/nds-tutorials.233/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/nintendo-wii-discussions.104/" rel="Menu">Nintendo Wii</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/wii-console-and-game-discussions.105/">Console and Game Discussions</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-hardware-devices-and-utilities.107/">Hardware, Devices and Utilities</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-hacking.108/">Hacking</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-backup-loaders.190/">Backup Loaders</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-nintendo-wi-fi-connection.109/">Nintendo Wi-Fi Connection</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-emulation-and-homebrew.179/">Emulation and Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/wii-tutorials.235/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/computer-technology-and-gaming.272/" rel="Menu">PC/Computers</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/computer-games-and-general-discussion.166/">Computer Games and General Discussion</a>
+								</li>
+							
+								<li>
+									<a href="forums/computer-programming-emulation-and-game-modding.268/">Computer Programming, Emulation, and Game Modding</a>
+								</li>
+							
+								<li>
+									<a href="forums/computer-software-and-operating-systems.269/">Computer Software and Operating Systems</a>
+								</li>
+							
+								<li>
+									<a href="forums/computer-hardware-devices-and-accessories.270/">Computer Hardware, Devices and Accessories</a>
+								</li>
+							
+								<li>
+									<a href="forums/computer-tutorials.271/">Computer Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/sony-playstation-4-discussions.250/" rel="Menu">Sony PlayStation 4</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/ps4-games-content.251/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps4-console-accessories-and-hardware.258/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps4-hacking-homebrew.279/">Hacking &amp; Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps4-tutorials.260/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/sony-playstation-3-discussions.218/" rel="Menu">Sony PlayStation 3</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/ps3-games-content.219/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps3-console-accessories-and-hardware.220/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps3-hacking-homebrew.221/">Hacking &amp; Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps3-tutorials.238/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/sony-psp-discussions.222/" rel="Menu">Sony PSP</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/psp-games-content.44/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/psp-console-accessories-and-hardware.223/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/psp-hacking-homebrew.224/">Hacking &amp; Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/psp-scene-releases.196/">Scene Releases</a>
+								</li>
+							
+								<li>
+									<a href="forums/psp-tutorials.236/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/sony-ps-vita-discussions.214/" rel="Menu">Sony PS Vita</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/ps-vita-games-content.215/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps-vita-console-accessories-and-hardware.216/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps-vita-hacking-homebrew.217/">Hacking &amp; Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/ps-vita-tutorials.237/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/microsoft-xbox-one-discussions.252/" rel="Menu">Microsoft Xbox One</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/xbox-one-games-content.253/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/xbox-one-console-accessories-and-hardware.261/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/xbox-one-hacking-homebrew.287/">Hacking &amp; Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/xbox-one-tutorials.262/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/microsoft-xbox-360-discussions.225/" rel="Menu">Microsoft Xbox 360</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/xbox-360-games-content.163/">Games &amp; Content</a>
+								</li>
+							
+								<li>
+									<a href="forums/xbox-360-console-accessories-and-hardware.226/">Console, Accessories and Hardware</a>
+								</li>
+							
+								<li>
+									<a href="forums/xbox-360-hacking-homebrew.227/">Hacking &amp; Homebrew</a>
+								</li>
+							
+								<li>
+									<a href="forums/xbox-360-scene-releases.195/">Scene Releases</a>
+								</li>
+							
+								<li>
+									<a href="forums/xbox-360-tutorials.239/">Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/other-systems-discussions.42/" rel="Menu">Other Systems</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/general-gaming-discussion.167/">General Gaming Discussion</a>
+								</li>
+							
+								<li>
+									<a href="forums/mobile-phones-and-media-players.194/">Mobile Phones and Media Players</a>
+								</li>
+							
+								<li>
+									<a href="categories/other-consoles.43/">Other Consoles</a>
+								</li>
+							
+								<li>
+									<a href="forums/other-handhelds.202/">Other Handhelds</a>
+								</li>
+							
+								<li>
+									<a href="forums/general-tutorials.240/">General Tutorials</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="forums/gbatemp-scene-news.101/" rel="Menu">Site &amp; Scene News</a>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/gbatemp-network-discussions.31/" rel="Menu">Site Discussions</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/introductions.26/">Introductions</a>
+								</li>
+							
+								<li>
+									<a href="forums/site-discussions-suggestions.3/">Site Discussions &amp; Suggestions</a>
+								</li>
+							
+								<li>
+									<a href="forums/online-stores-and-purchases.193/">Online Stores and Purchases</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		<li class="Popup">
+			<a class="menu dimmed NoPopupGadget" href="categories/other-discussions.33/" rel="Menu">Other Discussions</a>
+			
+				<div class="Menu">
+					<ul class="secondaryContent blockLinksList">
+						
+							
+								<li>
+									<a href="forums/general-off-topic-chat.7/">General Off-Topic Chat</a>
+								</li>
+							
+								<li>
+									<a href="forums/books-music-tv-movies.191/">Books, Music, TV &amp; Movies</a>
+								</li>
+							
+								<li>
+									<a href="forums/world-news-current-events-politics.290/">World News, Current Events &amp; Politics</a>
+								</li>
+							
+								<li>
+									<a href="forums/cryptocurrencies-and-investment/">Cryptocurrencies &amp; Investment</a>
+								</li>
+							
+								<li>
+									<a href="forums/gbatemp-art-studio.23/">GBAtemp Art Studio</a>
+								</li>
+							
+								<li>
+									<a href="forums/the-edge-of-the-forum.8/">The Edge of the Forum</a>
+								</li>
+							
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+</ul>
+		
+	</div>
+	
+	<div class="gbatemp_portal_container">
+		<div id="gbatemp_portal_content">
+			<div id="gbatemp_portal_main" class="gbatemp_portal_cell">
+				
+					<div class="gbatemp_portal_main_content"><div class="gbatemp_portal_row">
+						<div id="featured_container">
+							<div class="featured_item" id="featured_item_left">
+								<a href="https://sefemedical.com/threads/gbatemp-recommends-super-seducer-1-2.582871/" style="background-image:url(https://sefemedical.com/attachments/gbatemp_recommends_super_seducer_1_and_2-jpg.246313/)">
+									<h2 title="GBAtemp Recommends">GBAtemp Recommends</h2>
+								</a>
+							</div>
+							<div class="featured_item" id="featured_item_right">
+								<a href="https://sefemedical.com/threads/the-kingdom-hearts-series-is-coming-to-pc-via-epic-games.582800/" style="background-image:url(https://image.api.playstation.com/vulcan/img/rnd/202011/0204/wq6gIjQoXIlBZeRtb8zXhmTX.png)">
+									<h2 title="Kingdom Hearts heads to PC">Kingdom Hearts heads to PC</h2>
+								</a>
+							</div>
+						</div>
+						
+						
+							<div id="ad_container"><div>
+								<script>
+								var wWidth = $(window).width();
+								if(wWidth > 800 && $("#ad_container").css("display") != "block") {
+									var adWidth = (Math.min(1300,wWidth) - 25) * (60 / 100)
+									$("#ad_container > div").width(adWidth);
+								}
+								</script>
+								
+
+	
+		<center><div data-pw-desk="leaderboard_atf"></div></center>
+	
+
+
+							</div></div>
+						
+						
+						
+						
+						
+					</div></div>
+				
+
+				
+					<div class="gbatemp_portal_main_content"><div class="gbatemp_portal_row">
+						
+							<div id="gbatemp_portal_left" class="gbatemp_portal_col leftCol">
+								
+									<!-- CACHED: 1613570589 -->
+
+<div id="news" class="portal_block">
+	<a id="newsAnchor" class="offsetAnchor-first"></a>
+	<h3>
+		<a class="blockTitle" href="official/">Site & Scene News</a>
+	</h3>
+	<ol id="news_list" class="block_content">
+		
+			
+				
+
+
+
+
+	<li class="news_item review full" data-id="r1669">
+		
+			<a href="review/cougar-ranger-gamer-sofa.1669/" class="news_image" 
+			style="background-image: url(review/cougar-ranger-gamer-sofa.1669/portal-thumb?1611878489);">&nbsp;</a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					 <a href="review/cougar-ranger-gamer-sofa.1669/"><span class='prefix prefixReview'>Review</span>
+				 Cougar Ranger Gamer Sofa <span class='reviewCategory'>Hardware</span></a>
+			</h2>
+			<span class="snippet"><p>Forget gaming chairs, gaming sofas is where it&#039;s at now.</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="review/cougar-ranger-gamer-sofa.1669/#comments_title"
+						
+						
+							 title="29 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							29
+						
+					</a>
+				</span>
+				
+					 <a href="review/cougar-ranger-gamer-sofa.1669/">
+				
+				<abbr class="DateTime" data-time="1613507486" data-diff="63618" data-datestring="Feb 16, 2021" data-timestring="8:31 PM">Feb 16, 2021 at 8:31 PM</abbr></a> by <a href="members/chary.315373/" class="username" dir="auto">Chary</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item news full" data-id="583084">
+		
+			<a href="threads/50-minutes-long-nintendo-direct-announced-for-tomorrow.583084/" class="news_image"
+			style="background-image: url(home/newsimage/50-minutes-long-nintendo-direct-announced-for-tomorrow.583084/?1613503681);"></a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					<a href="threads/50-minutes-long-nintendo-direct-announced-for-tomorrow.583084/">
+				 50 minutes long Nintendo Direct announced for tomorrow</a>
+			</h2>
+			<span class="snippet"><p>Nintendo just announced a Nintendo Direct for tomorrow, February 17th. It will last for about 50 minutes and will focus on available games such as Super Smash Bros....</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+						<i class="uix_icon valign uix_icon-heart" title="Well Liked Thread"></i>
+					
+					
+						<i class="uix_icon valign uix_icon-hot" title="Hot Thread"></i>
+					
+					<a class="news_data_msgs" 
+						
+							href="threads/50-minutes-long-nintendo-direct-announced-for-tomorrow.583084/"
+						
+						
+							 title="149 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							149
+						
+					</a>
+				</span>
+				
+					<a href="threads/50-minutes-long-nintendo-direct-announced-for-tomorrow.583084/">
+				
+				<abbr class="DateTime" data-time="1613484590" data-diff="86514" data-datestring="Feb 16, 2021" data-timestring="2:09 PM">Feb 16, 2021 at 2:09 PM</abbr></a> by <a href="members/prans.301698/" class="username" dir="auto">Prans</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item news full" data-id="583080">
+		
+			<a href="threads/grand-theft-auto-vice-city-ported-to-the-ps-vita.583080/" class="news_image"
+			style="background-image: url(home/newsimage/grand-theft-auto-vice-city-ported-to-the-ps-vita.583080/?1613473239);"></a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					<a href="threads/grand-theft-auto-vice-city-ported-to-the-ps-vita.583080/"><span class="prefix prefixSilver">Homebrew</span> 
+				 &#039;Grand Theft Auto: Vice City&#039; ported to the PS Vita</a>
+			</h2>
+			<span class="snippet"><p>Grand Theft Auto: San Andreas is not the only GTA port that the PS Vita is getting as modders Rinnegatamante and TheFlow have announced that they brought GTA: Vice City...</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="threads/grand-theft-auto-vice-city-ported-to-the-ps-vita.583080/"
+						
+						
+							 title="21 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							21
+						
+					</a>
+				</span>
+				
+					<a href="threads/grand-theft-auto-vice-city-ported-to-the-ps-vita.583080/">
+				
+				<abbr class="DateTime" data-time="1613473238" data-diff="97866" data-datestring="Feb 16, 2021" data-timestring="11:00 AM">Feb 16, 2021 at 11:00 AM</abbr></a> by <a href="members/prans.301698/" class="username" dir="auto">Prans</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item news full" data-id="583079">
+		
+			<a href="threads/grand-theft-auto-iii-and-grand-theft-auto-vice-city-have-been-fully-reverse-engineered.583079/" class="news_image"
+			style="background-image: url(home/newsimage/grand-theft-auto-iii-and-grand-theft-auto-vice-city-have-been-fully-reverse-engineered.583079/?1613472171);"></a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					<a href="threads/grand-theft-auto-iii-and-grand-theft-auto-vice-city-have-been-fully-reverse-engineered.583079/">
+				 &#039;Grand Theft Auto III&#039; and &#039;Grand Theft Auto Vice City&#039; have been fully reverse-engineered</a>
+			</h2>
+			<span class="snippet"><p>Two of the earlier entries to the Grand Theft Auto series have been fully reverse-engineered by a team of modders. Re3 and ReVC are the respective reversed source code...</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+						<i class="uix_icon valign uix_icon-heart" title="Well Liked Thread"></i>
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="threads/grand-theft-auto-iii-and-grand-theft-auto-vice-city-have-been-fully-reverse-engineered.583079/"
+						
+						
+							 title="45 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							45
+						
+					</a>
+				</span>
+				
+					<a href="threads/grand-theft-auto-iii-and-grand-theft-auto-vice-city-have-been-fully-reverse-engineered.583079/">
+				
+				<abbr class="DateTime" data-time="1613472171" data-diff="98933" data-datestring="Feb 16, 2021" data-timestring="10:42 AM">Feb 16, 2021 at 10:42 AM</abbr></a> by <a href="members/prans.301698/" class="username" dir="auto">Prans</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item news full" data-id="583076">
+		
+			<a href="threads/remedy-entertainment-and-epic-games-are-collaborating-on-a-aaa-game-and-a-smaller-scale-game.583076/" class="news_image"
+			style="background-image: url(home/newsimage/remedy-entertainment-and-epic-games-are-collaborating-on-a-aaa-game-and-a-smaller-scale-game.583076/?1613470232);"></a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					<a href="threads/remedy-entertainment-and-epic-games-are-collaborating-on-a-aaa-game-and-a-smaller-scale-game.583076/">
+				 Remedy Entertainment and Epic Games are collaborating on a AAA game and a &quot;smaller-scale&quot; game</a>
+			</h2>
+			<span class="snippet"><p>According to yesterday&#039;s GameIndustry.biz report, the developers behind Control are working on two new games in collaboration with Epic Games. Not much is known about...</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="threads/remedy-entertainment-and-epic-games-are-collaborating-on-a-aaa-game-and-a-smaller-scale-game.583076/"
+						
+						
+							 title="20 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							20
+						
+					</a>
+				</span>
+				
+					<a href="threads/remedy-entertainment-and-epic-games-are-collaborating-on-a-aaa-game-and-a-smaller-scale-game.583076/">
+				
+				<abbr class="DateTime" data-time="1613470232" data-diff="100872" data-datestring="Feb 16, 2021" data-timestring="10:10 AM">Feb 16, 2021 at 10:10 AM</abbr></a> by <a href="members/prans.301698/" class="username" dir="auto">Prans</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item news full" data-id="583058">
+		
+			<a href="threads/metro-exodus-to-get-enhanced-edition-for-pc-ray-tracing-and-improved-framerates-on-consoles.583058/" class="news_image"
+			style="background-image: url(home/newsimage/metro-exodus-to-get-enhanced-edition-for-pc-ray-tracing-and-improved-framerates-on-consoles.583058/?1613435067);"></a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					<a href="threads/metro-exodus-to-get-enhanced-edition-for-pc-ray-tracing-and-improved-framerates-on-consoles.583058/">
+				 Metro Exodus to get enhanced edition for PC, ray tracing and improved framerates on consoles</a>
+			</h2>
+			<span class="snippet"><p>Two years after its initial release, Metro Exodus will be getting a significant upgrade. Back in November, 4A Games announced that Metro Exodus would be getting a free...</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="threads/metro-exodus-to-get-enhanced-edition-for-pc-ray-tracing-and-improved-framerates-on-consoles.583058/"
+						
+						
+							 title="13 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							13
+						
+					</a>
+				</span>
+				
+					<a href="threads/metro-exodus-to-get-enhanced-edition-for-pc-ray-tracing-and-improved-framerates-on-consoles.583058/">
+				
+				<abbr class="DateTime" data-time="1613435067" data-diff="136037" data-datestring="Feb 16, 2021" data-timestring="12:24 AM">Feb 16, 2021 at 12:24 AM</abbr></a> by <a href="members/relauby.432997/" class="username" dir="auto">relauby</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item review full" data-id="r1682">
+		
+			<a href="review/super-seducer-3-the-final-seduction.1682/" class="news_image" 
+			style="background-image: url(review/super-seducer-3-the-final-seduction.1682/portal-thumb?1612801565);">&nbsp;</a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					 <a href="review/super-seducer-3-the-final-seduction.1682/"><span class='prefix prefixReview'>Review</span>
+				 Super Seducer 3: The Final Seduction <span class='reviewCategory'>Computer</span></a>
+			</h2>
+			<span class="snippet"><p>Super Seducer is the ultimate dating simulator that teaches you how to get girls any time, anywhere. But does it actually have useful insights into the world of dating?</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="review/super-seducer-3-the-final-seduction.1682/#comments_title"
+						
+						
+							 title="18 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							18
+						
+					</a>
+				</span>
+				
+					 <a href="review/super-seducer-3-the-final-seduction.1682/">
+				
+				<abbr class="DateTime" data-time="1613397655" data-diff="173449" data-datestring="Feb 15, 2021" data-timestring="2:00 PM">Feb 15, 2021 at 2:00 PM</abbr></a> by <a href="members/relauby.432997/" class="username" dir="auto">relauby</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item news full" data-id="583007">
+		
+			<a href="threads/wip-super-mario-64-port-for-nintendo-dsi-released.583007/" class="news_image"
+			style="background-image: url(home/newsimage/wip-super-mario-64-port-for-nintendo-dsi-released.583007/?1613363220);"></a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					<a href="threads/wip-super-mario-64-port-for-nintendo-dsi-released.583007/">
+				 WIP Super Mario 64 port for Nintendo DSi released</a>
+			</h2>
+			<span class="snippet"><p>Following its decompilation last July, people expected a slew of Super Mario 64 ports to follow, and they haven’t been disappointed. Joining its ports to the PC and...</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+						<i class="uix_icon valign uix_icon-heart" title="Well Liked Thread"></i>
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="threads/wip-super-mario-64-port-for-nintendo-dsi-released.583007/"
+						
+						
+							 title="0 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+					</a>
+				</span>
+				
+					<a href="threads/wip-super-mario-64-port-for-nintendo-dsi-released.583007/">
+				
+				<abbr class="DateTime" data-time="1613363219" data-diff="207885" data-datestring="Feb 15, 2021" data-timestring="4:26 AM">Feb 15, 2021 at 4:26 AM</abbr></a> by <a href="members/relauby.432997/" class="username" dir="auto">relauby</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item review full" data-id="r1685">
+		
+			<a href="review/atelier-ryza-2-lost-legends-the-secret-fairy.1685/" class="news_image" 
+			style="background-image: url(review/atelier-ryza-2-lost-legends-the-secret-fairy.1685/portal-thumb?1612920502);">&nbsp;</a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					 <a href="review/atelier-ryza-2-lost-legends-the-secret-fairy.1685/"><span class='prefix prefixReview'>Review</span>
+				 Atelier Ryza 2: Lost Legends &amp; the Secret Fairy <span class='reviewCategory'>PlayStation 4</span></a>
+			</h2>
+			<span class="snippet"><p>Being the most successful iteration of the Atelier franchise since Atelier Sophie, it was inevitable that the sequel to the hit Atelier Ryza: Ever Darkness &amp; the Secret...</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="review/atelier-ryza-2-lost-legends-the-secret-fairy.1685/#comments_title"
+						
+						
+							 title="16 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							16
+						
+					</a>
+				</span>
+				
+					 <a href="review/atelier-ryza-2-lost-legends-the-secret-fairy.1685/">
+				
+				<abbr class="DateTime" data-time="1613328925" data-diff="242179" data-datestring="Feb 14, 2021" data-timestring="6:55 PM">Feb 14, 2021 at 6:55 PM</abbr></a> by <a href="members/ericzander.346129/" class="username" dir="auto">Ericzander</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item news full" data-id="582958">
+		
+			<a href="threads/cdpr-ransomware-attack-ps5-dualsense-drifting-sonic-movie-2-more-tempcast-26.582958/" class="news_image"
+			style="background-image: url(home/newsimage/cdpr-ransomware-attack-ps5-dualsense-drifting-sonic-movie-2-more-tempcast-26.582958/?1613298463);"></a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					<a href="threads/cdpr-ransomware-attack-ps5-dualsense-drifting-sonic-movie-2-more-tempcast-26.582958/"><span class="prefix prefixGreen">Tempcast</span> 
+				 CDPR Ransomware Attack, PS5 DualSense Drifting, Sonic Movie 2 &amp; more - Tempcast #26</a>
+			</h2>
+			<span class="snippet"><p>In this week&#039;s episode we are joined by Tempcast legends @iFish and @Terminator02, who return to discuss with us the CD Projekt Red ransomware attack. After a brief...</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="threads/cdpr-ransomware-attack-ps5-dualsense-drifting-sonic-movie-2-more-tempcast-26.582958/"
+						
+						
+							 title="8 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							8
+						
+					</a>
+				</span>
+				
+					<a href="threads/cdpr-ransomware-attack-ps5-dualsense-drifting-sonic-movie-2-more-tempcast-26.582958/">
+				
+				<abbr class="DateTime" data-time="1613298328" data-diff="272776" data-datestring="Feb 14, 2021" data-timestring="10:25 AM">Feb 14, 2021 at 10:25 AM</abbr></a> by <a href="members/alanjohn.271505/" class="username" dir="auto">AlanJohn</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+
+
+	<li class="news_item review full" data-id="r1688">
+		
+			<a href="review/elgato-stream-deck-xl.1688/" class="news_image" 
+			style="background-image: url(review/elgato-stream-deck-xl.1688/portal-thumb?1613263499);">&nbsp;</a>
+		
+		<div class="block">
+			<h2>
+				
+				
+					 <a href="review/elgato-stream-deck-xl.1688/"><span class='prefix prefixReview'>Review</span>
+				 Elgato Stream Deck XL <span class='reviewCategory'>Hardware</span></a>
+			</h2>
+			<span class="snippet"><p>The world at your fingertips, we look at the Stream Deck XL and exactly what you can fit on its 32 wonderous buttons.</p></span>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							href="review/elgato-stream-deck-xl.1688/#comments_title"
+						
+						
+							 title="15 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							15
+						
+					</a>
+				</span>
+				
+					 <a href="review/elgato-stream-deck-xl.1688/">
+				
+				<abbr class="DateTime" data-time="1613271442" data-diff="299662" data-datestring="Feb 14, 2021" data-timestring="2:57 AM">Feb 14, 2021 at 2:57 AM</abbr></a> by <a href="members/scarlet.359397/" class="username" dir="auto">Scarlet</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item news compact" data-id="582871">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="threads/gbatemp-recommends-super-seducer-1-2.582871/"><span class="prefix prefixYellow">GBAtemp Exclusive</span>  GBAtemp  Recommends: Super Seducer 1 &amp; 2</a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							 href="threads/gbatemp-recommends-super-seducer-1-2.582871/"
+						
+						
+							 title="37 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							37
+											</a>
+				</span>
+				
+					<a href="threads/gbatemp-recommends-super-seducer-1-2.582871/">
+				
+				<abbr class="DateTime" data-time="1613160669" data-diff="410435" data-datestring="Feb 12, 2021" data-timestring="8:11 PM">Feb 12, 2021 at 8:11 PM</abbr></a> by <a href="members/relauby.432997/" class="username" dir="auto">relauby</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item news compact" data-id="582868">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="threads/new-nier-replicant-trailer-offers-a-look-at-its-improved-graphics-and-remastered-soundtrack.582868/"> New NieR Replicant trailer offers a look at its improved graphics and remastered soundtrack</a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							 href="threads/new-nier-replicant-trailer-offers-a-look-at-its-improved-graphics-and-remastered-soundtrack.582868/"
+						
+						
+							 title="39 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							39
+											</a>
+				</span>
+				
+					<a href="threads/new-nier-replicant-trailer-offers-a-look-at-its-improved-graphics-and-remastered-soundtrack.582868/">
+				
+				<abbr class="DateTime" data-time="1613159147" data-diff="411957" data-datestring="Feb 12, 2021" data-timestring="7:45 PM">Feb 12, 2021 at 7:45 PM</abbr></a> by <a href="members/chary.315373/" class="username" dir="auto">Chary</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item review compact" data-id="r1679">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="review/cougar-argo-ergonomic-gaming-chair.1679/"><span class='prefix prefixReview'>Review</span> Cougar Argo - Ergonomic Gaming Chair <span class='reviewCategory'>Hardware</span></a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							 href="review/cougar-argo-ergonomic-gaming-chair.1679/#comments_title"
+						
+						
+							 title="17 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							17
+											</a>
+				</span>
+				
+					 <a href="review/cougar-argo-ergonomic-gaming-chair.1679/">
+				
+				<abbr class="DateTime" data-time="1613157940" data-diff="413164" data-datestring="Feb 12, 2021" data-timestring="7:25 PM">Feb 12, 2021 at 7:25 PM</abbr></a> by <a href="members/ericzander.346129/" class="username" dir="auto">Ericzander</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item review compact" data-id="r1687">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="review/remarkable-2.1687/"><span class='prefix prefixReview'>Review</span> reMarkable 2 <span class='reviewCategory'>Hardware</span></a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							 href="review/remarkable-2.1687/#comments_title"
+						
+						
+							 title="21 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							21
+											</a>
+				</span>
+				
+					 <a href="review/remarkable-2.1687/">
+				
+				<abbr class="DateTime" data-time="1613083564" data-diff="487540" data-datestring="Feb 11, 2021" data-timestring="10:46 PM">Feb 11, 2021 at 10:46 PM</abbr></a> by <a href="members/scarlet.359397/" class="username" dir="auto">Scarlet</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item news compact" data-id="582800">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="threads/the-kingdom-hearts-series-is-coming-to-pc-via-epic-games.582800/"> The Kingdom Hearts series is coming to PC via Epic Games</a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+						<i class="uix_icon valign uix_icon-heart" title="Well Liked Thread"></i>
+					
+					
+						<i class="uix_icon valign uix_icon-hot" title="Hot Thread"></i>
+					
+					<a class="news_data_msgs" 
+						
+							 href="threads/the-kingdom-hearts-series-is-coming-to-pc-via-epic-games.582800/"
+						
+						
+							 title="177 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							177
+											</a>
+				</span>
+				
+					<a href="threads/the-kingdom-hearts-series-is-coming-to-pc-via-epic-games.582800/">
+				
+				<abbr class="DateTime" data-time="1613076651" data-diff="494453" data-datestring="Feb 11, 2021" data-timestring="8:50 PM">Feb 11, 2021 at 8:50 PM</abbr></a> by <a href="members/chary.315373/" class="username" dir="auto">Chary</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item news compact" data-id="582773">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="threads/the-last-of-us-hbo-live-action-series-main-cast-actors-revealed.582773/"> ‘The Last Of Us’ HBO live-action series main cast actors revealed</a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							 href="threads/the-last-of-us-hbo-live-action-series-main-cast-actors-revealed.582773/"
+						
+						
+							 title="42 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							42
+											</a>
+				</span>
+				
+					<a href="threads/the-last-of-us-hbo-live-action-series-main-cast-actors-revealed.582773/">
+				
+				<abbr class="DateTime" data-time="1613049821" data-diff="521283" data-datestring="Feb 11, 2021" data-timestring="1:23 PM">Feb 11, 2021 at 1:23 PM</abbr></a> by <a href="members/prans.301698/" class="username" dir="auto">Prans</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item review compact" data-id="r1676">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="review/andaseat-iron-man-edition-gaming-chair.1676/"><span class='prefix prefixReview'>Review</span> AndaSeat Iron Man Edition gaming chair <span class='reviewCategory'>Hardware</span></a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+					<a class="news_data_msgs" 
+						
+							 href="review/andaseat-iron-man-edition-gaming-chair.1676/#comments_title"
+						
+						
+							 title="27 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							27
+											</a>
+				</span>
+				
+					 <a href="review/andaseat-iron-man-edition-gaming-chair.1676/">
+				
+				<span class="DateTime" title="Feb 10, 2021 at 7:56 PM">Feb 10, 2021</span></a> by <a href="members/ryryiv.399871/" class="username" dir="auto">RyRyIV</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item news compact" data-id="582733">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="threads/gwent-source-code-leaks-online-along-with-an-auction-for-witcher-3-and-cyberpunk-source-code.582733/"> Gwent source code leaks online, along with an auction for Witcher 3 and Cyberpunk source code</a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+					
+						<i class="uix_icon valign uix_icon-hot" title="Hot Thread"></i>
+					
+					<a class="news_data_msgs" 
+						
+							 href="threads/gwent-source-code-leaks-online-along-with-an-auction-for-witcher-3-and-cyberpunk-source-code.582733/"
+						
+						
+							 title="130 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							130
+											</a>
+				</span>
+				
+					<a href="threads/gwent-source-code-leaks-online-along-with-an-auction-for-witcher-3-and-cyberpunk-source-code.582733/">
+				
+				<span class="DateTime" title="Feb 10, 2021 at 5:37 PM">Feb 10, 2021</span></a> by <a href="members/relauby.432997/" class="username" dir="auto">relauby</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+			
+				
+
+
+	<li class="news_item news compact" data-id="582716">
+		<div>
+			<h3>
+				
+				
+				
+					<a href="threads/sonic-the-hedgehog-movie-sequel-gets-official-title-and-release-date.582716/"> Sonic the Hedgehog movie sequel gets official title and release date</a>
+				
+			</h3>
+			<div class="news_data muted">
+				<span class="news_data_stats">
+					
+						<i class="uix_icon valign uix_icon-heart" title="Well Liked Thread"></i>
+					
+					
+						<i class="uix_icon valign uix_icon-hot" title="Hot Thread"></i>
+					
+					<a class="news_data_msgs" 
+						
+							 href="threads/sonic-the-hedgehog-movie-sequel-gets-official-title-and-release-date.582716/"
+						
+						
+							 title="66 replies">
+						
+						<i class="uix_icon regular valign mr01 uix_icon-comments"></i>
+						
+							66
+											</a>
+				</span>
+				
+					<a href="threads/sonic-the-hedgehog-movie-sequel-gets-official-title-and-release-date.582716/">
+				
+				<span class="DateTime" title="Feb 10, 2021 at 3:33 PM">Feb 10, 2021</span></a> by <a href="members/chary.315373/" class="username" dir="auto">Chary</a></a>
+			</div>
+		</div>
+	</li>
+
+			
+			
+		
+		<div class="sectionFooter">
+			<a href="official/"><i class="uix_icon mr03 uix_icon-angle-right"></i>More News</a>
+		</div>
+	</ol>
+	
+</div>
+								
+							</div>
+						
+						
+						
+							<div id="gbatemp_portal_middle" class="gbatemp_portal_col rightCol">
+								
+									
+
+<span>
+<!-- Mobile only - gbatemp_portal_block_reviews -->
+
+
+	
+		
+	
+
+
+</span>
+
+<div id="reviews" class="portal_block">
+	<a id="reviewsAnchor" class="offsetAnchor"></a>
+	<h3><a class="blockTitle" href="reviews/">Reviews</a></h3>
+	<ol id="review_list" class="block_content">
+	
+		<li class="portal_review review_main review_left">
+			<a class="review_boxart" href="review/cougar-ranger-gamer-sofa.1669/" style="background-image:url(review/cougar-ranger-gamer-sofa.1669/portal-thumb?)">
+				<h2 title="Cougar Ranger Gamer Sofa" class="review_title">Cougar Ranger Gamer Sofa</h2>
+			</a>
+			<div class="review_intro">Forget gaming chairs, gaming sofas is where it's at now.</div>
+		</li>
+	
+		<li class="portal_review review_secondary review_left">
+			<a class="review_boxart" href="review/super-seducer-3-the-final-seduction.1682/" style="background-image:url(review/super-seducer-3-the-final-seduction.1682/portal-thumb?)">
+				<h2 title="Super Seducer 3: The Final Seduction" class="review_title">Super Seducer 3: The Final Seduction</h2>
+			</a>
+			<div class="review_intro">Super Seducer is the ultimate dating simulator that teaches you how to get girls any time, anywhere. But does it actually have useful insights into the world of dating?</div>
+		</li>
+	
+		<li class="portal_review review_secondary review_right">
+			<a class="review_boxart" href="review/atelier-ryza-2-lost-legends-the-secret-fairy.1685/" style="background-image:url(review/atelier-ryza-2-lost-legends-the-secret-fairy.1685/portal-thumb?)">
+				<h2 title="Atelier Ryza 2: Lost Legends &amp; the Secret Fairy" class="review_title">Atelier Ryza 2: Lost Legends &amp; the Secret Fairy</h2>
+			</a>
+			<div class="review_intro">Being the most successful iteration of the Atelier franchise since Atelier Sophie, it was inevitable that the sequel to the hit Atelier Ryza: Ever Darkness &amp; the Secret Hideout would arrive sooner...</div>
+		</li>
+	
+		<li class="portal_review review_secondary review_left">
+			<a class="review_boxart" href="review/elgato-stream-deck-xl.1688/" style="background-image:url(review/elgato-stream-deck-xl.1688/portal-thumb?)">
+				<h2 title="Elgato Stream Deck XL" class="review_title">Elgato Stream Deck XL</h2>
+			</a>
+			<div class="review_intro">The world at your fingertips, we look at the Stream Deck XL and exactly what you can fit on its 32 wonderous buttons.</div>
+		</li>
+	
+		<li class="portal_review review_secondary review_right">
+			<a class="review_boxart" href="review/cougar-argo-ergonomic-gaming-chair.1679/" style="background-image:url(review/cougar-argo-ergonomic-gaming-chair.1679/portal-thumb?)">
+				<h2 title="Cougar Argo - Ergonomic Gaming Chair" class="review_title">Cougar Argo - Ergonomic Gaming Chair</h2>
+			</a>
+			<div class="review_intro">The Cougar Argo promises to be &quot;the evolution of a gaming chair revolution&quot;--whatever that means. But the real question is whether or not the Argo could live up to the task of being the most...</div>
+		</li>
+	
+	<div class="sectionFooter">
+		<a href="/reviews/"><i class="uix_icon mr03 uix_icon-angle-right"></i>More Reviews
+</a>
+	</div>
+	</ol>
+	<div style="clear: both;"></div>
+</div>
+
+
+<div style="margin-top: 8px;">
+<!-- Desktop only - gbatemp_portal_block_reviews -->
+
+
+	
+		<center><div data-pw-desk="med_rect_atf"></div></center>
+	
+
+
+</div>
+
+								
+									<!-- CACHED: 1613571073 -->
+
+<div id="tutorials"  class="portal_block">
+	<a id="tutorialsAnchor" class="offsetAnchor"></a>
+	<h3><a class="blockTitle" href="/tutorials/">Tutorials</a></h3>
+	
+	<div class="block_content">
+		<ol>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/240/"><span class="tutorial-node"><span class='forum_icon fi240' style='background-position:-272px -0px;'></span></span></a>
+				<div>
+					<a href="threads/android-f-droid-classic-and-the-new-privileged-extension.583129/">Android: F-Droid Classic and the new Privileged Extension</a>
+					<br />
+					<span class="muted">Posted <abbr class="DateTime" data-time="1613565504" data-diff="5569" data-datestring="Feb 17, 2021" data-timestring="12:38 PM">Feb 17, 2021 at 12:38 PM</abbr>
+					by <a href="members/ryccardo.361367/" class="username" dir="auto">Ryccardo</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/260/"><span class="tutorial-node"><span class='forum_icon fi260' style='background-position:-304px -16px;'></span></span></a>
+				<div>
+					<a href="threads/recover-data-after-initializing-ps4.582993/">Recover data after initializing PS4</a>
+					<br />
+					<span class="muted">Posted <abbr class="DateTime" data-time="1613334106" data-diff="236967" data-datestring="Feb 14, 2021" data-timestring="8:21 PM">Feb 14, 2021 at 8:21 PM</abbr>
+					by <a href="members/officialahmed.551191/" class="username" dir="auto">OfficialAhmed</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/289/"><span class="tutorial-node"><span class='forum_icon fi289' style='background-position:-128px -32px;'></span></span></a>
+				<div>
+					<a href="threads/tutorial-run-x86-apps-on-l4t-switch-with-box86.582933/">[Tutorial] Run x86 apps on l4t switch with box86</a>
+					<br />
+					<span class="muted">Posted <abbr class="DateTime" data-time="1613246706" data-diff="324367" data-datestring="Feb 13, 2021" data-timestring="8:05 PM">Feb 13, 2021 at 8:05 PM</abbr>
+					by <a href="members/kakowihitodesu.545626/" class="username" dir="auto">KakowiHitoDesu</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/262/"><span class="tutorial-node"><span class='forum_icon fi262' style='background-position:-32px -32px;'></span></span></a>
+				<div>
+					<a href="threads/need-help-to-rescue-xbox-one.582873/">Need Help to rescue Xbox One</a>
+					<br />
+					<span class="muted">Posted <abbr class="DateTime" data-time="1613163387" data-diff="407686" data-datestring="Feb 12, 2021" data-timestring="8:56 PM">Feb 12, 2021 at 8:56 PM</abbr>
+					by <a href="members/flauschebart.551475/" class="username" dir="auto">Flauschebart</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/238/"><span class="tutorial-node"><span class='forum_icon fi238' style='background-position:-304px -16px;'></span></span></a>
+				<div>
+					<a href="threads/ps3-uart-control-ylod-error-finding-tutorial.582605/">Ps3 UART control YLOD error finding tutorial</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Feb 8, 2021 at 7:16 PM">Feb 8, 2021</span>
+					by <a href="members/peepy.538825/" class="username" dir="auto">peepy</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/240/"><span class="tutorial-node"><span class='forum_icon fi240' style='background-position:-272px -0px;'></span></span></a>
+				<div>
+					<a href="threads/tutorial-install-fhdb-from-pc.582307/">[Tutorial] Install FHDB from PC</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Feb 4, 2021 at 2:09 AM">Feb 4, 2021</span>
+					by <a href="members/zfreeman.325263/" class="username" dir="auto">zfreeman</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/260/"><span class="tutorial-node"><span class='forum_icon fi260' style='background-position:-304px -16px;'></span></span></a>
+				<div>
+					<a href="threads/guide-using-a-backup-restore-point-of-your-usb-linux-install.581673/">[GUIDE] Using a backup/restore point of your USB Linux install</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Jan 26, 2021 at 11:01 AM">Jan 26, 2021</span>
+					by <a href="members/bbqtool.461946/" class="username" dir="auto">bbqtool</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/235/"><span class="tutorial-node"><span class='forum_icon fi235' style='background-position:-240px -16px;'></span></span></a>
+				<div>
+					<a href="threads/using-diskpart-to-format.581635/">Using DISKPART to format</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Jan 25, 2021 at 7:01 PM">Jan 25, 2021</span>
+					by <a href="members/cln300zx.549231/" class="username" dir="auto">CLN300ZX</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/289/"><span class="tutorial-node"><span class='forum_icon fi289' style='background-position:-128px -32px;'></span></span></a>
+				<div>
+					<a href="threads/latest-sd-setup-for-moving-from-sxos-to-atmosphere.581237/">Latest Sd setup for moving from sxos to atmosphere</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Jan 20, 2021 at 1:12 AM">Jan 20, 2021</span>
+					by <a href="members/rideonthestorm.478598/" class="username" dir="auto">RideOnTheStorm</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/235/"><span class="tutorial-node"><span class='forum_icon fi235' style='background-position:-240px -16px;'></span></span></a>
+				<div>
+					<a href="threads/how-to-create-wiiware-games-in-full-tutorial-custom-wii-save-data-icon-animations.581175/">How To Create WiiWare Games in FULL TUTORIAL! [Custom Wii Save data icon &amp; Animations!]</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Jan 19, 2021 at 3:46 AM">Jan 19, 2021</span>
+					by <a href="members/mrt84.528579/" class="username" dir="auto">mrt84</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/260/"><span class="tutorial-node"><span class='forum_icon fi260' style='background-position:-304px -16px;'></span></span></a>
+				<div>
+					<a href="threads/guide-permanent-wifi-in-linux-catjaro-fedora-32.581116/">[GUIDE] Permanent Wifi in Linux (Catjaro, Fedora 32)</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Jan 18, 2021 at 9:11 AM">Jan 18, 2021</span>
+					by <a href="members/bbqtool.461946/" class="username" dir="auto">bbqtool</a></span>
+				</div>
+			</li>
+		
+			<li class="portal-tutorial">
+				<a href="https://sefemedical.com/forums/233/"><span class="tutorial-node"><span class='forum_icon fi233' style='background-position:-16px -16px;'></span></span></a>
+				<div>
+					<a href="threads/how-to-play-user-levels-with-dscent-descent-ds-port.580928/">How to play user levels with DScent (Descent DS Port)</a>
+					<br />
+					<span class="muted">Posted <span class="DateTime" title="Jan 15, 2021 at 1:19 PM">Jan 15, 2021</span>
+					by <a href="members/nikokaro.517430/" class="username" dir="auto">Nikokaro</a></span>
+				</div>
+			</li>
+		
+		<div class="sectionFooter">
+			<a href="/tutorials/"><i class="uix_icon mr03 uix_icon-angle-right"></i>More Tutorials</a>
+		</div>
+		</ol>
+	</div>
+</div>
+								
+									<!-- CACHED: 1613570850 -->
+	<div class="section miniResourceList portal_block">
+		<a id="downloadsAnchor" class="offsetAnchor"></a>
+		<h3><a class="blockTitle" href="find-new/resources" rel="nofollow">Newest Downloads</a></h3>
+		<div class="block_content">
+			
+<ol class="block_content">
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/cheats.1691/" title="Cheat codes and files for your Nintendo Switch games" class="resourceIcon">
+				<span class="forum_icon pid1665" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/cadence-of-hyrule-crypt-of-the-necrodancer-cheat-file.36963/" class="resourceTitle">Cadence of Hyrule - Crypt of the Necrodancer CHEAT file</a>
+			<div class="tagLine">+1 <span class="author">- by merlin555</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613564146" data-diff="6704" data-datestring="Feb 17, 2021" data-timestring="12:15 PM">Feb 17, 2021 at 12:15 PM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/game-saves.1668/" title="Download game saves for your Nintendo Switch games" class="resourceIcon">
+				<span class="forum_icon pid1665" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/super-mario-3d-world-bowsers-fury-100-save-file.36962/" class="resourceTitle">Super Mario 3D World + Bowser&#039;s Fury 100% Save File</a>
+			<div class="tagLine">Super Mario 3D World + Bowser&#039;s Fury 100% save file for the Nintendo Switch <span class="author">- by ShadowOne333</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613503611" data-diff="67239" data-datestring="Feb 16, 2021" data-timestring="7:26 PM">Feb 16, 2021 at 7:26 PM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/cheats.1691/" title="Cheat codes and files for your Nintendo Switch games" class="resourceIcon">
+				<span class="forum_icon pid1665" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/undermine-cheat-file.36961/" class="resourceTitle">Undermine CHEAT file</a>
+			<div class="tagLine">+3 <span class="author">- by merlin555</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613564146" data-diff="6704" data-datestring="Feb 17, 2021" data-timestring="12:15 PM">Feb 17, 2021 at 12:15 PM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/tempcast.1692/" title="The GBAtemp Podcast" class="resourceIcon">
+				<span class="forum_icon pid" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/tempcast-26.36960/" class="resourceTitle">Tempcast #26</a>
+			<div class="tagLine">CDPR Ransomware Attack, PS5 DualSense Drifting, Sonic Movie 2 &amp; more <span class="author">- by AlanJohn</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613297791" data-diff="273059" data-datestring="Feb 14, 2021" data-timestring="10:16 AM">Feb 14, 2021 at 10:16 AM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/save-files.1105/" title="Post your save files in this category" class="resourceIcon">
+				<span class="forum_icon pid78" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/perfect-dark-xbla.36959/" class="resourceTitle">Perfect Dark XBLA</a>
+			<div class="tagLine">All Solo Missions with the highest difficulty settings completed. <span class="author">- by Dodain47</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613264227" data-diff="306623" data-datestring="Feb 14, 2021" data-timestring="12:57 AM">Feb 14, 2021 at 12:57 AM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/save-files.1105/" title="Post your save files in this category" class="resourceIcon">
+				<span class="forum_icon pid78" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/goldeneye-xbla-remaster.36958/" class="resourceTitle">GoldenEye XBLA remaster</a>
+			<div class="tagLine">A playthrough on Agent mode. <span class="author">- by Dodain47</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613264227" data-diff="306623" data-datestring="Feb 14, 2021" data-timestring="12:57 AM">Feb 14, 2021 at 12:57 AM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/themes.1671/" title="Download Switch themes for your console or for homebrew" class="resourceIcon">
+				<span class="forum_icon pid1665" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/super-mario-3d-world-theme.36957/" class="resourceTitle">Super Mario 3D World theme</a>
+			<div class="tagLine">Super Mario 3D World <span class="author">- by chronoss</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613230927" data-diff="339923" data-datestring="Feb 13, 2021" data-timestring="3:42 PM">Feb 13, 2021 at 3:42 PM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/themes.1671/" title="Download Switch themes for your console or for homebrew" class="resourceIcon">
+				<span class="forum_icon pid1665" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/nintendo-theme.36956/" class="resourceTitle">Nintendo theme</a>
+			<div class="tagLine">Nintendo <span class="author">- by chronoss</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613230927" data-diff="339923" data-datestring="Feb 13, 2021" data-timestring="3:42 PM">Feb 13, 2021 at 3:42 PM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/themes.1671/" title="Download Switch themes for your console or for homebrew" class="resourceIcon">
+				<span class="forum_icon pid1665" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/eleanor-mustang.36955/" class="resourceTitle">Eleanor Mustang</a>
+			<div class="tagLine">Another theme by Begetter <span class="author">- by Begetter</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613230927" data-diff="339923" data-datestring="Feb 13, 2021" data-timestring="3:42 PM">Feb 13, 2021 at 3:42 PM</abbr></div>
+		</div>
+	</li>
+
+	<li class="visible">
+		<div class="resourceImage rc_icon">
+			<a href="https://sefemedical.com/download/categories/themes.1671/" title="Download Switch themes for your console or for homebrew" class="resourceIcon">
+				<span class="forum_icon pid1665" alt="" />
+			</a>
+		</div>
+		<div class="resourceBody">
+			<a href="download/portrait-art-side-menu-layout-mod.36954/" class="resourceTitle">Portrait Art - Side Menu layout mod</a>
+			<div class="tagLine">Portrait Art - Side Menu mod <span class="author">- by chronoss</span></div>
+			<div class="lastUpdate">Updated: <abbr class="DateTime" data-time="1613230927" data-diff="339923" data-datestring="Feb 13, 2021" data-timestring="3:42 PM">Feb 13, 2021 at 3:42 PM</abbr></div>
+		</div>
+	</li>
+
+</ol>
+			<div class="sectionFooter">
+				<a href="/download/"><i class="uix_icon mr03 uix_icon-angle-right"></i>More Downloads</a>
+			</div>
+		</div>
+	</div>
+
+								
+							</div>
+						
+					</div></div>
+				
+				
+				
+			</div>
+			
+			
+				<div id="gbatemp_portal_right" class="gbatemp_portal_cell gbatemp_portal_col">
+					
+						
+
+<div id="recent_content" class="portal_block">
+	<a id="recentContentAnchor" class="offsetAnchor"></a>
+	<h3>
+		<a class="blockTitle" href="new/" rel="nofollow">Recent Content</a>
+	</h3>
+	<div class="block_content">		
+		<ul id="rc_switch">
+			<li class="active">
+				<a href="home/switch-rc?type=all" data-type="all" title="All Content" rel="nofollow">
+					<i class="uix_icon uix_icon-menu rcSwIcon"></i>
+					<span class="subheading">All</span>
+				</a>
+			</li>
+			<li >
+				<a href="home/switch-rc?type=threads" data-type="threads" title="Threads" rel="nofollow">
+					<i class="uix_icon uix_icon-comments rcSwIcon"></i>
+					<span class="subheading">Threads</span>
+				</a>
+			</li>
+			<li >
+				<a href="home/switch-rc?type=usernews" data-type="usernews" title="User Submitted News" rel="nofollow">
+					<i class="uix_icon uix_icon-newspaper rcSwIcon"></i>
+					<span class="subheading">User News</span>
+				</a>
+			</li>
+			<li >
+				<a href="home/switch-rc?type=eof" data-type="eof" title="Edge of the Forum" rel="nofollow">
+					<i class="uix_icon uix_icon-exclamation rcSwIcon"></i>
+					<span class="subheading">EoF</span>
+				</a>
+			</li>
+			<li >
+				<a href="home/switch-rc?type=ask" data-type="ask" title="Ask!" rel="nofollow">
+					<i class="uix_icon uix_icon-question rcSwIcon"></i>
+					<span class="subheading">Ask!</span>
+				</a>
+			</li>
+			<li >
+				<a href="home/switch-rc?type=blogs" data-type="blogs" title="Blogs" rel="nofollow">
+					<span class="blog_icon rcSwIcon"></span>
+					<span class="subheading">Blogs</span>
+				</a>
+			</li>
+			
+		</ul>
+		
+			<ol id="rc_list">
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/switch-emulation-homebrew-software-projects.292/" title="Switch - Emulation, Homebrew & Software Projects"><span class='forum_icon fi292' style='background-position:-128px -32px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/switchroot-hos-partiton-on-exfat.583025/" class="PreviewTooltip" data-previewUrl="threads/switchroot-hos-partiton-on-exfat.583025/preview">Switchroot: HOS partiton on exfat?</a></h4>
+			<div class="rc_sub muted"><a href="members/basketto.494549/" class="username" dir="auto">Basketto</a> - <a href="posts/9368820/"><abbr class="DateTime" data-time="1613571006" data-diff="98" data-datestring="Feb 17, 2021" data-timestring="2:10 PM">Feb 17, 2021 at 2:10 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/3ds-games-content.199/" title="3DS - Games & Content"><span class='forum_icon fi199' style='background-position:-208px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/zelda-group.583135/" class="PreviewTooltip" data-previewUrl="threads/zelda-group.583135/preview">Zelda group</a></h4>
+			<div class="rc_sub muted"><a href="members/pikachuprincess23.367317/" class="username" dir="auto">PikachuPrincess23</a> - <a href="posts/9368819/"><abbr class="DateTime" data-time="1613570983" data-diff="121" data-datestring="Feb 17, 2021" data-timestring="2:09 PM">Feb 17, 2021 at 2:09 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/ps4-tutorials.260/" title="PS4 - Tutorials"><span class='forum_icon fi260' style='background-position:-304px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/aio-ps4-exploit-guide.497858/" class="PreviewTooltip" data-previewUrl="threads/aio-ps4-exploit-guide.497858/preview">[AIO] PS4 Exploit Guide</a></h4>
+			<div class="rc_sub muted"><a href="members/godreborn.221542/" class="username" dir="auto">godreborn</a> - <a href="posts/9368809/"><abbr class="DateTime" data-time="1613570873" data-diff="231" data-datestring="Feb 17, 2021" data-timestring="2:07 PM">Feb 17, 2021 at 2:07 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/switch-rom-hacking-saves-translations-tools.294/" title="Switch - ROM Hacking, Saves, Translations & Tools"><span class='forum_icon fi294' style='background-position:-128px -32px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/animal-crossing-new-horizons-cheat-database.563423/" class="PreviewTooltip" data-previewUrl="threads/animal-crossing-new-horizons-cheat-database.563423/preview">Animal Crossing New Horizons Cheat Database</a></h4>
+			<div class="rc_sub muted"><a href="members/caninosvermelhos.551875/" class="username" dir="auto">caninosvermelhos</a> - <a href="posts/9368818/"><abbr class="DateTime" data-time="1613570769" data-diff="335" data-datestring="Feb 17, 2021" data-timestring="2:06 PM">Feb 17, 2021 at 2:06 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/wii-u-games-content.245/" title="Wii U - Games & Content"><span class='forum_icon fi245' style='background-position:-256px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/which-wii-u-games-dont-need-the-gamepad-at-all.407580/" class="PreviewTooltip" data-previewUrl="threads/which-wii-u-games-dont-need-the-gamepad-at-all.407580/preview">Which WII U games don&#039;t need the Gamepad AT ALL?</a></h4>
+			<div class="rc_sub muted"><a href="members/blazemasterbm.536463/" class="username" dir="auto">BlazeMasterBM</a> - <a href="posts/9368816/"><abbr class="DateTime" data-time="1613570650" data-diff="454" data-datestring="Feb 17, 2021" data-timestring="2:04 PM">Feb 17, 2021 at 2:04 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/gbatemp-scene-news.101/" title="GBAtemp & Scene News"><span class='forum_icon fi101' style='background-position:-224px -0px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/50-minutes-long-nintendo-direct-announced-for-tomorrow.583084/" class="PreviewTooltip" data-previewUrl="threads/50-minutes-long-nintendo-direct-announced-for-tomorrow.583084/preview">50 minutes long Nintendo Direct announced for tomorrow</a></h4>
+			<div class="rc_sub muted"><a href="members/blazemasterbm.536463/" class="username" dir="auto">BlazeMasterBM</a> - <a href="posts/9368814/"><abbr class="DateTime" data-time="1613570418" data-diff="686" data-datestring="Feb 17, 2021" data-timestring="2:00 PM">Feb 17, 2021 at 2:00 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/wii-u-hacking-backup-loaders.248/" title="Wii U - Hacking & Backup Loaders"><span class='forum_icon fi248' style='background-position:-256px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/loadiine-gx2.413823/" class="PreviewTooltip" data-previewUrl="threads/loadiine-gx2.413823/preview">Loadiine GX2</a></h4>
+			<div class="rc_sub muted"><a href="members/lacius.124912/" class="username" dir="auto">Lacius</a> - <a href="posts/9368813/"><abbr class="DateTime" data-time="1613570099" data-diff="1005" data-datestring="Feb 17, 2021" data-timestring="1:54 PM">Feb 17, 2021 at 1:54 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/wii-u-homebrew.281/" title="Wii U - Homebrew"><span class='forum_icon fi281' style='background-position:-256px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/re3-wiiu-gta-iii-wii-u-port.579827/" class="PreviewTooltip" data-previewUrl="threads/re3-wiiu-gta-iii-wii-u-port.579827/preview">re3-wiiu - GTA III Wii U Port</a></h4>
+			<div class="rc_sub muted"><a href="members/harry9887.551814/" class="username" dir="auto">harry9887</a> - <a href="posts/9368811/"><abbr class="DateTime" data-time="1613569998" data-diff="1106" data-datestring="Feb 17, 2021" data-timestring="1:53 PM">Feb 17, 2021 at 1:53 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/wii-u-hacking-backup-loaders.248/" title="Wii U - Hacking & Backup Loaders"><span class='forum_icon fi248' style='background-position:-256px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/release-prettier-banners.452444/" class="PreviewTooltip" data-previewUrl="threads/release-prettier-banners.452444/preview">[RELEASE] Prettier Banners</a></h4>
+			<div class="rc_sub muted"><a href="members/ragolay.530715/" class="username" dir="auto">Ragolay</a> - <a href="posts/9368810/"><abbr class="DateTime" data-time="1613569931" data-diff="1173" data-datestring="Feb 17, 2021" data-timestring="1:52 PM">Feb 17, 2021 at 1:52 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/ps4-hacking-homebrew.279/" title="PS4 - Hacking & Homebrew"><span class='forum_icon fi279' style='background-position:-304px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/what-version-of-save-mounter-is-best-for-5-05.583132/" class="PreviewTooltip" data-previewUrl="threads/what-version-of-save-mounter-is-best-for-5-05.583132/preview">What version of Save Mounter is best for 5.05?</a></h4>
+			<div class="rc_sub muted"><a href="members/godreborn.221542/" class="username" dir="auto">godreborn</a> - <a href="posts/9368807/"><abbr class="DateTime" data-time="1613569787" data-diff="1317" data-datestring="Feb 17, 2021" data-timestring="1:49 PM">Feb 17, 2021 at 1:49 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/3ds-homebrew-development-and-emulators.275/" title="3DS - Homebrew Development and Emulators"><span class='forum_icon fi275' style='background-position:-208px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/nds-bootstrap-loader-run-commercial-nds-backups-from-an-sd-card.454323/" class="PreviewTooltip" data-previewUrl="threads/nds-bootstrap-loader-run-commercial-nds-backups-from-an-sd-card.454323/preview">nds-bootstrap loader: Run commercial NDS backups from an SD Card</a></h4>
+			<div class="rc_sub muted"><a href="members/rupeeclock.125264/" class="username" dir="auto">RupeeClock</a> - <a href="posts/9368806/"><abbr class="DateTime" data-time="1613569774" data-diff="1330" data-datestring="Feb 17, 2021" data-timestring="1:49 PM">Feb 17, 2021 at 1:49 PM</abbr></a></div>
+		</li>
+	
+		<li class="rc_item unread">
+			<div class="rc_icon"><a href="forums/ps-vita-hacking-homebrew.217/" title="PS Vita - Hacking & Homebrew"><span class='forum_icon fi217' style='background-position:-288px -16px;'></span></a></div>
+			<h4 class="rc_title"><a href="threads/ps-vita-new-sd-card-from-32-to-512-gb.582620/" class="PreviewTooltip" data-previewUrl="threads/ps-vita-new-sd-card-from-32-to-512-gb.582620/preview">PS Vita , New SD card from 32 to 512 gb</a></h4>
+			<div class="rc_sub muted"><a href="members/mihsah.551080/" class="username" dir="auto">Mihsah</a> - <a href="posts/9368803/"><abbr class="DateTime" data-time="1613569732" data-diff="1372" data-datestring="Feb 17, 2021" data-timestring="1:48 PM">Feb 17, 2021 at 1:48 PM</abbr></a></div>
+		</li>
+	
+</ol>
+		
+	</div>
+	<div id="PreviewTooltip">
+	<span class="arrow"><span></span></span>
+	
+	<div class="section">
+		<div class="primaryContent previewContent">
+			<span class="PreviewContents">Loading...</span>
+		</div>
+	</div>
+</div>
+	
+	<script>
+	$('#rc_switch li a').click( function(e) {
+		e.preventDefault();
+		var p = $(this).closest('li');
+		XenForo.ajax( $(this).attr('href'), null, function( ajaxData ) {
+			if( XenForo.hasTemplateHtml( ajaxData ) ) {
+				$( ajaxData.templateHtml ).xfInsert('replaceAll',$("#rc_list"),'xfFadeIn',0);
+				$("#rc_switch li.active").removeClass('active');
+				p.addClass('active');
+			}
+		});
+	});
+	</script>
+</div>
+					
+						<!-- CACHED: 1613571073 --><div class="portal_block">
+	<style>
+		.memethumb {
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			display: inline-block;
+			background-position:center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			margin-bottom: 4px;
+			margin-right: 4px;
+			border-radius: 4px;
+			border: 1px solid #EEEEEE;
+		}
+		.fancybox-content {
+			padding: 0px !important;
+			overflow: visible !important;
+			background: transparent !important;
+		}
+		.fancybox-close-small {
+			display: none !important;
+		}
+		.fancybox-slide {
+			-ms-overflow-style: none;  /* Internet Explorer 10+ */
+			scrollbar-width: none;  /* Firefox */
+		}
+		.fancybox-slide::-webkit-scrollbar { 
+			display: none;  /* Safari and Chrome */
+		}
+	</style>
+
+	<a id="memeboxAnchor" class="offsetAnchor"></a>
+
+	<h3>
+		<a class="blockTitle" href="https://sefemedical.com/threads/the-meme-box.532361/unread" target=_blank>
+			The Meme Box</a>
+		
+	</h3>
+	<div class="block_content pairsJustified" style="text-align: center;">
+		
+		<div style="overflow-x: auto; text-align: center;">
+			<a href='threads/the-meme-box.532361/page-408#post-9368640' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9368640'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by VinsCool, 6 likes)'
+						title=' (Submitted by VinsCool, 6 likes)'
+						style='background-image: url(data/attachments/246/246367-2034dd08a20f31c8a128f4e42bc2b761.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-408#post-9368460' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9368460'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by Scott_pilgrim, 5 likes)'
+						title=' (Submitted by Scott_pilgrim, 5 likes)'
+						style='background-image: url(data/attachments/246/246341-4cd7b3068d5055b6adc057acc4e3289e.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9368427' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9368427'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by Scott_pilgrim, 8 likes)'
+						title=' (Submitted by Scott_pilgrim, 8 likes)'
+						style='background-image: url(data/attachments/246/246337-b4f28d3d8a5ff7b632bfa5a305cd9feb.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9368255' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9368255'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by Crazynoob458, 13 likes)'
+						title=' (Submitted by Crazynoob458, 13 likes)'
+						style='background-image: url(data/attachments/246/246316-43a4fb101a530d8ca8ad35a728a12948.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9368203' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9368203'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by Scott_pilgrim, 9 likes)'
+						title=' (Submitted by Scott_pilgrim, 9 likes)'
+						style='background-image: url(data/attachments/246/246310-cde84b5fe66c06342bc3d12975529d9b.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9368012' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9368012'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by Scott_pilgrim, 15 likes)'
+						title=' (Submitted by Scott_pilgrim, 15 likes)'
+						style='background-image: url(data/attachments/246/246273-641582b4a5fb0216e9f85cd8125dbfb1.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9367979' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9367979'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by Lostbhoy, 8 likes)'
+						title=' (Submitted by Lostbhoy, 8 likes)'
+						style='background-image: url(data/attachments/246/246264-481a8345f734f3d5e1abb47f5d224684.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9367910' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9367910'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by BigOnYa, 10 likes)'
+						title=' (Submitted by BigOnYa, 10 likes)'
+						style='background-image: url(data/attachments/246/246236-72867520910c51dd6c685344d92f0df4.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9367739' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9367739'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by ChicoPancho, 11 likes)'
+						title=' (Submitted by ChicoPancho, 11 likes)'
+						style='background-image: url(data/attachments/246/246225-717726a5d4653fd1b3bfcb6e76ffe548.jpg);'>
+						&nbsp;
+					</a><a href='threads/the-meme-box.532361/page-407#post-9367696' class='memethumb' 
+						data-type='ajax' 
+						data-src='https://sefemedical.com/meme.php?id=9367696'
+						data-fancybox='gallery'
+						data-caption=' (Submitted by draftguy, 11 likes)'
+						title=' (Submitted by draftguy, 11 likes)'
+						style='background-image: url(data/attachments/246/246222-bde3a698593b8696b3380d7cdd1bb0ba.jpg);'>
+						&nbsp;
+					</a><a href='https://sefemedical.com/threads/the-meme-box.532361/unread' class='memethumb' 
+				style='background: rgb(180, 193, 210); color: rgb(253, 253, 253); text-align: center;'>More...</a>
+			
+		</div>
+		
+	</div>
+	
+	<script>
+
+	var lastPostId = "9367696";
+
+	$(function() {
+
+		$('[data-fancybox]').fancybox({
+
+			closeExisting: true,
+			arrows: true,
+			animationDuration: 100,
+			transitionDuration: 100,
+
+			clickContent: function() {
+				var postId = $("#MainMemePic").data("post");
+				LikeOrUnlikeMeme(postId);		
+			},
+
+			ajax: {
+			   settings: {
+				data: {
+				  fancybox: true,
+				  width: $(window).width()
+				}
+			  }
+			},
+
+
+			afterShow: function( instance, slide ) {
+
+				AddOneMoreMeme();
+
+				// Do we have a like for this one?
+				if ($("#MainMemePic").data("liked") == "1") {
+					  $('.fancybox-caption__body').css('color','rgb(64, 92, 125)');
+				}
+
+			},
+
+			beforeLoad: function() {
+				$('.fancybox-caption__body').css('color','white');		
+			},
+
+			onActivate: function() {
+				lastPostId = "9367696";
+			}
+
+
+		});
+
+
+		// If we touch start and end without moving, like meme
+		$(document).on('touchstart', '#MainMemePic', function(e) {
+			touchLike = true;
+			lastMove = e;
+			startPoint = parseInt(lastMove.originalEvent.touches[0].pageX);
+			touchDelay = Date.now();
+		});
+		$(document).on("touchmove", "#MainMemePic", function(e) {
+			lastMove = e;	
+		});
+		$(document).on('touchend', '#MainMemePic', function(e) {
+			if (touchLike) {
+				var delay = Date.now() - touchDelay;
+				var deadZone = Math.round(Math.abs(lastMove.originalEvent.touches[0].pageX - startPoint));
+				//alert('dead zone = '+deadZone+ " , delay = "+delay+"ms");
+
+				if (delay < 500 && deadZone < 5) {
+					var postId = $("#MainMemePic").data("post");
+					LikeOrUnlikeMeme(postId);		
+				}
+			}
+			touchLike = false;
+		});
+
+	});
+
+	var touchLike = false;
+	var touchDelay = 0;
+	var startPoint = 0;
+	var lastMove = null;
+
+	function LikeOrUnlikeMeme(postId) {
+	  $.post('https://sefemedical.com/meme.php', {like: postId}, function(result) {
+		  if (result.confirm === 'OK') {
+			  if (result.type == "own") alert("Can't like your own memes, amigo!");
+			  else if (result.type == "nologin") alert("Please log in or register to 'like' memes");
+			  else if (result.type == "liked") {
+				  $('.fancybox-caption__body').html(result.caption).css('color','rgb(64, 92, 125)');
+				  $.fancybox.getInstance().current.opts.caption = result.caption;
+				}
+			  else if (result.type == "unliked") {
+				  $('.fancybox-caption__body').html(result.caption).css('color','rgb(66, 134, 214)');
+				  $.fancybox.getInstance().current.opts.caption = result.caption;
+			  }
+		  }
+	  }, "json");
+	}
+
+	function AddOneMoreMeme() {
+		$('.fancybox-caption__body').css('color','#FFFFFF');
+
+		$.post('https://sefemedical.com/meme.php?next='+lastPostId, {}, function(result,status,data) {
+			if (result.confirm === 'OK') {
+				lastPostId = result.next;
+
+				$.fancybox.getInstance().addContent({
+					type: 'ajax',
+					src: 'https://sefemedical.com/meme.php?id='+lastPostId,
+					caption: result.caption
+				});
+
+			}
+		}, 'json');
+
+	}
+
+	</script>
+</div>
+					
+						<!-- RECT BOTTOM - desktop AND mobile -->
+<div style="margin-top: 10px;">
+
+	
+		<center><div data-pw-desk="med_rect_btf"></div></center>
+	
+
+</div>
+
+<div id="boardtotals" class="portal_block">
+	<a id="boardTotalsAnchor" class="offsetAnchor"></a>
+	<h3><a class="blockTitle">Forum Statistics</a></h3>
+	<div class="block_content pairsJustified">
+		<dl>
+			<dt>Discussions:</dt>
+			<dd>508815</dd>
+		</dl><dl>
+			<dt>Messages:</dt>
+			<dd>8748163</dd>
+		</dl><dl>
+			<dt>Members:</dt>
+			<dd>453950</dd>
+		</dl><dl>
+			<dt>Latest Member:</dt>
+			<dd><a href="members/icygamer2008.551905/" class="username" dir="auto">IcyGamer2008</a></dd>
+		</dl>
+	</div>
+</div>
+					
+				</div>
+			
+		</div>
+	</div>
+</div>
+
+						
+
+						
+							<!-- login form, to be moved to the upper drop-down -->
+							
+
+
+
+
+
+
+
+<form action="login/login" method="post" class="xenForm eAuth" id="login" style="display:none">
+
+	
+		<ul id="eAuthUnit">
+			
+				
+        
+				
+					
+					<li><a href="register/facebook?reg=1" class="fbLogin" tabindex="110"><span>Log in with Facebook</span></a></li>
+				
+				
+				
+					
+					<li><a href="register/twitter?reg=1" class="twitterLogin" tabindex="110"><span>Log in with Twitter</span></a></li>
+				
+				
+				
+				
+			
+		</ul>
+	
+
+	<div class="ctrlWrapper">
+		<dl class="ctrlUnit">
+			<dt><label for="LoginControl">Your name or email address:</label></dt>
+			<dd><input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101" /></dd>
+		</dl>
+	
+	
+		<dl class="ctrlUnit">
+			<dt>
+				<label for="ctrl_password">Do you already have an account?</label>
+			</dt>
+			<dd>
+				<ul>
+					<li><label for="ctrl_not_registered"><input type="radio" name="register" value="1" id="ctrl_not_registered" tabindex="105" />
+						No, create an account now.</label></li>
+					<li><label for="ctrl_registered"><input type="radio" name="register" value="0" id="ctrl_registered" tabindex="105" checked="checked" class="Disabler" />
+						Yes, my password is:</label></li>
+					<li id="ctrl_registered_Disabler">
+						<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102" />
+						<div class="lostPassword"><a href="lost-password/" class="OverlayTrigger OverlayCloser" tabindex="106">Forgot your password?</a></div>
+					</li>
+				</ul>
+			</dd>
+		</dl>
+	
+		
+		<dl class="ctrlUnit submitUnit">
+			<dt></dt>
+			<dd>
+				<input type="submit" class="button primary" value="Log in" tabindex="104" data-loginPhrase="Log in" data-signupPhrase="Sign up" />
+				<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_remember" tabindex="103" /> Stay logged in</label>
+			</dd>
+		</dl>
+	</div>
+
+	<input type="hidden" name="cookie_check" value="1" />
+	<input type="hidden" name="redirect" value="/" />
+	<input type="hidden" name="_xfToken" value="" />
+
+</form>
+						
+					</div>
+			
+				</div>
+			
+
+			
+			
+			
+
+			
+
+			</div>
+	
+		</div>
+	</div>
+	
+
+</div>
+
+
+
+<footer>
+	
+
+
+
+
+
+
+
+
+
+
+<div id="uix_stickyFooterSpacer"></div>
+
+<div class="footer">
+	
+		<div class="pageContent">
+			<div class="pageWidth">
+
+				
+				
+					<dl class="choosers chooser_widthToggle">
+						<dt>Toggle Width</dt>
+						<dd><a href="javascript: uix.toggleWidth.toggle()" class='Tooltip' title="Toggle Width" rel="nofollow"><span class="uix_icon valign js-widthIcon uix_icon-expandWidth"></span></a></dd>
+					</dl>
+				
+				
+				
+				
+				
+				<ul class="footerLinks">
+					
+						
+						<li><a href="help/">Help</a></li>
+					
+					
+						<li><a href="help/terms">Terms & Rules</a></li>
+						<li><a href="https://sefemedical.com/dynamic/gbatemp-net-privacy-policy.78/">Privacy Policy</a></li>
+					
+					<li><a class="Tooltip" href="/#top" title="Scroll back to the top"><i class="uix_icon uix_icon-jumpToTop"></i> <span class="uix_hide">Top</span></a></li>
+				</ul>
+				
+
+			
+
+			<span class="helper"></span>
+
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+<div class="bigFooter">
+	
+		<div class="pageContent">
+			<div class="pageWidth">
+
+			
+
+			<ul class="bigFooterRow bigFooterRow--mainRow bigFooterRow--has2Columns">
+				<li class="bigFooterCol bigFooterCol--col1">
+					<div class="section">
+
+						
+							
+
+							<ul class="footerMenu">
+<li><a href="https://sefemedical.com">Home</a></li>
+<li><a href="https://sefemedical.com/staff/">Staff</a></li>
+<li><a href="https://sefemedical.com/members/">Members</a></li>
+<li><a href="https://sefemedical.com/members/?type=patrons">Our Patrons</a></li>
+<li><a href="https://sefemedical.com/misc/contact">Contact Us</a></li>
+<li><a href="https://sefemedical.com/help/about/">About</a></li>
+</ul>
+						
+
+					</div>
+				</li>
+				<li class="bigFooterCol bigFooterCol--col2">
+					<div class="section">
+
+						
+							
+
+							<ul id="footerSocial">
+	<li class="uix_socialLink uix_socialLink--patreon"><a title="Support us on Patreon" href="https://patreon.com/GBAtemp" target="_blank"><i class="uix_icon brand uix_icon-patreon"></i></a></li>
+
+	<li class="uix_socialLink uix_socialLink--facebook"><a title="Find us on Facebook" href="https://www.facebook.com/GBAtemp" target="_blank"><i class="uix_icon brand uix_icon-facebook"></i></a></li>
+
+	<li class="uix_socialLink uix_socialLink--twitter"><a title="Find us on Twitter" href="https://twitter.com/GBAtemp" target="_blank"><i class="uix_icon brand uix_icon-twitter"></i></a></li>
+
+	<li class="uix_socialLink uix_socialLink--twitch"><a title="Watch us on Twitch" href="https://www.twitch.tv/GBAtempTV" target="_blank"><i class="uix_icon brand uix_icon-twitch"></i></a></li>
+
+	<li class="uix_socialLink uix_socialLink--rss"><a title="Connect with our RSS feed" href="forums/-/index.rss" rel="alternate}" target="_blank"><i class="uix_icon uix_icon-rss"></i></a></li>
+</ul>
+						
+
+					</div>
+				</li>
+				
+				
+			</ul>
+
+			
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="footerLegal">
+	
+		<div class="pageContent">
+			<div class="pageWidth">
+			
+			<a name="footer" class="about footerLinks" href="/help/about/">© GBAtemp 2002-2021</a>
+			<div id="copyright">
+				<a href="https://xenforo.com" class="concealed">Forum software by XenForo&trade; <span>&copy; 2010-2018 XenForo Ltd.</span></a> 
+<!-- REMOVE ONLY WITH  PERMISSION! -->
+<div id="WMTBRANDCR"><style>@media (max-width:480px){.Responsive #WMTBRANDCR span{display: none;}}</style><a href="http://wmtech.net/" target="wmtech" class="concealed" title="XenForo Quality Add-Ons by WMTech">Quality Add-Ons by WMTech <span> &copy; 2021 WebMachine Technologies, Inc.</span></a></div>
+<!-- REMOVE ONLY WITH PERMISSION! -->
+ 
+				
+				
+			</div>
+			
+			<span class="helper"></span>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+
+</footer>
+
+<div class="bottomFixer">
+	
+	
+
+
+</div>
+
+<script>
+
+
+jQuery.extend(true, XenForo,
+{
+	visitor: { user_id: 0 },
+	serverTimeInfo:
+	{
+		now: 1613571104,
+		today: 1613520000,
+		todayDow: 3
+	},
+	_lightBoxUniversal: "0",
+	_enableOverlays: "1",
+	_animationSpeedMultiplier: "1",
+	_overlayConfig:
+	{
+		top: "10%",
+		speed: 200,
+		closeSpeed: 100,
+		mask:
+		{
+			color: "rgb(0, 0, 0)",
+			opacity: "0.6",
+			loadSpeed: 200,
+			closeSpeed: 100
+		}
+	},
+	_ignoredUsers: [],
+	_loadedScripts: {"bbcode_tabs":true,"xfa_blogs_nav":true,"gbatemp_portal":true,"resource_list_mini":true,"login_bar":true,"facebook":true,"twitter":true,"uix_extendedFooter":true},
+	_cookieConfig: { path: "/", domain: "", prefix: "xf_"},
+	_csrfToken: "",
+	_csrfRefreshUrl: "login/csrf-token-refresh",
+	_jsVersion: "2f092203",
+	_noRtnProtect: false,
+	_noSocialLogin: false
+});
+jQuery.extend(XenForo.phrases,
+{
+	cancel: "Cancel",
+
+	a_moment_ago:    "A moment ago",
+	one_minute_ago:  "1 minute ago",
+	x_minutes_ago:   "%minutes% minutes ago",
+	today_at_x:      "Today at %time%",
+	yesterday_at_x:  "Yesterday at %time%",
+	day_x_at_time_y: "%day% at %time%",
+
+	day0: "Sunday",
+	day1: "Monday",
+	day2: "Tuesday",
+	day3: "Wednesday",
+	day4: "Thursday",
+	day5: "Friday",
+	day6: "Saturday",
+
+	_months: "January,February,March,April,May,June,July,August,September,October,November,December",
+	_daysShort: "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+
+	following_error_occurred: "The following error occurred",
+	server_did_not_respond_in_time_try_again: "The server did not respond in time. Please try again.",
+	logging_in: "Logging in",
+	click_image_show_full_size_version: "Click this image to show the full-size version.",
+	show_hidden_content_by_x: "Show hidden content by {names}"
+});
+
+// Facebook Javascript SDK
+XenForo.Facebook.appId = "305495069464531";
+XenForo.Facebook.forceInit = false;
+
+
+</script>
+
+<script>
+var $content = $('#navigation_sub, #navigation_sub_bg');
+
+if (localStorage.getItem('stickyNavReduced') === 'true') {
+    $content.addClass('stickyNavReduced_on');
+}
+
+$('.stickyNavReduced_toggle').on('click', function() {
+    $content.toggleClass('stickyNavReduced_on');
+    localStorage.setItem('stickyNavReduced', $content.hasClass('stickyNavReduced_on'));
+});
+</script>
+
+
+	<script>
+		$("a[href*='#top']").click(function() {
+		  $("html, body").animate({ scrollTop: 0 }, "slow");
+		  return false;
+		});
+		$("a[href*='#footer']").click(function() {
+		  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+		  return false;
+		});
+	</script>
+
+
+<script>
+	function copyPermalinkToClipboard() {
+	var dummy = document.createElement('input'),
+		text = document.URL.replace(/#.*$/, "");
+
+	document.body.appendChild(dummy);
+	dummy.value = text;
+	dummy.select();
+	document.execCommand('copy');
+	document.body.removeChild(dummy);
+	  XenForo.alert('URL copied to clipboard','',3000);
+	}
+</script>
+
+<script>
+    $("#mobileSubMenu").click(function () {
+        if ($(this).hasClass("expanded"))
+            $(this).removeClass("expanded");
+        else
+            $(this).addClass("expanded");
+    });
+
+	$(".canvasTriggerInbox").click(function (e) {
+		if ($(window).width() < 600) {
+			e.preventDefault();
+			uix.offcanvas.move("right");
+			uix.offcanvas.tabs[0].trigger.trigger('click');
+		}
+	});	
+
+	$(".canvasTriggerAlerts").click(function (e) {
+		if ($(window).width() < 600) {
+			e.preventDefault();
+			uix.offcanvas.move("right");
+			uix.offcanvas.tabs[1].trigger.trigger('click');
+		}
+	});	
+
+	$(".offCanvasVisitorTabs").click(function (e) {
+		e.preventDefault();
+		uix.offcanvas.tabs[2].trigger.trigger('click');
+	});	
+</script>
+
+
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "https://sefemedical.com/",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "https://sefemedical.com/search/search?keywords={search_keywords}",
+		"query-input": "required name=search_keywords"
+	}
+}
+</script>
+
+
+
+
+</div> 
+
+<div class="uix_wrapperFix" style="height: 1px; margin-top: -1px;"></div>
+
+
+		</div> 
+	</div> 
+
+	
+
+
+<script>
+
+</script>
+
+<div class="breadcrumbMeta">
+	
+
+<nav>
+
+	
+
+	
+
+	<fieldset class="breadcrumb">
+		<a href="/#footer" class="iconItem" title="jump_to_bottom"><i class="uix_icon uix_icon-jumpToBottom"></i><!-- ... --></a>
+		<a id="mobileSubMenu" href="#" class="iconItem JsOnly ToggleTrigger mobileOnly" data-target=".linkGroup,.InlineModCheck.item,.InlineModCheck" title="Toggle extra page tools and info"><i class="uix_icon uix_icon-ellipsis-v"></i><!-- ... --></a>
+		<a href="misc/quick-navigation-menu" class="OverlayTrigger jumpMenuTrigger" data-cacheOverlay="true" title="Open quick navigation"><i class="uix_icon uix_icon-sitemap"></i><!--Jump to...--></a>
+
+		<div class="boardTitle"><strong>sefemedical.com - The Independent Video Game Community</strong></div>
+
+		<span class="crumbs">
+			
+
+			
+				<span class="crust selectedTabCrumb">
+					<a href="https://sefemedical.com/" class="crumb"><span>Home</span></a>
+					<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+				</span>
+			
+
+			
+		</span>
+	</fieldset>
+</nav>
+</div>
+
+<!-- UI.X Version: 1.5.22.0 //-->
+
+<!-- Add lightbox scripts -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+
+<!--LiveInternet counter--><a href="https://www.liveinternet.ru/click"
+target="_blank"><img id="licnt8734" width="31" height="31" style="border:0" 
+title="LiveInternet"
+src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+alt=""/></a><script>(function(d,s){d.getElementById("licnt8734").src=
+"https://counter.yadro.ru/hit?t43.6;r"+escape(d.referrer)+
+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+";h"+escape(d.title.substring(0,150))+";"+Math.random()})
+(document,screen)</script><!--/LiveInternet-->
+	<a href="/archive.php">Site Map</a></body>
+</html>
